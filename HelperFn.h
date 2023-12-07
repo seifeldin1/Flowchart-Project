@@ -15,6 +15,6 @@ enum OpType
 	INVALID_OP
 };
 
-bool IsValue (string input);
-bool IsVariable (string input);
-OpType ValueOrVariable (string input);
+bool IsValue(string input);
+bool IsVariable(string input);
+OpType ValueOrVariable(string input);
