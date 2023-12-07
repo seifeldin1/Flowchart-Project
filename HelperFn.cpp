@@ -7,7 +7,7 @@ bool IsValue(string input)
 	// check that the length of string does not = 0
 	if (input.length() == 0) return false; //exit if length is 0
 
-	bool IsNegative = false, IsDecimal = false, IsDigit = false; // intializing the main 3 variables used for checking with false
+	bool IsNegative = false, IsDecimal = false, IsDigit = true; // intializing the main 3 variables used for checking with false
 
 	// checks if the input string is a double value
 	for (int i = 0; i < input.length(); i++) {
@@ -19,17 +19,18 @@ bool IsValue(string input)
 			continue;
 		}
 
-		if (latestCharacter == '.') {		 //checks if the input string is a double value , 
+		if (latestCharacter == '.') {		 //checks if the input string is a double value 
 			//return true if it's double value, false otherwise
 			if (IsDecimal == true) return false;
 
 			if (IsDecimal == false) IsDecimal = true;
+			continue;
 		}
 
-		if (latestCharacter >= '0' && latestCharacter <= '9') IsDigit = true; // check if it has digit
+		if (!(latestCharacter >= '0' && latestCharacter <= '9')) IsDigit = false; // check if it has digit
 	}
 
-	return IsDigit; //return either false or true according to the previous checks 
+	return (IsDigit); //return either false or true according to the previous checks 
 }
 
 bool IsVariable(string input)
@@ -64,7 +65,26 @@ bool IsVariable(string input)
 	// After the first initial letter, variable names can contain letters, numbers and underscores.  
 	// No spaces or special characters, however, are allowed.
 
+	string builtinNames[] = {
+		"alignas", "alignof", "and", "and_eq", "asm", "auto",
+		"bitand", "bitor", "bool", "break", "case", "catch", "char",
+		"char16_t", "char32_t", "class", "compl", "const", "constexpr",
+		"const_cast", "continue", "decltype", "default", "delete", "do",
+		"double", "dynamic_cast", "else", "enum", "explicit", "export",
+		"extern", "false", "float", "for", "friend", "goto", "if", "inline",
+		"int", "long", "mutable", "namespace", "new", "noexcept", "not",
+		"not_eq", "nullptr", "operator", "or", "or_eq", "private", "protected",
+		"public", "register", "reinterpret_cast", "return", "short", "signed",
+		"sizeof", "static", "static_assert", "static_cast", "struct", "switch",
+		"template", "this", "thread_local", "throw", "true", "try", "typedef",
+		"typeid", "typename", "union", "unsigned", "using", "virtual", "void",
+		"volatile", "wchar_t", "while", "xor", "xor_eq"
+		// Add more names if needed
+	};
 
+	for (int i = 0; i < 84; i++) {
+		if (input == builtinNames[i]) return false;
+	}
 
 	return true;
 }
