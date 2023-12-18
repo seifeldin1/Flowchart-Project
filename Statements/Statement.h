@@ -1,14 +1,14 @@
 #ifndef STATEMENT_H
 #define STATEMENT_H
 
-#include "..\defs.h"
-#include "..\Connector.h"
+//#include "..\GUI\UI_Info.h"
 //class Output;
 #include "..\GUI\Output.h"
 
 //Base class for all Statements
 class Statement
 {
+	//Point position;
 protected:
 	int ID;			//Each Statement has an ID --> must be unique
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
@@ -21,10 +21,15 @@ protected:
 
 public:
 	Statement();
+	//Statement(Point currentPosition);
 	void SetSelected(bool s);
 	bool IsSelected() const;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
+
+	//int GetWidth(); //return width of statment
+
+	//int GetHeight(); //return height of statment
 	
 	
 

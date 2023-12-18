@@ -4,6 +4,8 @@
 #include "DEFS.h"
 
 #include "Statements\Statement.h"
+#include "Connector.h"
+
 class Input;
 class Output;
 

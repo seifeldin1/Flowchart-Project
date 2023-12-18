@@ -94,6 +94,10 @@ Statement *ApplicationManager::GetStatement(Point P) const
 {
 	//If this point P(x,y) belongs to a statement return a pointer to it.
 	//otherwise, return NULL
+	if (StatList[0] == NULL) return NULL; //checks if statment list is not empty
+	for (int i = 0; i < StatCount; i++) {
+		//remaining: check that P is inside the list otherwise return null
+	}
 
 
 	///Add your code here to search for a statement given a point P(x,y)	
@@ -121,7 +125,30 @@ Statement *ApplicationManager::GetClipboard() const
 void ApplicationManager::SetClipboard(Statement *pStat)
 {	pClipboard = pStat;	}
 
+//= ================================================================================ =//
+//						Connector Management Functions								 //
+//==================================================================================//
 
+void ApplicationManager::AddConnector(Connector* pConn) { //Adds a connector
+	if (ConnCount < MaxCount)
+		ConnList[ConnCount++] = pConn;
+}
+
+Connector* ApplicationManager::GetConnector(Point P) const
+{
+	//If this point P(x,y) belongs to a coonector return a pointer to it.
+	//otherwise, return NULL
+	if (ConnList[0] == NULL) return NULL; //checks if statment list is not empty
+	for (int i = 0; i < ConnCount; i++) {
+		//remaining: check that P is inside the list otherwise return null
+	}
+
+
+	///Add your code here to search for a statement given a point P(x,y)	
+	///WITHOUT breaking class responsibilities
+
+	return NULL;
+}
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//

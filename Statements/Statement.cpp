@@ -1,4 +1,5 @@
 #include "Statement.h"
+//#include "..\GUI\UI_Info.h"
 
 Statement::Statement()	
 { 
@@ -6,6 +7,10 @@ Statement::Statement()
 	Text = "";
 	Selected = false;		
 }
+//Statement::Statement(Point currentPosition) : position(currentPosition){}
+
+//int Statement::GetWidth() { return ASSGN_WDTH; }
+//int Statement::GetHeight() { return ASSGN_HI; }
 
 void Statement::SetSelected(bool s)
 {	Selected = s; }
