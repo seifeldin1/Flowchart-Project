@@ -24,6 +24,7 @@ enum ActionType // The actions supported
 	ADD_CONNECTOR, //Add a connector between two statements
 	
 	SELECT,		//Select a statement, a connector
+	UNSELECT,
 	EDIT_STAT,	//Edit a statement
 
 	DEL,   //Delete a figure
@@ -43,6 +44,8 @@ enum ActionType // The actions supported
 	//TODO: ADD THE ACTIONS OF SIMULATION MODE
 
 
+	VALIDATE,
+	RUN,
 	DRAWING_AREA,  //A click on the drawing area
 	OUTPUT_AREA,   //A click on the output area
 	DSN_TOOL,	   //A click on an empty place in the design tool bar
@@ -54,15 +57,28 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 {
 	//Note: Items are ordered here as they appear in menu
 	//If you change the menu items order, change the order here too
-	ITM_VALUE_ASSIGN,//simple assignment statement
-	ITM_COND,		//conditional statement
+	ITM_VALUE_ASSIGN,	//simple assignment statement
+	ITM_START,		//Start/end Statement
+	ITM_END,
+	ITM_READ,
+	ITM_WRITE,
+	ITM_COND,
+	ITM_CONNECT,
+	ITM_SELECT,
+	ITM_UNSELECT,
+	ITM_DELETE,
+	ITM_COPY,
+	ITM_PASTE,
+	ITM_SAVE,
+	ITM_LOAD,
+	ITM_SIM_SWITCH,	//switches to simulation mode
 
 
-	ITM_EXIT,		//Exit
+	ITM_EXIT,			//Exit
 	
 	//TODO: Add more items names here
 	
-	DSN_ITM_CNT		//no. of design menu items ==> This should be the last line in this enum
+	DSN_ITM_CNT			//no. of design menu items ==> This should be the last line in this enum
 	
 };
 
@@ -70,12 +86,13 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 enum SimMenuItem //The items of the simulation menu
 {
 	//Note: Items are ordered here as they appear in menu
-	ITM_VALIDATE,	//Validate
-	ITM_RUN,	    //Run
-		
+	ITM_VALIDATE,		//Validate
+	ITM_RUN,			//Run
+	ITM_DESIGN_SWITCH,	//Switches to design mode
+	
 	//TODO:Add more items names here
 	
-	SIM_ITM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
+	SIM_ITM_CNT			//no. of simulation menu items ==> This should be the last line in this enum
 	
 };
 
