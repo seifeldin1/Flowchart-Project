@@ -14,6 +14,7 @@ private:
 	Point End;		//End point of the connector
 public:
 	Connector(Statement* Src, Statement* Dst);
+	virtual bool IsPointClicked(Point P) const; //to be implemented in connector class
 
 	void		setSrcStat(Statement *Src);
 	Statement*	getSrcStat();	

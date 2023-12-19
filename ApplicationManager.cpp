@@ -96,7 +96,9 @@ Statement *ApplicationManager::GetStatement(Point P) const
 	//otherwise, return NULL
 	if (StatList[0] == NULL) return NULL; //checks if statment list is not empty
 	for (int i = 0; i < StatCount; i++) {
-		//remaining: check that P is inside the list otherwise return null
+		if (StatList[i]->IsPointClicked(P)) {
+			return StatList[i];
+		}
 	}
 
 
@@ -140,6 +142,9 @@ Connector* ApplicationManager::GetConnector(Point P) const
 	//otherwise, return NULL
 	if (ConnList[0] == NULL) return NULL; //checks if statment list is not empty
 	for (int i = 0; i < ConnCount; i++) {
+		if (ConnList[i]->IsPointClicked(P)) {
+			return ConnList[i];
+		}
 		//remaining: check that P is inside the list otherwise return null
 	}
 
