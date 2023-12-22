@@ -161,7 +161,7 @@
     <ClCompile Include="Actions\Load.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Copy.cpp">
+    <ClCompile Include="Actions\Copy.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -261,7 +261,7 @@
     <ClInclude Include="Actions\Load.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Copy.h">
+    <ClInclude Include="Actions\Copy.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>
