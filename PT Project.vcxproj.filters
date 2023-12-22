@@ -161,6 +161,9 @@
     <ClCompile Include="Actions\Load.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Copy.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -256,6 +259,9 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Actions\Load.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Copy.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

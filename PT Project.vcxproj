@@ -272,6 +272,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="Copy.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
@@ -309,6 +310,7 @@
     <ClInclude Include="Actions\AddValueAssign.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Connector.h" />
+    <ClInclude Include="Copy.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />

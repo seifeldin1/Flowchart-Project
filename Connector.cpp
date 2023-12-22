@@ -8,7 +8,9 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	SrcStat = Src;
 	DstStat = Dst;
 }
-
+bool Connector:: IsPointClicked(Point P) const {
+	return true; /// ana 7atet implementation ay 7aga 3alshan yebata yedy errors laken me7taga tet8ayar tab3an
+}
 void Connector::setSrcStat(Statement *Src)
 {	SrcStat = Src;	}
 
