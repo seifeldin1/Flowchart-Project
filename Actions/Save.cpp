@@ -33,7 +33,7 @@ void Save::Execute()
 	Output << "Connectors:" << endl;
 	for (int i = 0; i < Listsize; i++)
 	{
-		Output << *(Connlist[i]);
+		Output << Connlist[i];
 	}
 
 
