@@ -3,7 +3,7 @@
 
 #include "GUI\UI_Info.h"
 #include "GUI\output.h"
-class Statement;
+#include "Statements/Statement.h"
 
 class Connector	//a connector that connects two statements (Source & Destination)
 {
@@ -27,9 +27,11 @@ public:
 	void setEndPoint(Point P);
 	Point getEndPoint();
 
+	void Save(ofstream &Output);
+
 	void Draw(Output* pOut) const;
 	
-
+	friend ofstream& operator <<(ofstream& Output, Connector* Conn);
 };
 
 #endif

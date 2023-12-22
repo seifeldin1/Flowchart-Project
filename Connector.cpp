@@ -34,6 +34,14 @@ void Connector::setEndPoint(Point P)
 Point Connector::getEndPoint()
 {	return End;	}
 
+void Connector::Save(ofstream &Output)
+{
+	Output << "Src: " << SrcStat->ID << " "
+		   << "Dst: " << DstStat->ID << " "
+		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ' , '
+		   << '(' << End.x << ',' << End.y << ')' << endl;
+}
+
 void Connector::Draw(Output* pOut) const
 {
 	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window
