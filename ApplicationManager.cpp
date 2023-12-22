@@ -231,9 +231,18 @@ bool ApplicationManager::CheckConnections()
 {
 	for (int i = 0; i < ConnCount; i++)
 	{
-		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and Doesnt Have Source 
+		//Check for nodes that are not reachable
+		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and doesnt Have Source
 			return false;
+
 		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getDstStat()->ReturnStatType() != 1) // not End and doesnt Have Destination 
+			return false;
+		
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getSrcStat() == NULL) // a flying node in air
+			return false;
+
+		// Check that if there is a Cycle 
+		else if (ConnList[i]->getDstStat() == ConnList[i]->getSrcStat())
 			return false;
 	}
 	return true;
