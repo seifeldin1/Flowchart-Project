@@ -38,11 +38,12 @@ Point Connector::getEndPoint()
 
 void Connector::Save(ofstream& Output)
 {
-	Output << "Src: " << SrcStat->GetID() << " "
-		   << "Dst: " << DstStat->GetID() << " "
-		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ' , '
+	//Saves the connector in format Src:id1 ,Dst:id2 ,Drawing points: (x1,y1),(x2,y2)
+	Output << "Src:" << SrcStat->GetID() << " ,"
+		   << "Dst:" << DstStat->GetID() << " ,"
+		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ','
 		   << '(' << End.x << ',' << End.y << ')' << endl;
-	return;
+	//ADD OUTLET BRANCH AFTER CONDITIONAL IS DONE
 }
 
 void Connector::Draw(Output* pOut) const

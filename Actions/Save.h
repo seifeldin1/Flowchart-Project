@@ -7,7 +7,7 @@ class Save :
     public Action
 {
 private:
-    string Filename;
+    string Filename;    //Name for the file in which user will store the data
 public:
     Save(ApplicationManager* pAppManager);
     void ReadActionParameters();

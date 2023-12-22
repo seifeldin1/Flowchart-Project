@@ -35,10 +35,10 @@ public:
 	~ApplicationManager();
 	
 	// == Actions Related Functions ==
-	ActionType GetUserAction() const; //Reads the input command from the user 
-				                      //and returns the corresponding action type
-	void ExecuteAction(ActionType) ;  //Creates an action and executes it
-	void SaveAll(ofstream& Output);
+	ActionType GetUserAction() const;	//Reads the input command from the user 
+										//and returns the corresponding action type
+	void ExecuteAction(ActionType) ;	//Creates an action and executes it
+	void SaveAll(ofstream& Output);		//saves all statements and connectors
 	
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
@@ -60,10 +60,6 @@ public:
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
-
-	// == Statlist and Connlist managment Functions ==
-	Statement** GetStatsInfo(int& Count);
-	Connector** GetConnsInfo(int& Count);
 };
 
 #endif

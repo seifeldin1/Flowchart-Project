@@ -9,8 +9,8 @@ void Save::ReadActionParameters()
 	Input* pIn = pManager->GetInput();
 	Output* pOut = pManager->GetOutput();
 
-	pOut->PrintMessage("write desired save file name (include .txt at the end):");
-	Filename = pIn->GetString(pOut);
+	pOut->PrintMessage("write desired save file name:");
+	Filename = pIn->GetString(pOut)+ ".txt";
 }
 
 void Save::Execute()
