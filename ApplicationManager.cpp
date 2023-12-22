@@ -64,7 +64,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new Save(this);
-
 			break;
 		case STATUS:
 			return;
