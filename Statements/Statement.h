@@ -4,6 +4,7 @@
 //#include "..\GUI\UI_Info.h"
 //class Output;
 #include "..\GUI\Output.h"
+#include "..\Connector.h"
 
 //Base class for all Statements
 class Statement
@@ -12,7 +13,7 @@ class Statement
 protected:
 	int ID;			//Each Statement has an ID --> must be unique
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
-	bool Selected;	//true if the statement is selected on the folwchart
+	bool Selected;	//true if the statement is selected on the flowchart
 
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
@@ -26,7 +27,7 @@ public:
 	bool IsSelected() const;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
-	virtual bool IsPointClicked(Point P) const = 0; //each sttament class gets its own implementation
+	virtual bool IsPointClicked(Point P) const = 0; //each statement class gets its own implementation
 
 	//int GetWidth(); //return width of statment
 
@@ -49,6 +50,11 @@ public:
 
 
 	///TODO: Add more functions if needed
+	virtual Point GetInPoint() const;
+	virtual Point GetOutPoint() const;
+	virtual bool IsClicked(Point P) const = 0;
+	virtual bool IsConnected() const = 0;
+
 
 };
 

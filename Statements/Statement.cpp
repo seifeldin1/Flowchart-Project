@@ -18,3 +18,13 @@ void Statement::SetSelected(bool s)
 bool Statement::IsSelected() const
 {	return Selected; }
 
+Point Statement::GetInPoint() const
+{
+	return NULL;
+}
+
+Point Statement::GetOutPoint() const
+{
+	return NULL;
+}
+
