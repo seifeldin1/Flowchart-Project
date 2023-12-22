@@ -5,7 +5,7 @@ class Copy :public Action
 {
 	
 	T copy;
-	T *original==NULL;
+	T *original=NULL;
 	ApplicationManager* pManager;
 public:
 	
