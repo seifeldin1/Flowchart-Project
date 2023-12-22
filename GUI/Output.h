@@ -2,6 +2,7 @@
 #define OUPTUT_H
 
 #include "Input.h"
+#include <fstream>
 
 class Output	//The application manager should have a pointer to this class
 {
