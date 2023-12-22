@@ -2,12 +2,11 @@
 #define ACTION_H
 
 //#include "CMUgraphicsLib\CMUgraphics.h"
-class ApplicationManager; //forward class declaration
-class Input;
-class Output;
 
 #include "..\GUI\UI_Info.h"
-
+#include "..\ApplicationManager.h"
+#include "..\GUI\input.h"
+#include "..\GUI\Output.h"
 
 //Base class for all possible actions
 class Action

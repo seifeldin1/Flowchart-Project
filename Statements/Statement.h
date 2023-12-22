@@ -49,7 +49,7 @@ public:
 
 
 	///TODO: Add more functions if needed
-
+	friend class Connector;
 };
 
 #endif

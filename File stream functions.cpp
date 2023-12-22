@@ -1,6 +1,6 @@
 #include "Connector.h"
 
-ofstream& operator <<(ofstream& Output, Connector* Conn)
+ofstream& operator <<(ofstream& Output, Connector Conn)
 {
-	Conn->Save(Output);
+	Conn.Save(Output);
 }
