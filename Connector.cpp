@@ -34,12 +34,13 @@ void Connector::setEndPoint(Point P)
 Point Connector::getEndPoint()
 {	return End;	}
 
-void Connector::Save(ofstream &Output)
+void Connector::Save(ofstream& Output)
 {
 	Output << "Src: " << SrcStat->ID << " "
 		   << "Dst: " << DstStat->ID << " "
 		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ' , '
 		   << '(' << End.x << ',' << End.y << ')' << endl;
+	return;
 }
 
 void Connector::Draw(Output* pOut) const

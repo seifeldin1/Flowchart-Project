@@ -155,8 +155,10 @@
     <ClCompile Include="Connector.cpp">
       <Filter>Connector</Filter>
     </ClCompile>
-    <ClCompile Include="File stream functions.cpp" />
     <ClCompile Include="Actions\Save.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\Load.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -251,6 +253,9 @@
       <Filter>Connector</Filter>
     </ClInclude>
     <ClInclude Include="Actions\Save.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\Load.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,14 +26,14 @@ void Save::Execute()
 	Output << "Statments:" << endl;
 	for (int i = 0; i < Listsize; i++)
 	{
-		//Output << *(Statlist[i]);  //remove comment once overloaded
+		//Statlist[i]->Save(Output);  //remove comment once overloaded
 	}
 
 	Connector** Connlist = pManager->GetConnsInfo(Listsize);
 	Output << "Connectors:" << endl;
 	for (int i = 0; i < Listsize; i++)
 	{
-		Output << Connlist[i];
+		Connlist[i]->Save(Output);
 	}
 
 

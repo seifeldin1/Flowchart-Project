@@ -30,8 +30,6 @@ public:
 	void Save(ofstream &Output);
 
 	void Draw(Output* pOut) const;
-	
-	friend ofstream& operator <<(ofstream& Output, Connector *Conn);
 };
 
 #endif
