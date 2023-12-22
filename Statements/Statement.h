@@ -29,6 +29,7 @@ public:
 	virtual bool IsPointClicked(Point P) const = 0; //each sttament class gets its own implementation
 	int GetID();
 
+	virtual int ReturnStatType() = 0;
 	//int GetWidth(); //return width of statment
 
 	//int GetHeight(); //return height of statment

@@ -201,6 +201,34 @@ Output *ApplicationManager::GetOutput() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 
+// Start Has Number 0
+// End Has Number 1
+
+bool ApplicationManager::CheckStartEnd()
+{
+	int StartCount = 0, EndCount = 0;
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->ReturnStatType() == 0)
+		{
+			StartCount++;
+		}
+		if (StatList[i]->ReturnStatType() == 1)
+		{
+			EndCount++;
+		}
+	}
+	if (StartCount != 1 || EndCount != 1)
+		return false;
+	else
+		return true;
+}
+
+
+
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
