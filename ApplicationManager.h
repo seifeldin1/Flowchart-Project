@@ -36,8 +36,9 @@ public:
 	
 	// == Actions Related Functions ==
 	ActionType GetUserAction() const; //Reads the input command from the user 
-	                                  //and returns the corresponding action type
+				                      //and returns the corresponding action type
 	void ExecuteAction(ActionType) ;  //Creates an action and executes it
+	void SaveAll(ofstream& Output);
 	
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart

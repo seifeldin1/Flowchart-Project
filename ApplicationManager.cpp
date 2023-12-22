@@ -77,6 +77,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	}
 }
 
+void ApplicationManager::SaveAll(ofstream& Output)
+{
+	Output << "Statments:" << endl;
+	for (int i = 0; i < StatCount; i++)
+	{
+		//StatList[i]->Save(Output);
+	}
+
+	Output << "Connectors:" << endl;
+	for (int i = 0; i < ConnCount; i++)
+	{
+		ConnList[i]->Save(Output);
+	}
+}
+
 
 //==================================================================================//
 //						Statements Management Functions								//
@@ -184,24 +199,6 @@ Input *ApplicationManager::GetInput() const
 Output *ApplicationManager::GetOutput() const
 {	return pOut; }
 ////////////////////////////////////////////////////////////////////////////////////
-
-
-//==================================================================================//
-//							Interface Management Functions							//
-//==================================================================================//
-
-
-Statement** ApplicationManager::GetStatsInfo(int& Count)
-{
-	Count=StatCount;
-	return StatList;
-}
-
-Connector** ApplicationManager::GetConnsInfo(int& Count)
-{
-	Count = ConnCount;
-	return ConnList;
-}
 
 
 //Destructor
