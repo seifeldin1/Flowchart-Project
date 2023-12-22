@@ -38,8 +38,8 @@ Point Connector::getEndPoint()
 
 void Connector::Save(ofstream& Output)
 {
-	Output << "Src: " << SrcStat->ID << " "
-		   << "Dst: " << DstStat->ID << " "
+	Output << "Src: " << SrcStat->GetID() << " "
+		   << "Dst: " << DstStat->GetID() << " "
 		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ' , '
 		   << '(' << End.x << ',' << End.y << ')' << endl;
 	return;

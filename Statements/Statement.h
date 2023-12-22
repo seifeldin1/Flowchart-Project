@@ -27,6 +27,7 @@ public:
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
 	virtual bool IsPointClicked(Point P) const = 0; //each sttament class gets its own implementation
+	int GetID();
 
 	//int GetWidth(); //return width of statment
 
@@ -49,7 +50,6 @@ public:
 
 
 	///TODO: Add more functions if needed
-	friend class Connector;
 };
 
 #endif
