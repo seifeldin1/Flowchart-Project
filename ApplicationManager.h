@@ -71,6 +71,8 @@ public:
 
 	// Seif Funcs
 	bool CheckStartEnd();
+	bool CheckVariableInit();
+	bool CheckConnections();
 };
 
 #endif

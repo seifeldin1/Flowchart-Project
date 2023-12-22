@@ -201,6 +201,9 @@ Output *ApplicationManager::GetOutput() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 
+
+///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
+
 // Start Has Number 0
 // End Has Number 1
 
@@ -224,8 +227,24 @@ bool ApplicationManager::CheckStartEnd()
 		return true;
 }
 
+bool ApplicationManager::CheckConnections()
+{
+	for (int i = 0; i < ConnCount; i++)
+	{
+		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and Doesnt Have Source 
+			return false;
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getDstStat()->ReturnStatType() != 1) // not End and doesnt Have Destination 
+			return false;
+	}
+	return true;
+}
 
+bool ApplicationManager::CheckVariableInit()
+{
 
+}
+
+///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
 
