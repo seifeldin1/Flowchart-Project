@@ -156,7 +156,7 @@
       <Filter>Connector</Filter>
     </ClCompile>
     <ClCompile Include="File stream functions.cpp" />
-    <ClCompile Include="Save.cpp">
+    <ClCompile Include="Actions\Save.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
   </ItemGroup>
@@ -250,7 +250,7 @@
     <ClInclude Include="Connector.h">
       <Filter>Connector</Filter>
     </ClInclude>
-    <ClInclude Include="Save.h">
+    <ClInclude Include="Actions\Save.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
   </ItemGroup>
