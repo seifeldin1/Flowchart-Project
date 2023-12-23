@@ -22,3 +22,17 @@ int Statement::GetID()
 {
 	return ID;
 }
+
+string Statement::ReturnVariable()
+{
+    string Name = Text;
+
+    size_t pos = Name.find_first_of("=<> ");
+
+    if (pos != string::npos)
+    {
+        Name = Name.substr(0, pos);
+    }
+
+    return Name;
+}
