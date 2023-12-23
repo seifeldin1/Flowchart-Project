@@ -164,9 +164,16 @@
     <ClCompile Include="Actions\Copy.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Cut.cpp" />
-    <ClCompile Include="Paste.cpp" />
-    <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="Actions\Cut.cpp" />
+    <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Delete.cpp" />
+    <ClCompile Include="Statements\Read.cpp" />
+    <ClCompile Include="Statements\Write.cpp" />
+    <ClCompile Include="Statements\VariableAssign.cpp" />
+    <ClCompile Include="Statements\OperatorAssign.cpp" />
+    <ClCompile Include="Statements\Start.cpp" />
+    <ClCompile Include="Statements\End.cpp" />
+    <ClCompile Include="Statements\Conditional.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -267,9 +274,16 @@
     <ClInclude Include="Actions\Copy.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Cut.h" />
-    <ClInclude Include="Paste.h" />
-    <ClInclude Include="Delete.h" />
+    <ClInclude Include="Actions\Cut.h" />
+    <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Delete.h" />
+    <ClInclude Include="Statements\Read.h" />
+    <ClInclude Include="Statements\Write.h" />
+    <ClInclude Include="Statements\VariableAssign.h" />
+    <ClInclude Include="Statements\OperatorAssign.h" />
+    <ClInclude Include="Statements\Start.h" />
+    <ClInclude Include="Statements\End.h" />
+    <ClInclude Include="Statements\Conditional.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

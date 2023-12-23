@@ -13,14 +13,16 @@ protected:
 	int ID;			//Each Statement has an ID --> must be unique
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the folwchart
-
+	bool CanConnect; //check if it can get a In connector (Start is false , other is true)
+	int MaxOutConnectors; //return max number of out connectors (0 for end , 2 for conditional , others is 1)
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
 	/// Add more parameters if needed.
 
 public:
-	Statement();
+	Statement(int outConn , bool canTakeInConnector); 
+
 	//Statement(Point currentPosition);
 	void SetSelected(bool s);
 	bool IsSelected() const;
@@ -31,6 +33,7 @@ public:
 
 	virtual int ReturnStatType() = 0;
 	string ReturnVariable();
+	virtual Statement* Copy() = 0;//copy statement and return a pointer of type statement	
 	//int GetWidth(); //return width of statment
 
 	//int GetHeight(); //return height of statment

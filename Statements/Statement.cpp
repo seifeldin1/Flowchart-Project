@@ -1,7 +1,7 @@
 #include "Statement.h"
 //#include "..\GUI\UI_Info.h"
 
-Statement::Statement()	
+Statement::Statement(int outConn, bool canTakeInConnector)
 { 
 	//TODO: set the ID with a unique value
 	Text = "";
