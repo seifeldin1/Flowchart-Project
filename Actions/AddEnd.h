@@ -3,5 +3,5 @@
 
 class AddEnd : public Action
 {
-
+	private:
 };

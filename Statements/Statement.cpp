@@ -1,10 +1,13 @@
 #include "Statement.h"
 //#include "..\GUI\UI_Info.h"
 
-Statement::Statement()	
+Statement::Statement(Output*pout)	
 { 
 	//TODO: set the ID with a unique value
+	NumberOfStatements++;
+	ID = NumberOfStatements;
 	Text = "";
+	pOut = pout;
 	Selected = false;		
 }
 //Statement::Statement(Point currentPosition) : position(currentPosition){}
@@ -22,13 +25,21 @@ int Statement::GetID()
 {
 	return ID;
 }
-Point Statement::GetInPoint() const
+string Statement::GetText()
+{
+	return Text;
+}
+Point Statement::GetInlet() const
 {
 	return NULL;
 }
-
-Point Statement::GetOutPoint() const
+Point Statement::GetOutlet() const
 {
 	return NULL;
+}
+Statement::~Statement()
+{
+	NumberOfStatements--;
+	pOut = NULL;
 }
 

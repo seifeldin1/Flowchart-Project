@@ -14,7 +14,7 @@ class Action
 protected:
 	
 	//Pointer to ApplicationManager because action needs this pointer for its functions
-	ApplicationManager *pManager;	
+	ApplicationManager *pManager;
 
 public:
 
