@@ -1,5 +1,6 @@
 #include "ApplicationManager.h"
 #include "Actions\AddValueAssign.h"
+#include "Actions\Save.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -61,7 +62,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			///create Exit Action here
 			
 			break;
-		
+		case SAVE:
+			pAct = new Save(this);
+
+			break;
 		case STATUS:
 			return;
 	}
@@ -73,7 +77,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		delete pAct;	//Action is not needed any more ==> delete it
 	}
 }
-
 
 
 //==================================================================================//
@@ -154,6 +157,7 @@ Connector* ApplicationManager::GetConnector(Point P) const
 
 	return NULL;
 }
+
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//
@@ -183,6 +187,24 @@ Output *ApplicationManager::GetOutput() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 
+//==================================================================================//
+//							Interface Management Functions							//
+//==================================================================================//
+
+
+Statement** ApplicationManager::GetStatsInfo(int& Count)
+{
+	Count=StatCount;
+	return StatList;
+}
+
+Connector** ApplicationManager::GetConnsInfo(int& Count)
+{
+	Count = ConnCount;
+	return ConnList;
+}
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
@@ -194,3 +216,4 @@ ApplicationManager::~ApplicationManager()
 	delete pOut;
 	
 }
+

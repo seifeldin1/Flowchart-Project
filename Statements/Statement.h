@@ -50,6 +50,7 @@ public:
 
 
 	///TODO: Add more functions if needed
+	friend class Connector;
 	virtual Point GetInPoint() const;
 	virtual Point GetOutPoint() const;
 	virtual bool IsClicked(Point P) const = 0;

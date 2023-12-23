@@ -31,7 +31,7 @@ public:
 
 	void Draw(Output* pOut) const;
 	
-	friend ofstream& operator <<(ofstream& Output, Connector* Conn);
+	friend ofstream& operator <<(ofstream& Output, Connector Conn);
 };
 
 #endif
