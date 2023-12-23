@@ -8,7 +8,9 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	SrcStat = Src;
 	DstStat = Dst;
 }
-
+bool Connector:: IsPointClicked(Point P) const {
+	return true; /// ana 7atet implementation ay 7aga 3alshan yebata yedy errors laken me7taga tet8ayar tab3an
+}
 void Connector::setSrcStat(Statement *Src)
 {	SrcStat = Src;	}
 
@@ -34,12 +36,14 @@ void Connector::setEndPoint(Point P)
 Point Connector::getEndPoint()
 {	return End;	}
 
-void Connector::Save(ofstream &Output)
+void Connector::Save(ofstream& Output)
 {
-	Output << "Src: " << SrcStat->ID << " "
-		   << "Dst: " << DstStat->ID << " "
-		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ' , '
+	//Saves the connector in format Src:id1 ,Dst:id2 ,Drawing points: (x1,y1),(x2,y2)
+	Output << "Src:" << SrcStat->GetID() << " ,"
+		   << "Dst:" << DstStat->GetID() << " ,"
+		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ','
 		   << '(' << End.x << ',' << End.y << ')' << endl;
+	//ADD OUTLET BRANCH AFTER CONDITIONAL IS DONE
 }
 
 void Connector::Draw(Output* pOut) const

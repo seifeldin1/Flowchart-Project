@@ -27,8 +27,10 @@ public:
 	bool IsSelected() const;
 
 	virtual void Draw(Output* pOut) const  = 0 ;	//Draw the statement
-	virtual bool IsPointClicked(Point P) const = 0; //each statement class gets its own implementation
+	virtual bool IsPointClicked(Point P) const = 0; //each sttament class gets its own implementation
+	int GetID();
 
+	virtual int ReturnStatType() = 0;
 	//int GetWidth(); //return width of statment
 
 	//int GetHeight(); //return height of statment
@@ -51,12 +53,6 @@ public:
 
 	///TODO: Add more functions if needed
 	friend class Connector;
-	virtual Point GetInPoint() const;
-	virtual Point GetOutPoint() const;
-	virtual bool IsClicked(Point P) const = 0;
-	virtual bool IsConnected() const = 0;
-
-
 };
 
 #endif

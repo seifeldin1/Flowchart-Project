@@ -18,6 +18,10 @@ void Statement::SetSelected(bool s)
 bool Statement::IsSelected() const
 {	return Selected; }
 
+int Statement::GetID()
+{
+	return ID;
+}
 Point Statement::GetInPoint() const
 {
 	return NULL;

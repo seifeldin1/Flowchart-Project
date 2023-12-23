@@ -64,7 +64,6 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SAVE:
 			pAct = new Save(this);
-
 			break;
 		case STATUS:
 			return;
@@ -75,6 +74,21 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	{
 		pAct->Execute();//Execute
 		delete pAct;	//Action is not needed any more ==> delete it
+	}
+}
+
+void ApplicationManager::SaveAll(ofstream& Output)
+{
+	Output << "Statments:" << endl;
+	for (int i = 0; i < StatCount; i++)
+	{
+		//StatList[i]->Save(Output);
+	}
+
+	Output << "Connectors:" << endl;
+	for (int i = 0; i < ConnCount; i++)
+	{
+		ConnList[i]->Save(Output);
 	}
 }
 
@@ -187,22 +201,60 @@ Output *ApplicationManager::GetOutput() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 
-//==================================================================================//
-//							Interface Management Functions							//
-//==================================================================================//
 
+///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
 
-Statement** ApplicationManager::GetStatsInfo(int& Count)
+// Start Has Number 0
+// End Has Number 1
+
+bool ApplicationManager::CheckStartEnd()
 {
-	Count=StatCount;
-	return StatList;
+	int StartCount = 0, EndCount = 0;
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->ReturnStatType() == 0)
+		{
+			StartCount++;
+		}
+		if (StatList[i]->ReturnStatType() == 1)
+		{
+			EndCount++;
+		}
+	}
+	if (StartCount != 1 || EndCount != 1)
+		return false;
+	else
+		return true;
 }
 
-Connector** ApplicationManager::GetConnsInfo(int& Count)
+bool ApplicationManager::CheckConnections()
 {
-	Count = ConnCount;
-	return ConnList;
+	for (int i = 0; i < ConnCount; i++)
+	{
+		//Check for nodes that are not reachable
+		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and doesnt Have Source
+			return false;
+
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getDstStat()->ReturnStatType() != 1) // not End and doesnt Have Destination 
+			return false;
+		
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getSrcStat() == NULL) // a flying node in air
+			return false;
+
+		// Check that if there is a Cycle 
+		else if (ConnList[i]->getDstStat() == ConnList[i]->getSrcStat())
+			return false;
+	}
+	return true;
 }
+
+bool ApplicationManager::CheckVariableInit()
+{
+	return true;
+}
+
+///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
+
 
 
 //Destructor

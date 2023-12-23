@@ -41,9 +41,6 @@ enum ActionType // The actions supported
 	EXIT,		//Exit the application
 
 
-	//TODO: ADD THE ACTIONS OF SIMULATION MODE
-
-
 	VALIDATE,
 	RUN,
 	DRAWING_AREA,  //A click on the drawing area

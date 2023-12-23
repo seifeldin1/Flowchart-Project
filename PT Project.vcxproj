@@ -124,6 +124,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\AddEnd.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
@@ -273,10 +274,13 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Connector.cpp" />
-    <ClCompile Include="File stream functions.cpp" />
+    <ClCompile Include="Cut.cpp" />
+    <ClCompile Include="Delete.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
+    <ClCompile Include="Actions\Load.cpp" />
+    <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Statements\EndState.cpp" />
     <ClCompile Include="Statements\ValueAssign.cpp" />
     <ClCompile Include="Statements\Statement.cpp" />
@@ -286,6 +290,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\AddEnd.h" />
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
@@ -312,11 +317,15 @@
     <ClInclude Include="Actions\AddValueAssign.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Connector.h" />
+    <ClInclude Include="Cut.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="Delete.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
+    <ClInclude Include="Actions\Load.h" />
+    <ClInclude Include="Paste.h" />
     <ClInclude Include="Statements\EndState.h" />
     <ClInclude Include="Statements\ValueAssign.h" />
     <ClInclude Include="Statements\Statement.h" />
