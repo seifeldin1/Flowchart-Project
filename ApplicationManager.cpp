@@ -299,6 +299,15 @@ bool ApplicationManager::CheckVariableInit()
 	return true;
 }
 
+
+void ApplicationManager::RunFlow()
+{
+	for (int i = 0; i < StatCount; i++)
+		StatList[i]->Simulate();
+
+	for (int i = 0; i < ConnCount; i++)
+		ConnList[i]->Draw(pOut);
+}
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
