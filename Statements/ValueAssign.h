@@ -10,7 +10,9 @@ class ValueAssign : public Statement
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	double RHS;	//Right Handside (Value)
+	int ValueAssInConnCount;
 	
+	Connector* pInConn[200];
 	Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
 	                        //Each statement type in flowchart has a predefined number of (output) connectors
 	                        //For example, conditional statement always has 2 output connectors
@@ -25,7 +27,7 @@ private:
 	Point Outlet;	//A point a connection leaves this statement
 	                //It's used as the (Start) point of the (Output) connector
 
-	Point LeftCorner;	//left corner of the statement block.
+	Point LeftCorner;	//top left corner of the statement block
 
 	virtual void UpdateStatementText();
 	
@@ -34,9 +36,19 @@ public:
 	
 	void setLHS(const string &L);
 	void setRHS(double R);
+	Point GetLcorner() const;
+	Point GetInlet() const;
+	Point GetOutlet() const;
+	int ReturnStatType();
+	void Draw(Output* pOut) const;
+	bool IsPointClicked(Point P) const;
+	void SetInConnector(Connector* incon);
+	void SetOutConnector(Connector* outcon);
+	Connector* GetInConnector() const;
+	Connector* GetOutConnector() const;
+	int GetConnInCount() const;
 
-	virtual void Draw(Output* pOut) const;
-
+	~ValueAssign();
 };
 
 #endif

@@ -16,7 +16,6 @@ protected:
 	static int NumberOfStatements; //number of statements drawn on screen
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the flowchart
-	Output* pOut; // Pointer to Output
 
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
@@ -24,12 +23,12 @@ protected:
 	/// Add more parameters if needed.
 
 public:
-	Statement(Output * pOut);
+	Statement();
 	//Statement(Point currentPosition);
 
 
-	virtual int ReturnStatType() = 0;
-	string ReturnVariable();
+
+	
 	//int GetWidth(); //return width of statment
 
 	//int GetHeight(); //return height of statment
@@ -51,18 +50,24 @@ public:
 
 	friend class Connector;
 	///TODO: Add more functions if needed
-	void SetSelected(bool s);
-	bool IsSelected() const;
-	int GetID();
+	void SetSelected(bool s);//sets if statement is selected or not
+	bool IsSelected() const; //returns true if statement is selected
+	int GetID(); //returns ID of each unique statement
 	string GetText();
-	virtual Point GetInlet()const;
-	virtual Point GetOutlet() const;
+	virtual Point GetInlet()const; //returns Inlet point of statement
+	virtual Point GetOutlet() const; //returns outlet point of statement
+	virtual Point GetLcorner() const = 0; //returns top left corner point of statement
+	string ReturnVariable();
 
 	virtual int ReturnStatType() = 0; //returns type of statement
 	virtual void Draw(Output* pOut) const = 0;	//Draw the statement
 	virtual bool IsPointClicked(Point P) const = 0; //returns true if statement has been clicked on
-	virtual bool IsConnected() const = 0; // returns true if statement is connected
-	virtual void SetConnector(Connector* con) = 0; //sets a connector for statement
+	virtual void SetInConnector(Connector* incon) = 0; //sets a connector going to statement
+	virtual void SetOutConnector(Connector* outcon) = 0; //sets a connector coming out of statement
+	virtual Connector* GetInConnector() const = 0; //returns a connector going to statement
+	virtual Connector* GetOutConnector() const = 0; //returns a connector coming out of statement
+	virtual int GetConnInCount() const = 0; //returns count of connectors going to statement
+	virtual int GetConnOutCount() const = 0; //returns count of connectors coming out of statement
 	~Statement();
 };
 

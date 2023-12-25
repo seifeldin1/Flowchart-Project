@@ -173,6 +173,12 @@
     <ClCompile Include="Actions\AddEnd.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
+    <ClCompile Include="Statements\StartState.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
+    <ClCompile Include="Statements\WriteState.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -281,6 +287,12 @@
     </ClInclude>
     <ClInclude Include="Actions\AddEnd.h">
       <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\StartState.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\WriteState.h">
+      <Filter>Statements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

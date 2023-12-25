@@ -8,8 +8,12 @@ Connector::Connector(Statement* Src, Statement* Dst)
 	SrcStat = Src;
 	DstStat = Dst;
 }
-bool Connector:: IsPointClicked(Point P) const {
-	return true; /// ana 7atet implementation ay 7aga 3alshan yebata yedy errors laken me7taga tet8ayar tab3an
+bool Connector:: IsPointClicked(Point P) const 
+{
+	if ( ((P.x >= Start.x - 5 && P.x <= Start.x + 5) && (P.x >= End.x - 5 && P.x <= End.x + 5)) && (P.y >= Start.y && P.y <= End.y) )
+		return true;
+	else
+		return false;
 }
 void Connector::setSrcStat(Statement *Src)
 {	SrcStat = Src;	}
