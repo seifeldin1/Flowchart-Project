@@ -12,7 +12,7 @@ class Statement
 {
 	//Point position;
 protected:
-	int ID;			//Each Statement has an ID --> must be unique
+	int ID;		//Each Statement has an ID --> must be unique
 	static int NumberOfStatements; //number of statements drawn on screen
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the flowchart
