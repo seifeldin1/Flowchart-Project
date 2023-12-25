@@ -274,14 +274,11 @@
     </ClCompile>
     <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
-    <ClCompile Include="Actions\Cut.cpp" />
-    <ClCompile Include="Actions\Delete.cpp" />
     <ClCompile Include="Statements\End.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="Actions\Load.cpp" />
-    <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Statements\OperatorAssign.cpp" />
     <ClCompile Include="Statements\Start.cpp" />
     <ClCompile Include="Statements\Read.cpp" />
@@ -322,16 +319,13 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
-    <ClInclude Include="Actions\Cut.h" />
     <ClInclude Include="DEFS.h" />
-    <ClInclude Include="Actions\Delete.h" />
     <ClInclude Include="Statements\End.h" />
     <ClInclude Include="GUI\Input.h" />
     <ClInclude Include="GUI\Output.h" />
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
     <ClInclude Include="Actions\Load.h" />
-    <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Statements\OperatorAssign.h" />
     <ClInclude Include="Statements\Start.h" />
     <ClInclude Include="Statements\Read.h" />
