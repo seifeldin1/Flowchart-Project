@@ -85,7 +85,7 @@ void ApplicationManager::SaveAll(ofstream& Output)
 		//StatList[i]->Save(Output);
 	}
 
-	Output << "Connectors:" << endl;
+	Output << endl << "Connectors:" << endl;
 	for (int i = 0; i < ConnCount; i++)
 	{
 		ConnList[i]->Save(Output);
