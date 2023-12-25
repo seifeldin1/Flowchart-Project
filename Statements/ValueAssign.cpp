@@ -1,4 +1,4 @@
-#include "ValueAssign.h"
+	#include "ValueAssign.h"
 #include <sstream>
 
 using namespace std;
@@ -14,7 +14,7 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 
 	LeftCorner = Lcorner;
 	
-	pOutConn = NULL;	//No connectors yet
+	//pOutConn = NULL;	//No connectors yet
 
 	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH /2;
 	Inlet.y = LeftCorner.y;

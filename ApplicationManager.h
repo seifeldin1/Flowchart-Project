@@ -73,6 +73,7 @@ public:
 	bool CheckStartEnd();
 	bool CheckVariableInit();
 	bool CheckConnections();
+	void RunFlow();
 };
 
 #endif

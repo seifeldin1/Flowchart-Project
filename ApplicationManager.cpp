@@ -85,7 +85,7 @@ void ApplicationManager::SaveAll(ofstream& Output)
 		//StatList[i]->Save(Output);
 	}
 
-	Output << "Connectors:" << endl;
+	Output << endl << "Connectors:" << endl;
 	for (int i = 0; i < ConnCount; i++)
 	{
 		ConnList[i]->Save(Output);
@@ -299,6 +299,15 @@ bool ApplicationManager::CheckVariableInit()
 	return true;
 }
 
+
+void ApplicationManager::RunFlow()
+{
+	for (int i = 0; i < StatCount; i++)
+		StatList[i]->Simulate();
+
+	for (int i = 0; i < ConnCount; i++)
+		ConnList[i]->Draw(pOut);
+}
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
