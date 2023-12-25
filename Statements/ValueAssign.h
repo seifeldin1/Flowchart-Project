@@ -11,7 +11,7 @@ private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	double RHS;	//Right Handside (Value)
 	
-	Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
+	//Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
 	                        //Each statement type in flowchart has a predefined number of (output) connectors
 	                        //For example, conditional statement always has 2 output connectors
 

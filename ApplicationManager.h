@@ -60,6 +60,20 @@ public:
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
+
+
+
+
+
+
+
+
+
+	// Seif Funcs
+	bool CheckStartEnd();
+	bool CheckVariableInit();
+	bool CheckConnections();
+	void RunFlow();
 };
 
 #endif

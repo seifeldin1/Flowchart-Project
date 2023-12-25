@@ -201,6 +201,117 @@ Output *ApplicationManager::GetOutput() const
 ////////////////////////////////////////////////////////////////////////////////////
 
 
+
+///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
+
+// Start Has Number 0
+// End Has Number 1
+
+bool ApplicationManager::CheckStartEnd()
+{
+	int StartCount = 0, EndCount = 0;
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->ReturnStatType() == 0)
+		{
+			StartCount++;
+		}
+		if (StatList[i]->ReturnStatType() == 1)
+		{
+			EndCount++;
+		}
+	}
+	if (StartCount != 1 || EndCount != 1)
+		return false;
+	else
+		return true;
+}
+
+bool ApplicationManager::CheckConnections()
+{
+	for (int i = 0; i < ConnCount; i++)
+	{
+		//Check for nodes that are not reachable
+		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and doesnt Have Source
+			return false;
+
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getDstStat()->ReturnStatType() != 1) // not End and doesnt Have Destination 
+			return false;
+		
+		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getSrcStat() == NULL) // a flying node in air
+			return false;
+
+		// Check that if there is a Cycle 
+		else if (ConnList[i]->getDstStat() == ConnList[i]->getSrcStat())
+			return false;
+	}
+	return true;
+}
+
+
+bool ApplicationManager::CheckVariableInit()
+{
+	int VarCount = 0;
+
+	// Count The Number Of Variables
+
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->ReturnStatType() == 2 || StatList[i]->ReturnStatType() == 3)
+		{
+			VarCount++;
+		}
+	}
+
+	int *VarIndex = new int [VarCount];
+	string *VarText = new string[VarCount];
+	int ArrayCount = 0;
+
+	// Store Variables In Array
+
+	for (int j = 0; j < StatCount; j++)
+	{
+		if (StatList[j]->ReturnStatType() == 2 || StatList[j]->ReturnStatType() == 3)
+		{
+			VarIndex[ArrayCount] = j;
+			VarText[ArrayCount] = StatList[j]->ReturnVariable();
+			ArrayCount++;
+		}
+	}
+
+	// check if the Variable is Initialized before being Used
+
+	for (int k = 0; k < StatCount; k++)
+	{
+		for (int l = 0; l < ArrayCount; l++)
+		{
+			if (StatList[k]->ReturnVariable() == VarText[l] && k < VarIndex[l])
+			{
+				delete []VarIndex;
+				delete []VarText;
+				return false;
+			}
+		}
+	}
+
+	delete []VarIndex;
+	delete []VarText;
+	return true;
+}
+
+
+void ApplicationManager::RunFlow()
+{
+	for (int i = 0; i < StatCount; i++)
+		StatList[i]->Simulate();
+
+	for (int i = 0; i < ConnCount; i++)
+		ConnList[i]->Draw(pOut);
+}
+///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
