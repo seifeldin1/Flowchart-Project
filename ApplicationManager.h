@@ -29,6 +29,7 @@ private:
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
+	Connector* pSelectedConnector;
 
 public:	
 	ApplicationManager(); 
@@ -63,6 +64,10 @@ public:
 	Output *GetOutput() const;      //Return pointer to the output
 	void UpdateInterface() const;	//Redraws all the drawing window
 
+	void RemoveConnFromList(Connector* pConn);
+	void RemoveStatFromList(Statement* pStat);
+	Connector* GetSelectedConnector() const;
+	void SetSelectedConnector(Connector* pCon);
 
 
 

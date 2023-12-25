@@ -157,6 +157,19 @@ Statement *ApplicationManager::GetStatement(Point P) const
 
 	return NULL;
 }
+void ApplicationManager::RemoveStatFromList(Statement* pStat)
+{
+	int i = 0;
+	while (i < StatCount && pStat != StatList[i])
+		i++;
+	if (i < StatCount)
+	{
+		StatList[i] = StatList[StatCount - 1];
+		StatList[StatCount - 1] = NULL;
+		StatCount--;
+	}
+
+}
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the selected statement
 Statement *ApplicationManager::GetSelectedStatement() const
@@ -203,6 +216,28 @@ Connector* ApplicationManager::GetConnector(Point P) const
 	///WITHOUT breaking class responsibilities
 
 	return NULL;
+}
+
+void ApplicationManager::RemoveConnFromList(Connector* pConn)
+{
+	int i = 0;
+	while (i < ConnCount && pConn != ConnList[i])
+		i++;
+	if (i < ConnCount)
+	{
+		ConnList[i] = ConnList[ConnCount - 1];
+		ConnList[ConnCount - 1] = NULL;
+		ConnCount--;
+	}
+}
+void ApplicationManager::SetSelectedConnector(Connector* pCon)
+{
+	pSelectedConnector = pCon;
+}
+
+Connector* ApplicationManager::GetSelectedConnector() const
+{
+	return pSelectedConnector;
 }
 
 //==================================================================================//

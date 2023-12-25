@@ -10,6 +10,8 @@ class AssignStat : public Statement
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	double RHS;	//Right Handside (Value)
+	Statement* copyValue;
+	//Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
 	int ValueAssInConnCount; //count of connectors going into statement
 	
 	Connector* pInConn[200];
@@ -36,6 +38,8 @@ public:
 	
 	void setLHS(const string &L);
 	void setRHS(double R);
+	Statement* Copy();
+	virtual void Draw(Output* pOut) const;
 	Point GetLcorner() const;
 	int ReturnStatType();
 	void Draw(Output* pOut) const;

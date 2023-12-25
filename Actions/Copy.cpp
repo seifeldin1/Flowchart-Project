@@ -1,20 +1,30 @@
 #include "Copy.h"
-template<typename T>
-Copy<T>::Copy(ApplicationManager* pAppManager) :Action(pAppManager)
+Copy::Copy(ApplicationManager* pAppManager) :Action(pAppManager)
 {}
 
-template<typename T>
-void Copy<T>::ReadActionParameters() {
-	Input* pIn = pManager->GetInput();
-	Output* pOut = pManager->GetOutput();
-	pOut->PrintMessage("Select Statment to copy");
-	original=pManager->GetSelectedStatement();
+
+void Copy::ReadActionParameters() {
+	return;
 	
 }
 
-template<typename T>
-void Copy<T>::Execute() {
-	if (original == NULL)return;
+
+void Copy::Execute() {
+	original = pManager->GetSelectedStatement();
+	if (original == NULL) {
+		Output* pOut = pManager->GetOutput();
+		pOut->PrintMessage("No statement selected to be copied!");
+	}
+	else {
+		copy = original->Copy();
+		clipboard = pManager->GetClipboard();
+		if (clipboard != NULL) {
+			delete clipboard;
+		}
+		pManager->SetClipboard(copy);
+		pManager->SetSelectedStatement(NULL);
+		original->SetSelected(false);
+	}
 	pManager->AddStatement(original);
 	copy = original;
 	pManager->SetClipboard(copy);

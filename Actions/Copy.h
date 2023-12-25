@@ -1,12 +1,13 @@
 #pragma once
 #include "Action.h"
-template<typename T>
+
 class Copy :public Action
 {
 	
-	T copy;
-	T *original=NULL;
-	ApplicationManager* pManager;
+	Statement* copy;
+	Statement* original=NULL;
+	Statement* clipboard;
+	
 public:
 	
 	Copy(ApplicationManager*pManager);
@@ -14,5 +15,6 @@ public:
 
 	void ReadActionParameters();
 	void Execute();
+	
 };
 
