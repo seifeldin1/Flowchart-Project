@@ -28,6 +28,8 @@ public:
 	//Statement(Point currentPosition);
 
 
+	virtual int ReturnStatType() = 0;
+	string ReturnVariable();
 	//int GetWidth(); //return width of statment
 
 	//int GetHeight(); //return height of statment
