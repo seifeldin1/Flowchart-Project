@@ -12,11 +12,13 @@ class EndState:public Statement
 
 		virtual void UpdateStatementText();
 
+		Statement* copyEnd;
 	public:
 		EndState(Point Lcorner);
 		
+		Statement* Copy();
+
 		Point GetLcorner() const;
-		Point GetInlet();
 		int ReturnStatType();
 		void Draw(Output *pOut) const;
 		bool IsPointClicked(Point P) const;
@@ -24,6 +26,9 @@ class EndState:public Statement
 		Connector* GetInConnector() const;
 		int GetConnInCount() const;
 
-
+		//implementing these functions to avoid end statement being an abstract class
+		void SetOutConnector(Connector* outcon);
+		Connector* GetOutConnector() const;
+		int GetConnOutCount() const;
 		~EndState();
 };

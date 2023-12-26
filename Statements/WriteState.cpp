@@ -1,7 +1,7 @@
 #include "WriteState.h"
 #include <sstream>
 
-WriteState::WriteState(Point Lcorner, string var)
+WriteState::WriteState(Point Lcorner, string var) : Statement(1,true)
 {
 	
 	Variable = var;
@@ -35,18 +35,6 @@ void WriteState::UpdateStatementText()
 Point WriteState::GetLcorner() const
 {
 	return LeftCorner;
-}
-
-//returns Inlet point
-Point WriteState::GetInlet() const
-{
-	return Inlet;
-}
-
-//returns Outlet point
-Point WriteState::GetOutlet() const
-{
-	return Outlet;
 }
 
 //returns (4) which we set to identify that statement is Write
@@ -103,3 +91,5 @@ int WriteState::GetConnInCount() const
 {
 	return WriteInConnCount;
 }
+
+int WriteState::GetConnOutCount() const{}

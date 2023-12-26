@@ -12,16 +12,24 @@ class StartState : public Statement
 
 		virtual void UpdateStatementText();
 
+		Statement* copyStart;
 	public:
 		StartState(Point Lcorner);
 
+		Statement* Copy();
+
 		Point GetLcorner() const;
-		Point GetOutlet() const;
 		int ReturnStatType();
 		void Draw(Output *pOut) const;
 		bool IsPointClicked(Point P) const;
 		void SetOutConnector(Connector* outcon);
 		Connector* GetOutConnector() const;
+
+		//implementing these functions to avoid start statement being an abstract class
+		void SetInConnector(Connector* incon);
+		Connector* GetInConnector() const;
+		int GetConnInCount() const;
+		int GetConnOutCount() const;
 
 		~StartState();
 };

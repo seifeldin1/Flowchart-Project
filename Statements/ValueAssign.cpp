@@ -1,9 +1,7 @@
-	#include "ValueAssign.h"
+#include "ValueAssign.h"
 #include <sstream>
 
-using namespace std;
-
-ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
+ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS) : Statement(1,true)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	// before passing it to the constructor of ValueAssign
@@ -14,7 +12,8 @@ ValueAssign::ValueAssign(Point Lcorner, string LeftHS, double RightHS)
 
 	LeftCorner = Lcorner;
 	
-	//pOutConn = NULL;	//No connectors yet
+	pInConn[200] = {NULL};
+	pOutConn = NULL;	//No connectors yet
 
 	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH /2;
 	Inlet.y = LeftCorner.y;
@@ -52,18 +51,6 @@ Point ValueAssign::GetLcorner() const
 	return LeftCorner;
 }
 
-//returns Inlet point
-Point ValueAssign::GetInlet() const
-{
-	return Inlet;
-}
-
-//returns Outlet point
-Point ValueAssign::GetOutlet() const
-{
-	return Outlet;
-}
-
 //returns (2) which we set to identify that statement is End
 int ValueAssign::ReturnStatType()
 {
@@ -75,7 +62,6 @@ void ValueAssign::Draw(Output* pOut) const
 {
 	//Call Output::DrawAssign function to draw assignment statement 	
 	pOut->DrawRectangle(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
-	
 }
 
 //Checks if Value Assign Statement has been clicked on
@@ -125,6 +111,9 @@ ValueAssign::~ValueAssign()
 	for (int i = 0; i < ValueAssInConnCount; i++)
 	{
 		delete pInConn[i];
+		ValueAssInConnCount--;
 	}
 	delete pOutConn;
 }
+
+int ValueAssign::GetOutConnCount() const{}

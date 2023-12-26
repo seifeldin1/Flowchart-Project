@@ -164,19 +164,8 @@
     <ClCompile Include="Actions\Copy.cpp">
       <Filter>Action Classes</Filter>
     </ClCompile>
-    <ClCompile Include="Actions\Cut.cpp" />
-    <ClCompile Include="Actions\Paste.cpp" />
-    <ClCompile Include="Actions\Delete.cpp" />
-    <ClCompile Include="Statements\Read.cpp" />
-    <ClCompile Include="Statements\Write.cpp" />
-    <ClCompile Include="Statements\VariableAssign.cpp" />
-    <ClCompile Include="Statements\OperatorAssign.cpp" />
-    <ClCompile Include="Statements\Start.cpp" />
-    <ClCompile Include="Statements\End.cpp" />
     <ClCompile Include="Statements\Conditional.cpp" />
-    <ClCompile Include="Cut.cpp" />
     <ClCompile Include="Paste.cpp" />
-    <ClCompile Include="Delete.cpp" />
     <ClCompile Include="Statements\EndState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
@@ -187,6 +176,18 @@
       <Filter>Statements</Filter>
     </ClCompile>
     <ClCompile Include="Statements\WriteState.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
+    <ClCompile Include="Statements\ConditionalState.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
+    <ClCompile Include="Statements\VariableAssign.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
+    <ClCompile Include="Statements\OperatorAssign.cpp">
+      <Filter>Statements</Filter>
+    </ClCompile>
+    <ClCompile Include="Statements\ReadState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
   </ItemGroup>
@@ -289,19 +290,8 @@
     <ClInclude Include="Actions\Copy.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
-    <ClInclude Include="Actions\Cut.h" />
-    <ClInclude Include="Actions\Paste.h" />
-    <ClInclude Include="Actions\Delete.h" />
-    <ClInclude Include="Statements\Read.h" />
-    <ClInclude Include="Statements\Write.h" />
-    <ClInclude Include="Statements\VariableAssign.h" />
-    <ClInclude Include="Statements\OperatorAssign.h" />
-    <ClInclude Include="Statements\Start.h" />
-    <ClInclude Include="Statements\End.h" />
     <ClInclude Include="Statements\Conditional.h" />
-    <ClInclude Include="Cut.h" />
     <ClInclude Include="Paste.h" />
-    <ClInclude Include="Delete.h" />
     <ClInclude Include="Statements\EndState.h">
       <Filter>Statements</Filter>
     </ClInclude>
@@ -312,6 +302,18 @@
       <Filter>Statements</Filter>
     </ClInclude>
     <ClInclude Include="Statements\WriteState.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\ConditionalState.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\VariableAssign.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\OperatorAssign.h">
+      <Filter>Statements</Filter>
+    </ClInclude>
+    <ClInclude Include="Statements\ReadState.h">
       <Filter>Statements</Filter>
     </ClInclude>
   </ItemGroup>

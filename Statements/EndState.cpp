@@ -1,6 +1,6 @@
 #include "EndState.h"
 
-EndState::EndState(Point Lcorner)
+EndState::EndState(Point Lcorner) : Statement (0,true)
 {
 	Text = "End";
 	LeftCorner = Lcorner;
@@ -13,16 +13,15 @@ EndState::EndState(Point Lcorner)
 
 void EndState::UpdateStatementText() {}
 
+Statement* EndState::Copy() {
+	copyEnd = new EndState(Point(0, 0)); // makes a copy of End
+	return copyEnd;
+}
+
 //returns Left corner point of statement
 Point EndState::GetLcorner() const
 {
 	return LeftCorner;
-}
-
-//returns Inlet point
-Point EndState::GetInlet()
-{
-	return Inlet;
 }
 
 //returns (1) which we set to identify that statement is End
@@ -73,5 +72,10 @@ EndState::~EndState()
 	for (int i = 0; i < EndInConnCount; i++)
 	{
 		delete pInConn[i];
+		EndInConnCount--;
 	}
 }
+
+void EndState::SetOutConnector(Connector* outcon){}
+Connector* EndState::GetOutConnector() const{}
+int EndState::GetConnOutCount() const{}

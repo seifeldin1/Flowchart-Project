@@ -1,6 +1,6 @@
 #include "StartState.h"
 
-StartState::StartState(Point Lcorner)
+StartState::StartState(Point Lcorner) : Statement (1,false)
 {
 	Text = "Start";
 	LeftCorner = Lcorner;
@@ -12,16 +12,17 @@ StartState::StartState(Point Lcorner)
 
 void StartState::UpdateStatementText() {}
 
+Statement* StartState::Copy() 
+{
+	copyStart = new StartState(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
+	return copyStart;
+
+}
+
 //returns top left corner of statement
 Point StartState::GetLcorner() const
 {
 	return LeftCorner;
-}
-
-//returns Outlet point
-Point StartState::GetOutlet() const
-{
-	return Outlet;
 }
 
 //returns (0) which we set to identify that statement is Start
@@ -62,3 +63,8 @@ StartState::~StartState()
 {
 	delete pOutConn;
 }
+
+void StartState::SetInConnector(Connector* incon){}
+Connector* StartState::GetInConnector() const{}
+int StartState::GetConnInCount() const{}
+int StartState::GetConnOutCount() const{}

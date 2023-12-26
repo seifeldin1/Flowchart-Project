@@ -32,7 +32,6 @@ public:
 
 
 	
-	virtual int ReturnStatType() = 0;
 	string ReturnVariable();
 	virtual Statement* Copy() = 0;//copy statement and return a pointer of type statement	
 	//int GetWidth(); //return width of statment

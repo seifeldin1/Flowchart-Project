@@ -10,7 +10,7 @@ class ValueAssign : public Statement
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	double RHS;	//Right Handside (Value)
-	int ValueAssInConnCount;
+	int ValueAssInConnCount; //count of connectors going into statement
 	
 	Connector* pInConn[200];
 	Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
@@ -37,8 +37,6 @@ public:
 	void setLHS(const string &L);
 	void setRHS(double R);
 	Point GetLcorner() const;
-	Point GetInlet() const;
-	Point GetOutlet() const;
 	int ReturnStatType();
 	void Draw(Output* pOut) const;
 	bool IsPointClicked(Point P) const;
@@ -48,6 +46,8 @@ public:
 	Connector* GetOutConnector() const;
 	int GetConnInCount() const;
 
+	//implementing this function to avoid value assign statement being an abstract class
+	int GetOutConnCount() const;
 	~ValueAssign();
 };
 
