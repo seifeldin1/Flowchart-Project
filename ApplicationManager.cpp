@@ -204,8 +204,14 @@ Output *ApplicationManager::GetOutput() const
 
 ///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
 
-// Start Has Number 0
-// End Has Number 1
+/*
+	0 -- > Start
+	1 -- > End
+	2 -- > Assign Value
+	3 -- > Read Parallelogram
+	4 -- > Write Parallelogram 
+	5 -- > Rhombus
+*/
 
 bool ApplicationManager::CheckStartEnd()
 {
@@ -299,14 +305,35 @@ bool ApplicationManager::CheckVariableInit()
 	return true;
 }
 
+bool ApplicationManager::CheckNumConn()
+{
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[j]->ReturnStatType() == 5 && StatList[j]->GetConnOutCount() != 2)
+			return false;
+	}
+	return true;
+}
 
 void ApplicationManager::RunFlow()
 {
-	for (int i = 0; i < StatCount; i++)
-		StatList[i]->Simulate();
+	Statement* pStat;
 
-	for (int i = 0; i < ConnCount; i++)
-		ConnList[i]->Draw(pOut);
+	//Search For the Start Statement
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->ReturnStatType() == 0)
+		{
+			pStat = StatList[i];
+			break;
+		}
+	}
+
+	while (pStat->GetOutConnector() != NULL)
+	{
+		pStat->Simulate();
+		pStat = pStat->GetOutConnector()->getDstStat();
+	}
 }
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 

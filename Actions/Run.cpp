@@ -14,9 +14,16 @@ void Run::Execute()
 {
 	ReadActionParameters();
 
+	// Check That there is a Validation
+
+	if (validate_Act->IsValidated == false)
+		validate_Act->Execute();
+
+	// When doing a Validation Before Running and this Validation is False
 	if (validate_Act->IsValidated == false)
 	{
-		validate_Act->Execute();
+		pOut->PrintMessage("Run Action : Couldn't Run Because of Errors in Validation");
+		return;
 	}
 
 	pManager->RunFlow();

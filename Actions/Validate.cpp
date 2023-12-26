@@ -30,6 +30,15 @@ void Validate::Execute()
 		pOut->PrintMessage("Error : A Variable is Used Before Being Intialized");
 		return;
 	}
+
+	Validate_Status = pManager->CheckNumConn();
+	if (Validate_Status == false)
+	{
+		pOut->PrintMessage("Error : A Conditional Statement Must Have Two Output Connectors Only");
+		return;
+	}
+
+	Validate_Status = true;
 }
 bool Validate::IsValidated()
 {
