@@ -39,7 +39,7 @@ public:
 	//int GetHeight(); //return height of statment
 	
 	
-
+	virtual Point getLeftCorner() = 0;
 	///TODO:The following functions should be supported by the Statement class
 	///		It should then be overridden by each derived Statement
 	///		Decide the parameters that you should pass to each function and its return type

@@ -18,16 +18,12 @@ void Copy::Execute() {
 	else {
 		copy = original->Copy();
 		clipboard = pManager->GetClipboard();
-		if (clipboard != NULL) {
+		if (clipboard) {
 			delete clipboard;
 		}
 		pManager->SetClipboard(copy);
 		pManager->SetSelectedStatement(NULL);
 		original->SetSelected(false);
 	}
-	pManager->AddStatement(original);
-	copy = original;
-	pManager->SetClipboard(copy);
-
 
 }

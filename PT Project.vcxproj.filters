@@ -198,6 +198,12 @@
       <Filter>Statements</Filter>
     </ClCompile>
     <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Undo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\Redo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -332,6 +338,12 @@
       <Filter>Statements</Filter>
     </ClInclude>
     <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Undo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\Redo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,6 +1,16 @@
 #pragma once
 #include"Action.h"
 #include "..\Statements\Conditional.h"
+#include "..\Statements\End.h"
+#include "..\Statements\Start.h"
+#include "..\Statements\OperatorAssign.h"
+#include "..\Statements\Read.h"
+#include "..\Statements\VariableAssign.h"
+#include "..\Statements\Write.h"
+#include "..\Statements\ValueAssign.h"
+
+
+
 class Paste:public Action
 {
 	Statement* paste;

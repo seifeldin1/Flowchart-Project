@@ -68,7 +68,7 @@ public:
 	void RemoveStatFromList(Statement* pStat);
 	Connector* GetSelectedConnector() const;
 	void SetSelectedConnector(Connector* pCon);
-
+	void DeleteAllConnectedConnectors(Statement* pStat);
 
 
 

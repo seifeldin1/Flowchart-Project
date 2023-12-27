@@ -16,7 +16,7 @@ public:
 	Connector(Statement* Src, Statement* Dst);
 	virtual bool IsPointClicked(Point P) const; //to be implemented in connector class
 
-	void		setSrcStat(Statement *Src);
+	void		setSrcStat(Statement *Src); 
 	Statement*	getSrcStat();	
 	void		setDstStat(Statement *Dst);
 	Statement*	getDstStat();

@@ -159,12 +159,15 @@ Statement *ApplicationManager::GetStatement(Point P) const
 }
 void ApplicationManager::RemoveStatFromList(Statement* pStat)
 {
-	int i = 0;
-	while (i < StatCount && pStat != StatList[i])
-		i++;
+	int i;
+	for (i = 0; i < StatCount && pStat != StatList[i]; i++);
 	if (i < StatCount)
 	{
-		StatList[i] = StatList[StatCount - 1];
+		int k = i;
+		for (i = k; i < StatCount; i++) {
+			StatList[i] = StatList[i + 1];
+		}
+		
 		StatList[StatCount - 1] = NULL;
 		StatCount--;
 	}
@@ -220,12 +223,16 @@ Connector* ApplicationManager::GetConnector(Point P) const
 
 void ApplicationManager::RemoveConnFromList(Connector* pConn)
 {
-	int i = 0;
-	while (i < ConnCount && pConn != ConnList[i])
-		i++;
+	int i;
+	
+	for (i = 0; i < ConnCount && pConn != ConnList[i]; i++);
 	if (i < ConnCount)
 	{
-		ConnList[i] = ConnList[ConnCount - 1];
+		int k = i;
+		for (i = k; i < ConnCount; i++) {
+			ConnList[i] = ConnList[i + 1];
+		}
+
 		ConnList[ConnCount - 1] = NULL;
 		ConnCount--;
 	}
@@ -238,6 +245,19 @@ void ApplicationManager::SetSelectedConnector(Connector* pCon)
 Connector* ApplicationManager::GetSelectedConnector() const
 {
 	return pSelectedConnector;
+}
+
+void ApplicationManager::DeleteAllConnectedConnectors(Statement* pStat) {
+	for (int i = 0; i < ConnCount; i++) {
+		if ((ConnList[i]->getDstStat()) == pStat || (ConnList[i]->getSrcStat())==pStat) {
+			int k = i;
+			for (i = k; i < ConnCount; i++) {
+				ConnList[i] = ConnList[i + 1];
+			}
+			ConnList[ConnCount - 1] == NULL;
+			ConnCount--;
+		}
+	}		
 }
 
 //==================================================================================//

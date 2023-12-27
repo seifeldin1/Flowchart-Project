@@ -9,5 +9,6 @@ class Read:public Statement
 public:
 	Read(Point LeftCorner, string var = "");
 	Statement* Copy();
+	Point getLeftCorner();
 };
 

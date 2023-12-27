@@ -6,14 +6,26 @@ Paste::Paste(ApplicationManager* pAppManager) :Action(pAppManager)
 void Paste::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
-	Input* pIn = pManager->GetInput();
 	pOut->PrintMessage("Click anywhere to Paste the Statement");
-	pIn->GetPointClicked(P);
-
 }
 void Paste:: SetDrawingPoint(Point P) {
-	if (dynamic_cast<Conditional*> (pManager->GetClipboard()));
-			// to be continued.
+	if (dynamic_cast<Conditional*> (pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner(); //function to draw 
+
+	else if (dynamic_cast<Read*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<Write*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<OperatorAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<VariableAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<ValueAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<End*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+	else if (dynamic_cast<Start*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+
+			
 }
 void Paste::Execute() {
 	if (pManager->GetClipboard() == NULL) {
@@ -22,9 +34,10 @@ void Paste::Execute() {
 	}
 	else {
 		ReadActionParameters();
+		Input* pIn = pManager->GetInput();
+		pIn->GetPointClicked(P);
 		paste = (pManager->GetClipboard())->Copy();
-		//paste->SetDrawingPoint(P);
+		SetDrawingPoint(P);
 		pManager->AddStatement(paste);
-		//idk yet if i should draw here or not
 	}
 }

@@ -16,7 +16,9 @@ void Delete::Execute() {
 	}
 	if (delStat) {
 		pManager->RemoveStatFromList(delStat);
-
+		//if (delStat->IsConnected()) // check is stat is connectod to delete its connectors
+		pManager->DeleteAllConnectedConnectors(delStat);
+		pManager->SetSelectedStatement(NULL);
 	}
 
 }
