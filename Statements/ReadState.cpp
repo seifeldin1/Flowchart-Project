@@ -39,8 +39,17 @@ void ReadState::Draw(Output* pOut) const
 	pOut->DrawParralellogram(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
 
-void ReadState::Simulate()
-{}
+void ReadState::Simulate(ApplicationManager* pManager)
+{
+	Output* pOut = pManager->GetOutput();
+	Input* pIn = pManager->GetInput();
+	if (Variable != "")
+	{
+		pOut->PrintMessage("Enter The Value of " + Variable);
+		Value = pIn->GetValue(Output * pO);
+		pManager->AddIntVariable(Variable, Value);
+	}
+}
 
 void ReadState::Save(ofstream& OutFile)
 {

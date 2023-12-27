@@ -39,5 +39,9 @@ bool StartStat::IsPointClicked(Point P) const
 		return false;
 }
 
+void StartStat::Simulate(ApplicationManager* pManager)
+{
+
+}
 StartStat::~StartStat()
 {}

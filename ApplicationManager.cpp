@@ -432,6 +432,55 @@ void ApplicationManager::RunFlow()
 }
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
+void ApplicationManager::AddIntVariable(string x, double a)
+{
+	bool found = true;
+	if (IntVariableCount < MaxCount)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				found = false;
+		}
+	}
+	if (found == true)
+	{
+		IntVariables[IntVariableCount] = x;
+		IntVariableValues[IntVariableCount] = a;
+		IntVariableCount++;
+	}
+	if (found == false)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				IntVariableValues[i] = a;
+		}
+	}
+}
+string* ApplicationManager::GetIntVariable()
+{
+	return IntVariables;
+}
+
+
+
+int ApplicationManager::GetIntVariableCount()
+{
+	return IntVariableCount;
+}
+
+double ApplicationManager::ReturnValue(string x)
+{
+	for (int i = 0; i < IntVariableCount; i++)
+	{
+		if (IntVariables[i] == x)
+		{
+			return IntVariableValues[i];
+		}
+	}
+	return 0.0;
+}
 
 
 //Destructor

@@ -86,5 +86,21 @@ void AssignStat::GenerateCode(ofstream& OutFile)
 	OutFile << LHS << " = " << RHS << endl;
 }
 
+void AssignStat::Simulate(ApplicationManager* pManager)
+{
+	double temp;
+	switch (type)
+	{
+	case Variable:
+		temp = pManager->ReturnValue(RHS);
+		pManager->AddIntVariable(LHS, temp);
+		break;
+	case Value:
+		pManager->AddIntVariable(LHS, stod(RHS));
+		break;
+	case Operator:
+		break;
+	}
+}
 AssignStat::~AssignStat()
 {}
