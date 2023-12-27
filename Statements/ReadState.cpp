@@ -1,18 +1,12 @@
 #include "ReadState.h"
 #include "sstream"
 
-ReadState::ReadState(Point Lcorner, string var = "") : Statement(1,true)
+ReadState::ReadState(Point Lcorner, string var = "") : Statement(Lcorner,Text)
 {
 	Variable = var;
 	UpdateStatementText();
-	pInConn[200] = { NULL }; //no connectors yet going into statement
 	pOutConn = NULL; //no connectors yet going out from statement
 	LeftCorner = Lcorner;
-	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
-	Inlet.y = LeftCorner.y;
-
-	Outlet.x = Inlet.x;
-	Outlet.x = LeftCorner.x + UI.ASSGN_HI;
 }
 void ReadState::SetVariable(string var)
 {
@@ -28,21 +22,6 @@ void ReadState::UpdateStatementText()
 	Text = T.str();
 }
 
-Point ReadState::GetLcorner() const
-{
-	return LeftCorner;
-}
-//returns (3) which we set to identify that statement is Read
-int ReadState::ReturnStatType()
-{
-	return 3;
-}
-//Draw the Parallelogram
-void ReadState::Draw(Output* pOut) const
-{
-	//Call Output::DrawParralellogram function to draw write statement 
-	pOut->DrawParralellogram(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
-}
 bool ReadState::IsPointClicked(Point P) const
 {
 	if ((P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.ASSGN_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.ASSGN_HI))
@@ -50,30 +29,26 @@ bool ReadState::IsPointClicked(Point P) const
 	else
 		return false;
 }
-void ReadState::SetInConnector(Connector* incon)
-{
-	ReadInConnCount++;
-	pInConn[ReadInConnCount];
-}
-void ReadState::SetOutConnector(Connector* outcon)
-{
-	pOutConn = outcon;
-}
-Connector* ReadState::GetInConnector() const
-{
-	for (int i = 0; i < ReadInConnCount; i++)
-	{
-		return pInConn[i];
-	}
-}
-Connector* ReadState::GetOutConnector() const
-{
-	return pOutConn;
-}
-int ReadState::GetConnInCount() const {  };
 
-int ReadState::GetConnOutCount() const {}
+//Draw the Parallelogram
+void ReadState::Draw(Output* pOut) const
+{
+	//Call Output::DrawParralellogram function to draw write statement 
+	pOut->DrawParralellogram(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
+}
 
+void ReadState::Simulate()
+{
+
+}
+void ReadState::Save(ofstream& OutFile)
+{
+
+}
+void ReadState::Load(ifstream& Infile)
+{
+
+}
 Statement* ReadState::Copy()
 {
 	Statement* copyRead = new ReadState(Point(0, 0), ((ReadState*)this)->Variable);
@@ -88,12 +63,4 @@ void ReadState::Simulate(Output* pOut, Input* pIn)
 	}
 }
 
-ReadState::~ReadState()
-{
-	/*for (int i = 0; i < ReadInConnCount; i++)
-	{
-		delete pInConn[i];
-		ReadInConnCount--;
-	}
-	delete pOutConn;*/
-}
+ReadState::~ReadState() {}

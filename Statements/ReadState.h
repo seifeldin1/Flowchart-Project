@@ -9,13 +9,11 @@ private:
 	int ReadInConnCount;
 
 	virtual void UpdateStatementText();
-public:
 
+public:
 	//============================ Class functions ============================
 	ReadState(Point Lcorner, string var = "");
 	void SetVariable(string var);
-	Point GetLcorner() const;
-	void SetOutConnector(Connector* outcon);
 
 	~ReadState();
 	//============================ Pure Virtual functions implementation ============================

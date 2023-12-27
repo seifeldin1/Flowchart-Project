@@ -70,4 +70,3 @@ string Statement::ReturnVariable()
 Statement::~Statement()
 {
 }
-

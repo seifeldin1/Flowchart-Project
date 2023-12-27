@@ -3,12 +3,7 @@
 StartStat::StartStat(Point Lcorner) : Statement (Lcorner,"Start")
 {}
 
-Statement* StartStat::Copy() 
-{
-	Statement* copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
-	return copyStart;
 
-}
 
 //Draws the ellipse with text="Start"
 void StartStat::Draw(Output* pOut) const
@@ -26,5 +21,23 @@ bool StartStat::IsPointClicked(Point P) const
 		return false;
 }
 
-StartStat::~StartStat()
-{}
+void StartStat::Simulate()
+{
+
+}
+void StartStat::Save(ofstream& OutFile)
+{
+
+}
+void StartStat::Load(ifstream& Infile)
+{
+
+}
+
+Statement* StartStat::Copy()
+{
+	Statement* copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
+	return copyStart;
+}
+
+StartStat::~StartStat() {}
