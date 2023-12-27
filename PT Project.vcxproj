@@ -281,6 +281,7 @@
     <ClCompile Include="Actions\Delete.cpp" />
     <ClCompile Include="Actions\Redo.cpp" />
     <ClCompile Include="Actions\Exit.cpp" />
+    <ClCompile Include="Actions\Debug.cpp" />
     <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
@@ -300,7 +301,7 @@
     <ClCompile Include="Statements\WriteState.cpp" />
     <ClCompile Include="Actions\Undo.cpp" />
     <ClCompile Include="Actions\SwitchTSM.cpp" />
-    <ClCompile Include="Actions\Valid.cpp" />
+    <ClCompile Include="Actions\Validate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\AddCond.h" />
@@ -337,6 +338,7 @@
     <ClInclude Include="Actions\Delete.h" />
     <ClInclude Include="Actions\Redo.h" />
     <ClInclude Include="Actions\Exit.h" />
+    <ClInclude Include="Actions\Debug.h" />
     <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
@@ -354,7 +356,7 @@
     <ClInclude Include="Statements\WriteState.h" />
     <ClInclude Include="Actions\Undo.h" />
     <ClInclude Include="Actions\SwitchTSM.h" />
-    <ClInclude Include="Actions\Valid.h" />
+    <ClInclude Include="Actions\Validate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
