@@ -11,7 +11,7 @@ void AddConn::ReadActionParameters()
 	Point p;
 	pOut->PrintMessage("Select Source Statement.");
 	pIn->GetPointClicked(p);
-	string s;
+	string s = 0;
 	Src = pManager->GetStatement(p);
 	if (dynamic_cast<ConditionalState*>(Src) != NULL)
 	{
@@ -29,5 +29,20 @@ void AddConn::ReadActionParameters()
 	pOut->PrintMessage("Select Destination Statement.");
 	pIn->GetPointClicked(p);
 	Dst = pManager->GetStatement(p);
+	if (Src == NULL || Dst == NULL)
+	{
+		pOut->PrintMessage("Selected empty space exiting");
+		return;
+	}
+
+	int branch;
+
+	if (s == "y")
+		branch = 1;
+	else if (s == "n")
+		branch = 2;
+	else
+		branch = 0;
+	Connector* conn = new Connector(Src,Dst,branch);
 }
 
