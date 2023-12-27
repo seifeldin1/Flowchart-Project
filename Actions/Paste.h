@@ -10,7 +10,6 @@
 
 class Paste :public Action
 {
-	Statement* paste;
 	Point P;
 public:
 	Paste(ApplicationManager* pManager);

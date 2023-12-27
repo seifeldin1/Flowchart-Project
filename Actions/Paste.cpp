@@ -1,4 +1,4 @@
-#include"Patse.h"
+#include"Paste.h"
 
 Paste::Paste(ApplicationManager* pAppManager) :Action(pAppManager)
 {}
@@ -9,24 +9,23 @@ void Paste::ReadActionParameters()
 	pOut->PrintMessage("Click anywhere to Paste the Statement");
 }
 void Paste::SetDrawingPoint(Point P) {
-	if (dynamic_cast<Conditional*> (pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner(); //function to draw 
+	if (dynamic_cast<ConditionalState*> (pManager->GetClipboard())) P = (pManager->GetClipboard())->GetLcorner(); //function to draw 
 
-	else if (dynamic_cast<Read*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+	else if (dynamic_cast<ReadState*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->GetLcorner();
 
-	else if (dynamic_cast<Write*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+	else if (dynamic_cast<WriteState*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->GetLcorner();
 
-	else if (dynamic_cast<OperatorAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+	else if (dynamic_cast<AssignStat*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->GetLcorner();
 
-	else if (dynamic_cast<VariableAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
-
-	else if (dynamic_cast<ValueAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
-
-	else if (dynamic_cast<End*>(pManager->GetClipboard())) {
+	else if (dynamic_cast<EndStat*>(pManager->GetClipboard())) {
 		Output* pOut;
+		pOut->PrintMessage("only one end is allowed to be in project");
 
 	}
 	else if (dynamic_cast<Start*>(pManager->GetClipboard())) {
-	} P = (pManager->GetClipboard())->getLeftCorner();
+		Output* pOut;
+		pOut->PrintMessage("only one end is allowed to be in project");
+	}
 
 
 }
@@ -39,7 +38,7 @@ void Paste::Execute() {
 		ReadActionParameters();
 		Input* pIn = pManager->GetInput();
 		pIn->GetPointClicked(P);
-		paste = (pManager->GetClipboard())->Copy();
+		Statement* paste = (pManager->GetClipboard())->Copy();
 		SetDrawingPoint(P);
 		pManager->AddStatement(paste);
 	}
