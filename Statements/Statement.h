@@ -5,7 +5,7 @@
 //class Output;
 #include "..\GUI\Output.h"
 #include "..\Connector.h"
-
+#include "..\ApplicationManager.h"
 
 //Base class for all Statements
 class Statement

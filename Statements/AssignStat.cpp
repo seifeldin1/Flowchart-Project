@@ -79,7 +79,7 @@ void AssignStat::Load(ifstream& Infile)
 }
 
 Statement* AssignStat::Copy() {
-	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS);
+	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS, ((AssignStat*)this)->RLHS, ((AssignStat*)this)->Oper, ((AssignStat*)this)->RRHS);
 	return copyAssign;
 }
 

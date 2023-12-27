@@ -335,70 +335,12 @@ Output *ApplicationManager::GetOutput() const
 
 ///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
 
-/*
-	0 -- > Start
-	1 -- > End
-	2 -- > Assign Value
-	3 -- > Read Parallelogram
-	4 -- > Write Parallelogram 
-	5 -- > Rhombus
-*/
 
 bool ApplicationManager::CheckConnections()
 {
 	
 }
 
-
-bool ApplicationManager::CheckVariableInit()
-{
-	int VarCount = 0;
-
-	// Count The Number Of Variables
-
-	for (int i = 0; i < StatCount; i++)
-	{
-		if (StatList[i]->ReturnStatType() == 2 || StatList[i]->ReturnStatType() == 3)
-		{
-			VarCount++;
-		}
-	}
-
-	int *VarIndex = new int [VarCount];
-	string *VarText = new string[VarCount];
-	int ArrayCount = 0;
-
-	// Store Variables In Array
-
-	for (int j = 0; j < StatCount; j++)
-	{
-		if (StatList[j]->ReturnStatType() == 2 || StatList[j]->ReturnStatType() == 3)
-		{
-			VarIndex[ArrayCount] = j;
-			VarText[ArrayCount] = StatList[j]->ReturnVariable();
-			ArrayCount++;
-		}
-	}
-
-	// check if the Variable is Initialized before being Used
-
-	for (int k = 0; k < StatCount; k++)
-	{
-		for (int l = 0; l < ArrayCount; l++)
-		{
-			if (StatList[k]->ReturnVariable() == VarText[l] && k < VarIndex[l])
-			{
-				delete []VarIndex;
-				delete []VarText;
-				return false;
-			}
-		}
-	}
-
-	delete []VarIndex;
-	delete []VarText;
-	return true;
-}
 
 bool ApplicationManager::CheckNumConn()
 {
@@ -426,7 +368,7 @@ void ApplicationManager::RunFlow()
 
 	while (pStat->GetOutConnector() != NULL)
 	{
-		pStat->Simulate();
+		pStat->Simulate(this);
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }

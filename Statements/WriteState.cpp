@@ -46,8 +46,8 @@ void WriteState::Simulate(ApplicationManager* pManager)
 	Output* pOut = pManager->GetOutput();
 	if (Variable != "")
 	{
-		string s = to_string(long double(Var->value));
-		pOut->PrintMessage(Var->name + " = " + s);
+		string s = to_string(pManager->ReturnValue(Variable));
+		pOut->PrintMessage(Variable + " = " + s);
 	}
 }
 void WriteState::Save(ofstream& OutFile)

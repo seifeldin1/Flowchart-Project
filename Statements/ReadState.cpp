@@ -46,7 +46,7 @@ void ReadState::Simulate(ApplicationManager* pManager)
 	if (Variable != "")
 	{
 		pOut->PrintMessage("Enter The Value of " + Variable);
-		Value = pIn->GetValue(Output * pO);
+		double Value = pIn->GetValue(pOut);
 		pManager->AddIntVariable(Variable, Value);
 	}
 }
