@@ -49,7 +49,6 @@ void AssignStat::setRHS(string R)
 //This function should be called when LHS or RHS changes
 void AssignStat::UpdateStatementText()
 {
-	//left hand side then e
 	Text = LHS + " = " + RHS;
 }
 

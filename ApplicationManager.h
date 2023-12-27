@@ -46,7 +46,7 @@ public:
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart
 	Statement *GetStatement(Point P) const;	//Searches for a statement where point P belongs
-	                                        //TODO: Complete its implementation 
+	Statement *GetStatement(int ID) const; //TODO: Complete its implementation 
 	                                        //      WITHOUT breaking class responsibilities
 
 	void AddConnector(Connector* pConn);    //Adds a new Connector to the Flowchart

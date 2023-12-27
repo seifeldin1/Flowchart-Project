@@ -27,7 +27,6 @@ void Connector::setDstStat(Statement *Dst)
 Statement* Connector::getDstStat()
 {	return DstStat;	}
 
-
 void Connector::setStartPoint(Point P)
 {	Start = P;	}
 
@@ -42,9 +41,7 @@ Point Connector::getEndPoint()
 
 void Connector::Save(ofstream& Output)
 {
-	Output << "Src:" << SrcStat->GetID() << " "
-		   << "Dst:" << DstStat->GetID() << " "
-		   << Branch << endl;
+	Output << SrcStat->GetID() << " " <<  DstStat->GetID() << " " << Branch << endl;
 }
 void Connector::Draw(Output* pOut) const
 {

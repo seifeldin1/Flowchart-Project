@@ -7,6 +7,7 @@
 #include "Actions/MoveEnd.h"
 #include "Statements/StartStat.h"
 #include "Statements/EndStat.h"
+#include "Statements/ConditionalState.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -126,7 +127,26 @@ void ApplicationManager::LoadAll(ifstream& input)
 		if (type == "AssignStat")
 			pStat = new AssignStat(input);
 		else if (type == "CondStat")
-			pStat
+			pStat = new ConditionalState(input);
+		else if (type == "Start")
+			pStat = new StartStat(input);
+		else if (type == "End")
+			;
+		else if (type == "Read")
+			;
+		else if (type == "Write")
+			;
+	}
+
+	int ID1, ID2, branch;
+	Statement *Src, *Dst;
+	input >> ConnCount;
+	for (int i = 0; i < StatCount; i++)
+	{
+		input >> ID1 >> ID2 >> branch;
+		Src = GetStatement(ID1);
+		Dst = GetStatement(ID2);
+		Connector* pConn = new Connector(Src,Dst,branch);
 	}
 }
 
@@ -172,6 +192,16 @@ Statement *ApplicationManager::GetStatement(Point P) const
 
 	return NULL;
 }
+
+Statement* ApplicationManager::GetStatement(int ID) const
+{
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->GetID() == ID)
+			return StatList[i];
+	}
+	return NULL;
+}
 ////////////////////////////////////////////////////////////////////////////////////
 //Returns the selected statement
 Statement *ApplicationManager::GetSelectedStatement() const
@@ -203,7 +233,7 @@ void ApplicationManager :: RemoveStatementFromList(Statement* pStat) {
 	}
 }
 
-//= ================================================================================ =//
+//====================================================================================//
 //						Connector Management Functions								 //
 //==================================================================================//
 

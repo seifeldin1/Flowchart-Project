@@ -4,15 +4,14 @@
 class StartStat : public Statement
 {
 private:
-	Point LeftCorner;  //top left corner of the statement block
-	
-	Connector* pOutConn; //Start Stat. has one Connector to next statement
 
 	virtual void UpdateStatementText() {};
 
 public:
+
 	//============================ Class functions ============================
 	StartStat(Point Lcorner);
+	StartStat(ifstream& input);
 
 	~StartStat();
 	//============================ Pure Virtual functions ============================

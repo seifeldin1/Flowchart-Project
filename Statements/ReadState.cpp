@@ -1,18 +1,10 @@
 #include "ReadState.h"
 #include "sstream"
 
-ReadState::ReadState(Point Lcorner, string var = "") : Statement(1,true)
+ReadState::ReadState(Point Lcorner, string var = "") : Statement(Lcorner, )
 {
 	Variable = var;
 	UpdateStatementText();
-	pInConn[200] = { NULL }; //no connectors yet going into statement
-	pOutConn = NULL; //no connectors yet going out from statement
-	LeftCorner = Lcorner;
-	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
-	Inlet.y = LeftCorner.y;
-
-	Outlet.x = Inlet.x;
-	Outlet.x = LeftCorner.x + UI.ASSGN_HI;
 }
 void ReadState::SetVariable(string var)
 {

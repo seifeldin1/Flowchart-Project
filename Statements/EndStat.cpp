@@ -1,21 +1,14 @@
 #include "EndStat.h"
 
-EndStat::EndStat(Point Lcorner) : Statement ()
-{
-	Text = "End";
-}
+EndStat::EndStat(Point Lcorner) : Statement (Lcorner, "End")
+{}
 
 void EndStat::UpdateStatementText() {}
 
 Statement* EndStat::Copy() {
-	Statement* copyEnd = new EndStat(Point(0, 0)); // makes a copy of End
+	Statement* copyEnd = new EndStat(Point(0,0)); // makes a copy of End
 	return copyEnd;
 }
-
-//returns Left corner point of statement
-
-
-
 
 //Draws the ellipse with text="End"
 void EndStat::Draw(Output *pOut) const

@@ -14,6 +14,9 @@ ConditionalState::ConditionalState(Point Lcorner, string lhs = "", string rhs = 
 	Nconn = NULL;
 }
 
+ConditionalState::ConditionalState(ifstream& input) : Statement(input)
+{}
+
 Statement* ConditionalState::Copy()
 {
 	Statement* copyConditional = new ConditionalState(Point(0, 0), ((ConditionalState*)this)->LHS, ((ConditionalState*)this)->RHS, ((ConditionalState*)this)->Operator);

@@ -3,6 +3,9 @@
 StartStat::StartStat(Point Lcorner) : Statement (Lcorner,"Start")
 {}
 
+StartStat::StartStat(ifstream& input): Statement (input)
+{}
+
 Statement* StartStat::Copy() 
 {
 	Statement* copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
@@ -15,6 +18,16 @@ void StartStat::Draw(Output* pOut) const
 {
 	//Call Output::DrawEllipse function to draw Start statement
 	pOut->DrawEllipse(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
+}
+
+void StartStat::Save(ofstream& OutFile)
+{
+	OutFile << "Start" << LeftCorner.x << LeftCorner.y << endl;
+}
+
+void StartStat::Load(ifstream& InFile)
+{
+	InFile >> LeftCorner.x >> LeftCorner.y;
 }
 
 //Checks if Start Statement has been clicked on

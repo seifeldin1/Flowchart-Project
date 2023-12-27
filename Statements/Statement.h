@@ -54,7 +54,8 @@ public:
 	//============================ Class functions ============================
 	Statement(Point Lcorner, string text = "");
 	Statement(ifstream& input);
-	void Move(Point Lcorner);
+
+	void Move(Point Lcorner);							//moves the statement to point
 	void SetSelected(bool s);							//sets if statement is selected or not
 	bool IsSelected() const;							//returns true if statement is selected
 	int GetID();										//returns ID of each unique statement
