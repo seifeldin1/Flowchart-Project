@@ -13,6 +13,8 @@ private:
 public:
 	//============================ Class functions ============================
 	WriteState(Point Lcorner, string var = "");
+	WriteState(ifstream& input);
+
 	void SetVariable(string var);
 
 	~WriteState();
