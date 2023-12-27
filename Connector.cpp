@@ -43,9 +43,34 @@ void Connector::Save(ofstream& Output)
 {
 	Output << SrcStat->GetID() << " " <<  DstStat->GetID() << " " << Branch << endl;
 }
-void Connector::Draw(Output* pOut) const
+
+void Connector::CalcStartnEnd()
 {
-	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window
+	Point SrcP = SrcStat->GetLcorner();
+	Point DstP = DstStat->GetLcorner();
+	int Ydiff = DstP.y - SrcP.y;
+	int Xdiff = DstP.x - SrcP.x;
+	if (Ydiff > 0)
+	{
+		if (Xdiff > 40)
+		{
+			Start = SrcP;
+		}
+		else if(Xdiff < -40)
+		{
+
+		}
+	}
+	else if (Ydiff > 0)
+	{
+
+	}
+	else if (Ydiff == 0)
+}
+
+void Connector::Draw(Output* pOut)
+{
+	CalcStartnEnd();
 	pOut->DrawConnector(Start, End);
 }
 

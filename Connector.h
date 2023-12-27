@@ -24,6 +24,8 @@ public:
 	void		setDstStat(Statement *Dst);
 	Statement*	getDstStat();
 
+	void CalcStartnEnd();
+
 	void setStartPoint(Point P);
 	Point getStartPoint();
 
@@ -32,7 +34,7 @@ public:
 
 	void Save(ofstream &Output);
 
-	void Draw(Output* pOut) const;
+	void Draw(Output* pOut);
 };
 
 #endif

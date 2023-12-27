@@ -5,8 +5,6 @@ ReadState::ReadState(Point Lcorner, string var = "") : Statement(Lcorner, Text)
 {
 	Variable = var;
 	UpdateStatementText();
-	pOutConn = NULL; //no connectors yet going out from statement
-	LeftCorner = Lcorner;
 }
 
 ReadState::ReadState(ifstream& input) : Statement (input)
