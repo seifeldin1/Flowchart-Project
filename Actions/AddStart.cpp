@@ -10,7 +10,8 @@ void AddStart::Execute() {
 	ReadActionParameters();
 	Input* pIn = pManager->GetInput();
 	pIn->GetPointClicked(P);
-	if (/*P.y <= UI.height - /*num*/ /* && P.y >= UI.*/) {
+	if (/*P.y <= UI.height - /*num*/ /* && P.y >= UI.*/) 
+	{
 
 	}
 	else {

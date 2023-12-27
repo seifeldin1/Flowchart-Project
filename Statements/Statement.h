@@ -52,7 +52,7 @@ public:
 	///TODO: Add more functions if needed
 
 	//============================ Class functions ============================
-	Statement(Point Lcorner, string text = "");
+	Statement(Point Lcorner, string text);
 	Statement(ifstream& input);
 
 	void Move(Point Lcorner);							//moves the statement to point

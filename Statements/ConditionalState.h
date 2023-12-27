@@ -15,7 +15,7 @@ private:
 public:
 
 	//============================ Class functions ============================
-	ConditionalState(Point Lcorner, string LeftHS = "", string RightHS = "", string comparisonOP = "");
+	ConditionalState(Point Lcorner, string LeftHS, string RightHS, string comparisonOP);
 	ConditionalState(ifstream& input);
 
 	void setLHS(string L);

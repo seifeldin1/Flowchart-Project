@@ -40,9 +40,8 @@ void ReadState::Draw(Output* pOut) const
 }
 
 void ReadState::Simulate()
-{
+{}
 
-}
 void ReadState::Save(ofstream& OutFile)
 {
 	OutFile << "Read" << " " << ID << " " << Variable << " " << LeftCorner.x << " " << LeftCorner.y << endl;
