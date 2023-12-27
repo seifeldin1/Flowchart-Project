@@ -16,5 +16,5 @@ void MoveEnd::ReadActionParameters()
 void MoveEnd::Execute()
 {
 	ReadActionParameters();
-	pManager->MoveEnd(Lcorner);
+	pManager->MoveEn(Lcorner);
 }

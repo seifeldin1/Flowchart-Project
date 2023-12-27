@@ -15,5 +15,5 @@ void MoveStart::ReadActionParameters()
 void MoveStart::Execute()
 {
 	ReadActionParameters();
-	pManager->MoveStart(Lcorner);
+	pManager->MoveSt(Lcorner);
 }

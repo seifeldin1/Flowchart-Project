@@ -47,7 +47,7 @@ public:
 
 	//virtual void Edit() = 0;		//Edit the Statement parameter
 
-	virtual void Simulate()=0;	//Execute the statement in the simulation mode
+	virtual void Simulate() {};	//Execute the statement in the simulation mode
 
 	//[BONUS] virtual void GenerateCode(ofstream &OutFile) = 0;	//write the statement code to a file
 

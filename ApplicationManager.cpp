@@ -1,5 +1,5 @@
 #include "ApplicationManager.h"
-#include "Actions/AddValueAssign.h"
+#include "Actions/AddAssign.h"
 #include "Actions/Save.h"
 #include "Actions/Copy.h"
 #include "Actions/Load.h"
@@ -246,6 +246,8 @@ Output *ApplicationManager::GetOutput() const
 	5 -- > Rhombus
 */
 
+/*
+
 bool ApplicationManager::CheckStartEnd()
 {
 	int StartCount = 0, EndCount = 0;
@@ -368,6 +370,7 @@ void ApplicationManager::RunFlow()
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }
+*/
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
