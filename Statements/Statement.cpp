@@ -41,7 +41,7 @@ Point Statement::GetLcorner() const
 	return LeftCorner;
 }
 
-Connector* Statement::GetOutConnector() const
+Connector* Statement::GetOutConnector(int) const
 {
 	return StandardConn;
 }

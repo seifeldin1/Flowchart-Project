@@ -81,7 +81,7 @@ public:
 
 
 	// Seif Funcs
-	bool CheckStartEnd();
+	bool CheckNumConn();
 	bool CheckVariableInit();
 	bool CheckConnections();
 	void RunFlow();
