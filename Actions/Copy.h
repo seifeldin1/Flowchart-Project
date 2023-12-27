@@ -1,18 +1,40 @@
 #pragma once
 #include "Action.h"
-template<typename T>
+
 class Copy :public Action
 {
-	
-	T copy;
-	T *original=NULL;
-	ApplicationManager* pManager;
+
+	Statement* copy;
+	Statement* original = NULL;
+	Statement* clipboard;
+
 public:
-	
-	Copy(ApplicationManager*pManager);
+
+	Copy(ApplicationManager* pManager);
 	//Copy(const Copy& c) : clipboard(c.clipboard);
 
 	void ReadActionParameters();
 	void Execute();
+
+};
+
+#pragma once
+#include "Action.h"
+
+class Copy :public Action
+{
+
+	Statement* copy;
+	Statement* original = NULL;
+	Statement* clipboard;
+
+public:
+
+	Copy(ApplicationManager* pManager);
+	//Copy(const Copy& c) : clipboard(c.clipboard);
+
+	void ReadActionParameters();
+	void Execute();
+
 };
 
