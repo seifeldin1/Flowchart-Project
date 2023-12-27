@@ -22,7 +22,7 @@ void Paste::SetDrawingPoint(Point P) {
 		pOut->PrintMessage("only one end is allowed to be in project");
 
 	}
-	else if (dynamic_cast<Start*>(pManager->GetClipboard())) {
+	else if (dynamic_cast<StartStat*>(pManager->GetClipboard())) {
 		Output* pOut;
 		pOut->PrintMessage("only one end is allowed to be in project");
 	}
