@@ -17,12 +17,6 @@ ConditionalState::ConditionalState(Point Lcorner, string lhs = "", string rhs = 
 ConditionalState::ConditionalState(ifstream& input) : Statement(input)
 {}
 
-Statement* ConditionalState::Copy()
-{
-	Statement* copyConditional = new ConditionalState(Point(0, 0), ((ConditionalState*)this)->LHS, ((ConditionalState*)this)->RHS, ((ConditionalState*)this)->Operator);
-	return copyConditional;
-}
-
 //sets left hand side
 void ConditionalState::setLHS(string L)
 {
@@ -51,14 +45,14 @@ void ConditionalState::UpdateStatementText()
 }
 
 //Draw the rectangle with text LHS Comp_Operator RHS
-void ConditionalState::Draw(Output* pOut)
+void ConditionalState::Draw(Output* pOut) const
 {
 	//Call Output::DrawRhombus function to draw assignment statement 	
 	pOut->DrawRhombus(LeftCorner, UI.COND_WDTH, UI.COND_HI, Text, Selected);
 }
 
 //Checks if Conditional Statement has been clicked on
-bool ConditionalState::IsPointClicked(Point P)
+bool ConditionalState::IsPointClicked(Point P) const
 {
 	if ((P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.COND_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.COND_HI))
 		return true;
@@ -82,22 +76,6 @@ Connector* ConditionalState::GetOutConnector(int branch)
 		return Yconn;
 	else if (branch == 2)
 		return Nconn;
-}
-
-void ConditionalState::Save(ofstream& OutFile)
-{
-	OutFile << "CondStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << Operator << " " << RHS << endl;
-}
-
-void ConditionalState::Load(ifstream& Infile)
-{
-	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> Operator >> RHS;
-	UpdateStatementText();
-}
-
-void ConditionalState::GenerateCode(ofstream& OutFile)
-{
-	OutFile << "if (" << LHS << " " << Operator << " " << RHS << ")";
 }
 
 void ConditionalState::Simulate(ApplicationManager* pManager)
@@ -163,22 +141,27 @@ void ConditionalState::Simulate(ApplicationManager* pManager)
 		return;
 	}
 }
-/*
-string ConditionalState::GetOperator()
-{
-	if (Operator == ">")
-		return "GREATER";
-	else if (Operator == "<")
-		return "SMALLER";
-	else if (Operator == ">=")
-		return "GREATER_E";
-	else if (Operator == "<=")
-		return "SMALLER_E";
-	else if (Operator == "!=")
-		return "NOT_E";
-}		
-*/
 
-ConditionalState::~ConditionalState()
+void ConditionalState::Save(ofstream& OutFile)
 {
+	OutFile << "CondStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << Operator << " " << RHS << endl;
 }
+
+void ConditionalState::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> Operator >> RHS;
+	UpdateStatementText();
+}
+
+Statement* ConditionalState::Copy()
+{
+	Statement* copyConditional = new ConditionalState(Point(0, 0), ((ConditionalState*)this)->LHS, ((ConditionalState*)this)->RHS, ((ConditionalState*)this)->Operator);
+	return copyConditional;
+}
+
+void ConditionalState::GenerateCode(ofstream& OutFile)
+{
+	OutFile << "if (" << LHS << " " << Operator << " " << RHS << ")";
+}
+
+ConditionalState::~ConditionalState() {}

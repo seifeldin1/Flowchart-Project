@@ -62,18 +62,18 @@ public:
 	Point GetLcorner() const;							//returns top left corner point of statement
 	StatementType GetType();
 	//these 2 are virtual because of condition statement
-	virtual Connector* GetOutConnector(int=0) const;			//returns a connector coming out of statement
+	virtual Connector* GetOutConnector(int=0) const;	//returns a connector coming out of statement
 	virtual void SetOutConnector(Connector* outcon);	//sets a connector coming out of statement
 
 	~Statement();
 	//============================ Pure Virtual functions ============================
-	virtual void Draw(Output* pOut) const = 0;			//Draws the statement
-	virtual bool IsPointClicked(Point P) const = 0;		//returns true if statement has been clicked on
-	virtual void Simulate(ApplicationManager* pManager) = 0;						//Execute the statement in the simulation mode
-	virtual void Save(ofstream& OutFile) = 0;			//Save the Statement parameters to a file
-	virtual void Load(ifstream& Infile) = 0;			//Load the Statement parameters from a file
-	virtual Statement* Copy() = 0;						//copy statement and return a pointer of type statement	
-	//virtual void GenerateCode(ofstream& OutFile) = 0;	//generates code
+	virtual void Draw(Output* pOut) const = 0;					//Draws the statement
+	virtual bool IsPointClicked(Point P) const = 0;				//returns true if statement has been clicked on
+	virtual void Simulate(ApplicationManager* pManager) = 0;	//Execute the statement in the simulation mode
+	virtual void Save(ofstream& OutFile) = 0;					//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile) = 0;					//Load the Statement parameters from a file
+	virtual Statement* Copy() = 0;								//copy statement and return a pointer of type statement	
+	//virtual void GenerateCode(ofstream& OutFile) = 0;			//generates code
 
 };
 
