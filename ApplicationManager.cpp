@@ -434,27 +434,27 @@ void ApplicationManager::RunFlow()
 
 void ApplicationManager::AddIntVariable(string x, double a)
 {
-	bool found = true;
+	bool notfound = true;
 	if (IntVariableCount < MaxCount)
 	{
 		for (int i = 0; i < IntVariableCount; i++)
 		{
 			if (IntVariables[i] == x)
-				found = false;
+				notfound = false;
 		}
 	}
-	if (found == true)
+	if (notfound == true)
 	{
 		IntVariables[IntVariableCount] = x;
-		IntVariableValues[IntVariableCount] = a;
+		IntVariablesValue[IntVariableCount] = a;
 		IntVariableCount++;
 	}
-	if (found == false)
+	if (notfound == false)
 	{
 		for (int i = 0; i < IntVariableCount; i++)
 		{
 			if (IntVariables[i] == x)
-				IntVariableValues[i] = a;
+				IntVariablesValue[i] = a;
 		}
 	}
 }
@@ -476,7 +476,7 @@ double ApplicationManager::ReturnValue(string x)
 	{
 		if (IntVariables[i] == x)
 		{
-			return IntVariableValues[i];
+			return IntVariablesValue[i];
 		}
 	}
 	return 0.0;

@@ -2,6 +2,7 @@
 #define VALUE_ASSIGN_H
 
 #include "Statement.h"
+#include "../ApplicationManager.h"
 
 enum Assigntype;
 //Value Assignment statement class
@@ -11,7 +12,9 @@ class AssignStat : public Statement
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	string RHS;	//Right Handside
-
+	string RLHS;
+	string Oper;
+	string RRHS;
 	Assigntype type;		//differentiates between assignemnt types
 
 	Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
@@ -28,7 +31,7 @@ private:
 public:
 
 	//============================ Class functions ============================
-	AssignStat(Point Lcorner, string LeftHS, string RightHS);
+	AssignStat(Point Lcorner, string LeftHS, string RightHS, string RightLeftHS, string Op, string RightestHS);
 	AssignStat(ifstream& input);
 
 	void setLHS(string L);							//Sets the left hand side

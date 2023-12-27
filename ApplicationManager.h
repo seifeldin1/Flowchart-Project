@@ -32,7 +32,7 @@ private:
 
 	int IntVariableCount;
 	string* IntVariables;
-	int IntVariablesValue[200];
+	double IntVariablesValue[200];
 
 public:	
 	ApplicationManager(); 

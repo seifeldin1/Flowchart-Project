@@ -1,13 +1,15 @@
 #include "AssignStat.h"
 #include <sstream>
 
-AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS ) : Statement(Lcorner, LeftHS + " = " + RightHS)
+AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS, string RightLeftHS , string Op = NULL, string RightestHS = NULL ) : Statement(Lcorner, LeftHS + " = " + RightHS)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	// before passing it to the constructor of AssignStat
 	LHS = LeftHS;
 	RHS = RightHS;
-
+	Oper = Op;
+	RLHS = RightLeftHS;
+	RRHS = RightestHS;
 	UpdateStatementText();
 }
 
@@ -99,6 +101,23 @@ void AssignStat::Simulate(ApplicationManager* pManager)
 		pManager->AddIntVariable(LHS, stod(RHS));
 		break;
 	case Operator:
+		double temp1, temp2;
+		if (IsValue(RLHS))
+			temp1 = stod(RLHS);
+		else
+			temp1 = pManager->ReturnValue(RLHS);
+		if (IsValue(RRHS))
+			temp2 = stod(RRHS);
+		else
+			temp2 = pManager->ReturnValue(RLHS);
+		if (Oper == "+")
+			pManager->AddIntVariable(LHS, temp1 + temp2);
+		else if (Oper == "-")
+			pManager->AddIntVariable(LHS, temp1 - temp2);
+		else if (Oper == "*")
+			pManager->AddIntVariable(LHS, temp1 * temp2);
+		else if (Oper == "/")
+			pManager->AddIntVariable(LHS, temp1 / temp2);
 		break;
 	}
 }
