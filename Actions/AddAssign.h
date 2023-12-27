@@ -21,6 +21,9 @@ private:
 	//TODO: you should add LHS and RHS of the assignment statement as parameters
 	string LHS;
 	string RHS;
+	string RLHS;
+	string Operator;
+	string RRHS;
 	int Type;
 
 public:

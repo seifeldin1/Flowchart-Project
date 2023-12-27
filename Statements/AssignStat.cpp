@@ -1,13 +1,15 @@
 #include "AssignStat.h"
 #include <sstream>
 
-AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS) : Statement(Lcorner, LeftHS + " = " + RightHS)
+AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS, string RightLeftHS , string Op = NULL, string RightestHS = NULL ) : Statement(Lcorner, LeftHS + " = " + RightHS)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	// before passing it to the constructor of AssignStat
 	LHS = LeftHS;
 	RHS = RightHS;
-
+	Oper = Op;
+	RLHS = RightLeftHS;
+	RRHS = RightestHS;
 	UpdateStatementText();
 }
 
@@ -77,7 +79,7 @@ void AssignStat::Load(ifstream& Infile)
 }
 
 Statement* AssignStat::Copy() {
-	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS);
+	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS, ((AssignStat*)this)->RLHS, ((AssignStat*)this)->Oper, ((AssignStat*)this)->RRHS);
 	return copyAssign;
 }
 
@@ -86,14 +88,38 @@ void AssignStat::GenerateCode(ofstream& OutFile)
 	OutFile << LHS << " = " << RHS << endl;
 }
 
-AssignStat::~AssignStat()
+void AssignStat::Simulate(ApplicationManager* pManager)
 {
-	/*
-	for (int i = 0; i < ValueAssInConnCount; i++)
+	double temp;
+	switch (type)
 	{
-		delete pInConn[i];
-		ValueAssInConnCount--;
+	case Variable:
+		temp = pManager->ReturnValue(RHS);
+		pManager->AddIntVariable(LHS, temp);
+		break;
+	case Value:
+		pManager->AddIntVariable(LHS, stod(RHS));
+		break;
+	case Operator:
+		double temp1, temp2;
+		if (IsValue(RLHS))
+			temp1 = stod(RLHS);
+		else
+			temp1 = pManager->ReturnValue(RLHS);
+		if (IsValue(RRHS))
+			temp2 = stod(RRHS);
+		else
+			temp2 = pManager->ReturnValue(RLHS);
+		if (Oper == "+")
+			pManager->AddIntVariable(LHS, temp1 + temp2);
+		else if (Oper == "-")
+			pManager->AddIntVariable(LHS, temp1 - temp2);
+		else if (Oper == "*")
+			pManager->AddIntVariable(LHS, temp1 * temp2);
+		else if (Oper == "/")
+			pManager->AddIntVariable(LHS, temp1 / temp2);
+		break;
 	}
-	delete pOutConn;
-	*/
 }
+AssignStat::~AssignStat()
+{}

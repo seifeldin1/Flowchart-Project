@@ -5,7 +5,7 @@
 //class Output;
 #include "..\GUI\Output.h"
 #include "..\Connector.h"
-
+#include "..\ApplicationManager.h"
 
 //Base class for all Statements
 class Statement
@@ -20,6 +20,7 @@ protected:
 	string Text;		//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;		//true if the statement is selected on the flowchart
 	Connector* StandardConn;
+	StatementType Type;
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -59,16 +60,16 @@ public:
 	int GetID();										//returns ID of each unique statement
 	string GetText();									//returns text inside the statement
 	Point GetLcorner() const;							//returns top left corner point of statement
-
+	StatementType GetType();
 	//these 2 are virtual because of condition statement
-	virtual Connector* GetOutConnector() const;			//returns a connector coming out of statement
+	virtual Connector* GetOutConnector(int=0) const;			//returns a connector coming out of statement
 	virtual void SetOutConnector(Connector* outcon);	//sets a connector coming out of statement
 
 	~Statement();
 	//============================ Pure Virtual functions ============================
 	virtual void Draw(Output* pOut) const = 0;			//Draws the statement
 	virtual bool IsPointClicked(Point P) const = 0;		//returns true if statement has been clicked on
-	virtual void Simulate() = 0;						//Execute the statement in the simulation mode
+	virtual void Simulate(ApplicationManager* pManager) = 0;						//Execute the statement in the simulation mode
 	virtual void Save(ofstream& OutFile) = 0;			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile) = 0;			//Load the Statement parameters from a file
 	virtual Statement* Copy() = 0;						//copy statement and return a pointer of type statement	

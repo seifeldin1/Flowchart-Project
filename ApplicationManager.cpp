@@ -335,14 +335,6 @@ Output *ApplicationManager::GetOutput() const
 
 ///////////////////////////////////////////////////////// Seif Functions //////////////////////////////////////////////////////////////////////
 
-/*
-	0 -- > Start
-	1 -- > End
-	2 -- > Assign Value
-	3 -- > Read Parallelogram
-	4 -- > Write Parallelogram 
-	5 -- > Rhombus
-*/
 
 bool ApplicationManager::CheckConnections()
 {
@@ -350,61 +342,11 @@ bool ApplicationManager::CheckConnections()
 }
 
 
-bool ApplicationManager::CheckVariableInit()
-{
-	int VarCount = 0;
-
-	// Count The Number Of Variables
-
-	for (int i = 0; i < StatCount; i++)
-	{
-		if (StatList[i]->ReturnStatType() == 2 || StatList[i]->ReturnStatType() == 3)
-		{
-			VarCount++;
-		}
-	}
-
-	int *VarIndex = new int [VarCount];
-	string *VarText = new string[VarCount];
-	int ArrayCount = 0;
-
-	// Store Variables In Array
-
-	for (int j = 0; j < StatCount; j++)
-	{
-		if (StatList[j]->ReturnStatType() == 2 || StatList[j]->ReturnStatType() == 3)
-		{
-			VarIndex[ArrayCount] = j;
-			VarText[ArrayCount] = StatList[j]->ReturnVariable();
-			ArrayCount++;
-		}
-	}
-
-	// check if the Variable is Initialized before being Used
-
-	for (int k = 0; k < StatCount; k++)
-	{
-		for (int l = 0; l < ArrayCount; l++)
-		{
-			if (StatList[k]->ReturnVariable() == VarText[l] && k < VarIndex[l])
-			{
-				delete []VarIndex;
-				delete []VarText;
-				return false;
-			}
-		}
-	}
-
-	delete []VarIndex;
-	delete []VarText;
-	return true;
-}
-
 bool ApplicationManager::CheckNumConn()
 {
 	for (int i = 0; i < StatCount; i++)
 	{
-		if (StatList[j]->ReturnStatType() == 5 && StatList[j]->GetConnOutCount() != 2)
+		if (dynamic_cast<ConditionalState*>(StatList[i]) != NULL && (StatList[i]->GetOutConnector(1) == NULL || StatList[i]->GetOutConnector(2) == NULL))
 			return false;
 	}
 	return true;
@@ -426,12 +368,61 @@ void ApplicationManager::RunFlow()
 
 	while (pStat->GetOutConnector() != NULL)
 	{
-		pStat->Simulate();
+		pStat->Simulate(this);
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
+void ApplicationManager::AddIntVariable(string x, double a)
+{
+	bool notfound = true;
+	if (IntVariableCount < MaxCount)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				notfound = false;
+		}
+	}
+	if (notfound == true)
+	{
+		IntVariables[IntVariableCount] = x;
+		IntVariablesValue[IntVariableCount] = a;
+		IntVariableCount++;
+	}
+	if (notfound == false)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				IntVariablesValue[i] = a;
+		}
+	}
+}
+string* ApplicationManager::GetIntVariable()
+{
+	return IntVariables;
+}
+
+
+
+int ApplicationManager::GetIntVariableCount()
+{
+	return IntVariableCount;
+}
+
+double ApplicationManager::ReturnValue(string x)
+{
+	for (int i = 0; i < IntVariableCount; i++)
+	{
+		if (IntVariables[i] == x)
+		{
+			return IntVariablesValue[i];
+		}
+	}
+	return 0.0;
+}
 
 
 //Destructor

@@ -41,7 +41,7 @@ Point Statement::GetLcorner() const
 	return LeftCorner;
 }
 
-Connector* Statement::GetOutConnector() const
+Connector* Statement::GetOutConnector(int) const
 {
 	return StandardConn;
 }
@@ -50,7 +50,9 @@ void Statement::SetOutConnector(Connector* outcon)
 {
 	StandardConn = outcon;
 }
-
+StatementType Statement::GetType() {
+	return Type;
+}
 /*
 string Statement::ReturnVariable()
 {

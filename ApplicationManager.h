@@ -30,6 +30,10 @@ private:
 	Input *pIn;
 	Output *pOut;
 
+	int IntVariableCount;
+	string* IntVariables;
+	double IntVariablesValue[200];
+
 public:	
 	ApplicationManager(); 
 	~ApplicationManager();
@@ -77,10 +81,15 @@ public:
 
 
 	// Seif Funcs
-	bool CheckStartEnd();
+	bool CheckNumConn();
 	bool CheckVariableInit();
 	bool CheckConnections();
 	void RunFlow();
+	double ReturnValue(string x);
+	int GetIntVariableCount();
+	string* GetIntVariable();
+	void AddIntVariable(string x, double a);
+
 };
 
 #endif
