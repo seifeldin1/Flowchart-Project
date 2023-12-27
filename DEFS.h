@@ -80,7 +80,7 @@ enum DesignMenuItem //The items of the design menu --> THE ORDER MATTERS
 enum SimMenuItem //The items of the simulation menu
 {
 	//Note: Items are ordered here as they appear in menu
-	ITM_VALIDATE,		//Validate
+	ITM_VALIDATE,		//Valid
 	ITM_RUN,			//Run
 	ITM_DESIGN_SWITCH,	//Switches to design mode
 	

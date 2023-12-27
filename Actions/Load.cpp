@@ -14,11 +14,13 @@ void Load::ReadActionParameters()
 void Load::Execute()
 {
 	ReadActionParameters();
+	Output* pOut = pManager->GetOutput();
 
 	ifstream input;
 	input.open(Filename, ios::in);
 
 	pManager->LoadAll(input);
 
+	pOut->PrintMessage("Loading successful!");
 	input.close();
 }

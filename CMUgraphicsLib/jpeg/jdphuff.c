@@ -99,7 +99,7 @@ start_pass_phuff_decoder (j_decompress_ptr cinfo)
 
   is_DC_band = (cinfo->Ss == 0);
 
-  /* Validate scan parameters */
+  /* Valid scan parameters */
   bad = FALSE;
   if (is_DC_band) {
     if (cinfo->Se != 0)

@@ -1,15 +1,15 @@
-#include "Validate.h"
+#include "Valid.h"
 
-Validate(ApplicationManager* pAppManager) : Action(pAppManager)
+Valid::Valid(ApplicationManager* pAppManager): Action (pAppManager)
 {}
 
-void Validate::ReadActionParameters()
+void Valid::ReadActionParameters()
 {
 	Output* pOut = pManager->GetOutput();
 	pOut->PrintMessage("Validate : Checking the FlowChart");
-
 }
-void Validate::Execute()
+
+void Valid::Execute()
 {
 	ReadActionParameters();
 
@@ -45,7 +45,6 @@ void Validate::Execute()
 
 	Validate_Status = true;
 }
-bool Validate::IsValidated()
-{
-	return Validate_Status;
-}
+
+
+

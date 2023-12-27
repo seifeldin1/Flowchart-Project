@@ -16,11 +16,13 @@ void Save::ReadActionParameters()
 void Save::Execute()
 {
 	ReadActionParameters();
+	Output* pOut = pManager->GetOutput();
 
 	ofstream Output;
 	Output.open(Filename, ios::trunc | ios::out);
 	
 	pManager->SaveAll(Output);
 
+	pOut->PrintMessage("Saving successful!");
 	Output.close();
 }

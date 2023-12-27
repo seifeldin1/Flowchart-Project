@@ -9,10 +9,6 @@ AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS) : Statement
 	RHS = RightHS;
 
 	UpdateStatementText();
-
-	LeftCorner = Lcorner;
-
-	pOutConn = NULL;	//No connectors yet
 }
 
 AssignStat::AssignStat(ifstream& input):Statement(input)

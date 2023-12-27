@@ -8,6 +8,8 @@
 #include "Statements/StartStat.h"
 #include "Statements/EndStat.h"
 #include "Statements/ConditionalState.h"
+#include "Statements/ReadState.h"
+#include "Statements/WriteState.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -118,10 +120,22 @@ void ApplicationManager::SaveAll(ofstream& Output)
 
 void ApplicationManager::LoadAll(ifstream& input)
 {
+	for (int i = 0; i < StatCount; i++)
+	{
+		StatList[i] = NULL;
+	}
+
+	for (int i = 0; i < ConnCount; i++)
+	{
+		StatList[i] = NULL;
+	}
+	pOut->ClearDrawArea();
+	StatCount = 0; ConnCount = 0;
 	string type="";
 	Statement* pStat;
-	input >> StatCount;
-	for (int i = 0; i < StatCount; i++)
+	int StatementCount, ConnectorCount;
+	input >> StatementCount;
+	for (int i = 0; i < StatementCount; i++)
 	{
 		input >> type;
 		if (type == "AssignStat")
@@ -131,16 +145,16 @@ void ApplicationManager::LoadAll(ifstream& input)
 		else if (type == "Start")
 			pStat = new StartStat(input);
 		else if (type == "End")
-			;
+			pStat = new EndStat(input);
 		else if (type == "Read")
-			;
+			pStat = new ReadState(input);
 		else if (type == "Write")
-			;
+			pStat = new WriteState(input);
 	}
 
 	int ID1, ID2, branch;
 	Statement *Src, *Dst;
-	input >> ConnCount;
+	input >> ConnectorCount;
 	for (int i = 0; i < StatCount; i++)
 	{
 		input >> ID1 >> ID2 >> branch;
@@ -331,7 +345,6 @@ Output *ApplicationManager::GetOutput() const
 */
 
 /*
-
 bool ApplicationManager::CheckStartEnd()
 {
 	int StartCount = 0, EndCount = 0;

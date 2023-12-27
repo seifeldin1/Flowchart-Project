@@ -13,6 +13,11 @@ Statement* EndStat::Copy() {
 	return copyEnd;
 }
 
+void EndStat::GenerateCode(ofstream& OutFile)
+{
+
+}
+
 //Draws the ellipse with text="End"
 void EndStat::Draw(Output *pOut) const
 {

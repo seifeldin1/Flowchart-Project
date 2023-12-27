@@ -139,12 +139,6 @@
     <ClCompile Include="CMUgraphicsLib\colors.cpp">
       <Filter>CMUgraphicsLib</Filter>
     </ClCompile>
-    <ClCompile Include="Statements\ValueAssign.cpp">
-      <Filter>Statements</Filter>
-    </ClCompile>
-    <ClCompile Include="Actions\AddValueAssign.cpp">
-      <Filter>Action Classes</Filter>
-    </ClCompile>
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="GUI\Input.cpp">
       <Filter>GUI Classes</Filter>
@@ -165,15 +159,8 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Statements\Conditional.cpp" />
-    <ClCompile Include="Paste.cpp" />
-    <ClCompile Include="Statements\EndState.cpp">
-      <Filter>Statements</Filter>
-    </ClCompile>
     <ClCompile Include="Actions\AddEnd.cpp">
       <Filter>Action Classes</Filter>
-    </ClCompile>
-    <ClCompile Include="Statements\StartState.cpp">
-      <Filter>Statements</Filter>
     </ClCompile>
     <ClCompile Include="Statements\WriteState.cpp">
       <Filter>Statements</Filter>
@@ -181,15 +168,24 @@
     <ClCompile Include="Statements\ConditionalState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
-    <ClCompile Include="Statements\VariableAssign.cpp">
-      <Filter>Statements</Filter>
-    </ClCompile>
-    <ClCompile Include="Statements\OperatorAssign.cpp">
-      <Filter>Statements</Filter>
-    </ClCompile>
     <ClCompile Include="Statements\ReadState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\AddRead.cpp" />
+    <ClCompile Include="Actions\AddStart.cpp" />
+    <ClCompile Include="Actions\AddAssign.cpp" />
+    <ClCompile Include="Actions\MoveStart.cpp" />
+    <ClCompile Include="Actions\MoveEnd.cpp" />
+    <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Delete.cpp" />
+    <ClCompile Include="Actions\Redo.cpp" />
+    <ClCompile Include="Actions\Exit.cpp" />
+    <ClCompile Include="Statements\EndStat.cpp" />
+    <ClCompile Include="Statements\StartStat.cpp" />
+    <ClCompile Include="Statements\AssignStat.cpp" />
+    <ClCompile Include="Actions\Undo.cpp" />
+    <ClCompile Include="Actions\SwitchTSM.cpp" />
+    <ClCompile Include="Actions\Valid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -261,12 +257,6 @@
     <ClInclude Include="Statements\Statement.h">
       <Filter>Statements</Filter>
     </ClInclude>
-    <ClInclude Include="Statements\ValueAssign.h">
-      <Filter>Statements</Filter>
-    </ClInclude>
-    <ClInclude Include="Actions\AddValueAssign.h">
-      <Filter>Action Classes</Filter>
-    </ClInclude>
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="HelperFn.h" />
     <ClInclude Include="GUI\Input.h">
@@ -291,15 +281,8 @@
       <Filter>Action Classes</Filter>
     </ClInclude>
     <ClInclude Include="Statements\Conditional.h" />
-    <ClInclude Include="Paste.h" />
-    <ClInclude Include="Statements\EndState.h">
-      <Filter>Statements</Filter>
-    </ClInclude>
     <ClInclude Include="Actions\AddEnd.h">
       <Filter>Action Classes</Filter>
-    </ClInclude>
-    <ClInclude Include="Statements\StartState.h">
-      <Filter>Statements</Filter>
     </ClInclude>
     <ClInclude Include="Statements\WriteState.h">
       <Filter>Statements</Filter>
@@ -307,15 +290,24 @@
     <ClInclude Include="Statements\ConditionalState.h">
       <Filter>Statements</Filter>
     </ClInclude>
-    <ClInclude Include="Statements\VariableAssign.h">
-      <Filter>Statements</Filter>
-    </ClInclude>
-    <ClInclude Include="Statements\OperatorAssign.h">
-      <Filter>Statements</Filter>
-    </ClInclude>
     <ClInclude Include="Statements\ReadState.h">
       <Filter>Statements</Filter>
     </ClInclude>
+    <ClInclude Include="Actions\AddRead.h" />
+    <ClInclude Include="Actions\AddStart.h" />
+    <ClInclude Include="Actions\AddAssign.h" />
+    <ClInclude Include="Actions\MoveStart.h" />
+    <ClInclude Include="Actions\MoveEnd.h" />
+    <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Delete.h" />
+    <ClInclude Include="Actions\Redo.h" />
+    <ClInclude Include="Actions\Exit.h" />
+    <ClInclude Include="Statements\EndStat.h" />
+    <ClInclude Include="Statements\StartStat.h" />
+    <ClInclude Include="Statements\AssignStat.h" />
+    <ClInclude Include="Actions\Undo.h" />
+    <ClInclude Include="Actions\SwitchTSM.h" />
+    <ClInclude Include="Actions\Valid.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
