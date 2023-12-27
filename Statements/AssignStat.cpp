@@ -1,6 +1,8 @@
 #include "AssignStat.h"
 #include <sstream>
 
+#include "ConditionalState.h"
+
 AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS ) : Statement(Lcorner, LeftHS + " = " + RightHS)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action

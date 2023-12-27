@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actions\AddCond.cpp" />
+    <ClCompile Include="Actions\AddWrite.cpp" />
     <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="Actions\AddRead.cpp" />
@@ -304,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\AddCond.h" />
+    <ClInclude Include="Actions\AddWrite.h" />
     <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="Actions\AddRead.h" />
