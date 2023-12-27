@@ -1,14 +1,14 @@
 #pragma once
 #include "Action.h"
-
-class Copy :public Action
+class SwitchTSM :
+    public Action
 {
 
 public:
 
-	Copy(ApplicationManager* pManager);
+	SwitchTSM(ApplicationManager* pManager);
 
 	void ReadActionParameters();
 	void Execute();
-
 };
+

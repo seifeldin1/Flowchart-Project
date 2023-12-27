@@ -1,14 +1,12 @@
 #pragma once
 #include "Action.h"
-
-class Copy :public Action
+class Exit :
+    public Action
 {
-
 public:
-
-	Copy(ApplicationManager* pManager);
+	Exit(ApplicationManager* pManager);
 
 	void ReadActionParameters();
 	void Execute();
-
 };
+

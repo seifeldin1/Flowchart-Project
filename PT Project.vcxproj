@@ -279,6 +279,8 @@
     <ClCompile Include="Actions\MoveEnd.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Actions\Delete.cpp" />
+    <ClCompile Include="Actions\Redo.cpp" />
+    <ClCompile Include="Actions\Exit.cpp" />
     <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
@@ -296,6 +298,8 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <ClCompile Include="Statements\WriteState.cpp" />
+    <ClCompile Include="Actions\Undo.cpp" />
+    <ClCompile Include="Actions\SwitchTSM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Copy.h" />
@@ -330,6 +334,8 @@
     <ClInclude Include="Actions\MoveEnd.h" />
     <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Actions\Delete.h" />
+    <ClInclude Include="Actions\Redo.h" />
+    <ClInclude Include="Actions\Exit.h" />
     <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
@@ -345,6 +351,8 @@
     <ClInclude Include="Statements\AssignStat.h" />
     <ClInclude Include="Statements\Statement.h" />
     <ClInclude Include="Statements\WriteState.h" />
+    <ClInclude Include="Actions\Undo.h" />
+    <ClInclude Include="Actions\SwitchTSM.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
