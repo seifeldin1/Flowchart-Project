@@ -21,8 +21,7 @@ enum ActionType // The actions supported
 
 	ADD_CONNECTOR, //Add a connector between two statements
 	
-	SELECT,		//Select a statement, a connector
-	UNSELECT,
+	SELECT,		//Select a statement
 	EDIT_STAT,	//Edit a statement
 
 	DEL,   //Delete a figure

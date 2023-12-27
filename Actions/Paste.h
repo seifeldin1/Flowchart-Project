@@ -1,7 +1,7 @@
 #pragma once
 #include"Action.h"
 #include "..\Statements\Conditional.h"
-#include "..\Statements\End.h"
+#include "..\Statements\EndStat.h"
 #include "..\Statements\Start.h"
 #include "..\Statements\OperatorAssign.h"
 #include "..\Statements\Read.h"

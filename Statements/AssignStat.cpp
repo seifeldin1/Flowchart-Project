@@ -46,10 +46,8 @@ void AssignStat::setRHS(string R)
 //This function should be called when LHS or RHS changes
 void AssignStat::UpdateStatementText()
 {
-	//Build the statement text: Left handside then equals then right handside
-	ostringstream T;
-	T << LHS << " = " << RHS;
-	Text = T.str();
+	//left hand side then e
+	Text = LHS + " = " + RHS;
 }
 
 //Draw the rectangle with text LHS"="RHS
@@ -70,12 +68,14 @@ bool AssignStat::IsPointClicked(Point P) const
 
 void AssignStat::Save(ofstream& OutFile)
 {
-	OutFile << "AssignStat" << type << "" << LHS << "" << RHS << endl;
+	OutFile << "AssignStat" << ID << "" << LeftCorner.x << LeftCorner.y << "" << LHS << "" << RHS << endl;
 }
 
 void AssignStat::Load(ifstream& Infile)
 {
-	Infile >> type >> LHS >> RHS;
+	string r;
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> r;
+	setRHS(r);
 }
 
 AssignStat::~AssignStat()
