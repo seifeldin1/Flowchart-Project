@@ -50,7 +50,9 @@ void Statement::SetOutConnector(Connector* outcon)
 {
 	StandardConn = outcon;
 }
-
+StatementType Statement::GetType() {
+	return Type;
+}
 /*
 string Statement::ReturnVariable()
 {

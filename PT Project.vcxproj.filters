@@ -159,6 +159,10 @@
       <Filter>Action Classes</Filter>
     </ClCompile>
     <ClCompile Include="Statements\Conditional.cpp" />
+    <ClCompile Include="Paste.cpp" />
+    <ClCompile Include="Actions\AddEnd.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
     <ClCompile Include="Statements\WriteState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
@@ -168,6 +172,21 @@
     <ClCompile Include="Statements\ReadState.cpp">
       <Filter>Statements</Filter>
     </ClCompile>
+    <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Undo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\Redo.cpp">
+      <Filter>Action Classes</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions\AddAssign.cpp" />
+    <ClCompile Include="Actions\MoveStart.cpp" />
+    <ClCompile Include="Actions\MoveEnd.cpp" />
+    <ClCompile Include="Statements\EndStat.cpp" />
+    <ClCompile Include="Statements\StartStat.cpp" />
+    <ClCompile Include="Statements\AssignStat.cpp" />
+    <ClCompile Include="Actions\Debug.cpp" />
+    <ClCompile Include="Actions\Validate.cpp" />
     <ClCompile Include="Actions\AddRead.cpp" />
     <ClCompile Include="Actions\AddAssign.cpp" />
     <ClCompile Include="Actions\MoveStart.cpp" />
@@ -281,7 +300,16 @@
     <ClInclude Include="Actions\Copy.h">
       <Filter>Action Classes</Filter>
     </ClInclude>
+    <ClInclude Include="Statements\Read.h" />
+    <ClInclude Include="Statements\Write.h" />
+    <ClInclude Include="Statements\VariableAssign.h" />
+    <ClInclude Include="Statements\OperatorAssign.h" />
+    <ClInclude Include="Statements\Start.h" />
     <ClInclude Include="Statements\Conditional.h" />
+    <ClInclude Include="Paste.h" />
+    <ClInclude Include="Actions\AddEnd.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
     <ClInclude Include="Statements\WriteState.h">
       <Filter>Statements</Filter>
     </ClInclude>
@@ -291,6 +319,21 @@
     <ClInclude Include="Statements\ReadState.h">
       <Filter>Statements</Filter>
     </ClInclude>
+    <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Undo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\Redo.h">
+      <Filter>Action Classes</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions\AddAssign.h" />
+    <ClInclude Include="Actions\MoveStart.h" />
+    <ClInclude Include="Actions\MoveEnd.h" />
+    <ClInclude Include="Statements\EndStat.h" />
+    <ClInclude Include="Statements\StartStat.h" />
+    <ClInclude Include="Statements\AssignStat.h" />
+    <ClInclude Include="Actions\Debug.h" />
+    <ClInclude Include="Actions\Validate.h" />
     <ClInclude Include="Actions\AddRead.h" />
     <ClInclude Include="Actions\AddAssign.h" />
     <ClInclude Include="Actions\MoveStart.h" />

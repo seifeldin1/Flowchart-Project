@@ -18,9 +18,12 @@ void AddAssign::ReadActionParameters()
 {
 	Input* pIn = pManager->GetInput();
 	Output* pOut = pManager->GetOutput();
+	RLHS = '0';
+	Operator = '0';
+	RRHS = '0';
 
 	//Read the (Position) parameter
-	pOut->PrintMessage("Value Assignment Statement: Click to add the statement");
+	pOut->PrintMessage("Assignment Statement: Click to add the statement");
 
 	pIn->GetPointClicked(Position);
 	pOut->ClearStatusBar();
@@ -29,7 +32,7 @@ void AddAssign::ReadActionParameters()
 	Type = pIn->GetValue(pOut);
 	//TODO: Ask the user in the status bar to enter the LHS and set the data member
 	pOut->PrintMessage("Enter LHS: ");
-	LHS = pIn->GetValue(pOut);
+	LHS = pIn->GetVariable(pOut);
 	//TODO: Ask the user in the status bar to enter the RHS and set the data member
 	if (Type == 1) //Value Assingment Statement
 	{
@@ -50,11 +53,10 @@ void AddAssign::ReadActionParameters()
 		pOut->PrintMessage("Enter RHS of operator:");
 		string s2 = pIn->GetString(pOut);
 		RHS = s1 + Op + s2;
+		RLHS = s1;
+		Operator = Op;
+		RRHS = s2;
 	}
-
-
-	//Note: You should validate the LHS to be variable name and RHS to be a value
-	//      Call the appropriate functions for this.
 }
 
 void AddAssign::Execute()
@@ -62,7 +64,7 @@ void AddAssign::Execute()
 	ReadActionParameters();
 
 	//TODO: should set the LHS and RHS of pAssign statement
-	AssignStat* pAssign = new AssignStat(Position, LHS, RHS);
+	AssignStat* pAssign = new AssignStat(Position, LHS, RHS , RLHS, Operator, RRHS);
 
 	//with the data members set and validated before in ReadActionParameters()
 

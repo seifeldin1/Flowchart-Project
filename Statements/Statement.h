@@ -20,6 +20,7 @@ protected:
 	string Text;		//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;		//true if the statement is selected on the flowchart
 	Connector* StandardConn;
+	StatementType Type;
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -59,7 +60,7 @@ public:
 	int GetID();										//returns ID of each unique statement
 	string GetText();									//returns text inside the statement
 	Point GetLcorner() const;							//returns top left corner point of statement
-
+	StatementType GetType();
 	//these 2 are virtual because of condition statement
 	virtual Connector* GetOutConnector(int=0) const;			//returns a connector coming out of statement
 	virtual void SetOutConnector(Connector* outcon);	//sets a connector coming out of statement
