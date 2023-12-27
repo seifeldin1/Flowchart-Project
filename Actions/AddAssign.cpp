@@ -61,17 +61,10 @@ void AddAssign::Execute()
 {
 	ReadActionParameters();
 
-
-	//Calculating left corner of assignement statement block
-	Point Corner;
-	Corner.x = Position.x - UI.ASSGN_WDTH / 2;
-	Corner.y = Position.y;
-
 	//TODO: should set the LHS and RHS of pAssign statement
-	AssignStat* pAssign = new AssignStat(Corner, LHS, RHS);
+	AssignStat* pAssign = new AssignStat(Position, LHS, RHS);
 
-
-	//      with the data members set and validated before in ReadActionParameters()
+	//with the data members set and validated before in ReadActionParameters()
 
 	pManager->AddStatement(pAssign); // Adds the created statement to application manger's statement list
 }

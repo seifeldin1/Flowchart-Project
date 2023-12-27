@@ -124,11 +124,10 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actions\AddCond.cpp" />
     <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
-    <ClCompile Include="Actions\AddEnd.cpp" />
     <ClCompile Include="Actions\AddRead.cpp" />
-    <ClCompile Include="Actions\AddStart.cpp" />
     <ClCompile Include="Actions\AddConn.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -304,11 +303,10 @@
     <ClCompile Include="Actions\Valid.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actions\AddCond.h" />
     <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\Save.h" />
-    <ClInclude Include="Actions\AddEnd.h" />
     <ClInclude Include="Actions\AddRead.h" />
-    <ClInclude Include="Actions\AddStart.h" />
     <ClInclude Include="Actions\AddConn.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
