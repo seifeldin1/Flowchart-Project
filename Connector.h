@@ -3,7 +3,7 @@
 
 #include "GUI\UI_Info.h"
 #include "GUI\output.h"
-#include "Statements/Statement.h"
+class Statement;
 
 class Connector	//a connector that connects two statements (Source & Destination)
 {

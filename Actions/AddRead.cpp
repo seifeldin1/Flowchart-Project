@@ -1,7 +1,7 @@
 #include "AddRead.h"
 
 
-AddRead::AddRead(ApplicationManager* pAppManager) :Action(pAppManager) {}
+AddRead::AddRead(ApplicationManager* pAppManager) : Action(pAppManager) {}
 
 void AddRead::ReadActionParameters() {
 	Output* pOut = pManager->GetOutput();
