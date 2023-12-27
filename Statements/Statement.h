@@ -16,9 +16,9 @@ protected:
 	static int NumberOfStatements; //number of statements drawn on screen
 	string Text;	//Statement text (e.g.  "X = 5" OR "salary > 3000" and so on)
 	bool Selected;	//true if the statement is selected on the flowchart
-	bool Selected;	//true if the statement is selected on the folwchart
 	bool CanConnect; //check if it can get a In connector (Start is false , other is true)
 	int MaxOutConnectors; //return max number of out connectors (0 for end , 2 for conditional , others is 1)
+	Point Leftcorner;
 
 	virtual void UpdateStatementText() = 0;	//is called when any part of the stat. is edited	
 
@@ -53,8 +53,11 @@ public:
 
 	//[BONUS] virtual void GenerateCode(ofstream &OutFile) = 0;	//write the statement code to a file
 
-	friend class Connector;
 	///TODO: Add more functions if needed
+
+	void Move(Point Lcorner);
+
+
 	void SetSelected(bool s);//sets if statement is selected or not
 	bool IsSelected() const; //returns true if statement is selected
 	int GetID(); //returns ID of each unique statement

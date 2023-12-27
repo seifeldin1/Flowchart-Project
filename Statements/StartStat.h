@@ -1,7 +1,7 @@
 #pragma once
 #include "Statement.h"
 
-class StartState : public Statement
+class StartStat : public Statement
 {
 	private:
 		Point Outlet;      //A point where connections leaves this statement
@@ -14,7 +14,7 @@ class StartState : public Statement
 
 		Statement* copyStart;
 	public:
-		StartState(Point Lcorner);
+		StartStat(Point Lcorner);
 
 		Statement* Copy();
 
@@ -31,5 +31,5 @@ class StartState : public Statement
 		int GetConnInCount() const;
 		int GetConnOutCount() const;
 
-		~StartState();
+		~StartStat();
 };

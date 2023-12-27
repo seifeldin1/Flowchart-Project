@@ -125,7 +125,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Actions\Copy.cpp" />
-    <ClCompile Include="Actions\AddEnd.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -268,11 +267,13 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="Actions\AddValueAssign.cpp" />
+    <ClCompile Include="Actions\AddAssign.cpp" />
     <ClCompile Include="ApplicationManager.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="Actions\MoveStart.cpp" />
+    <ClCompile Include="Actions\MoveEnd.cpp" />
     <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
@@ -281,22 +282,19 @@
     <ClCompile Include="Actions\Load.cpp" />
     <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Statements\ConditionalState.cpp" />
-    <ClCompile Include="Statements\EndState.cpp" />
-    <ClCompile Include="Statements\OperatorAssign.cpp" />
+    <ClCompile Include="Statements\EndStat.cpp" />
     <ClCompile Include="Statements\ReadState.cpp" />
-    <ClCompile Include="Statements\StartState.cpp" />
-    <ClCompile Include="Statements\ValueAssign.cpp" />
+    <ClCompile Include="Statements\StartStat.cpp" />
+    <ClCompile Include="Statements\AssignStat.cpp" />
     <ClCompile Include="Statements\Statement.cpp" />
     <ClCompile Include="main.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
-    <ClCompile Include="Statements\VariableAssign.cpp" />
     <ClCompile Include="Statements\WriteState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Copy.h" />
-    <ClInclude Include="Actions\AddEnd.h" />
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
@@ -319,8 +317,10 @@
     <ClInclude Include="CMUgraphicsLib\jpeg\jpeglib.h" />
     <ClInclude Include="CMUgraphicsLib\jpeg\jversion.h" />
     <ClInclude Include="Actions\Action.h" />
-    <ClInclude Include="Actions\AddValueAssign.h" />
+    <ClInclude Include="Actions\AddAssign.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Actions\MoveStart.h" />
+    <ClInclude Include="Actions\MoveEnd.h" />
     <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
@@ -331,13 +331,11 @@
     <ClInclude Include="Actions\Load.h" />
     <ClInclude Include="Paste.h" />
     <ClInclude Include="Statements\ConditionalState.h" />
-    <ClInclude Include="Statements\EndState.h" />
-    <ClInclude Include="Statements\OperatorAssign.h" />
+    <ClInclude Include="Statements\EndStat.h" />
     <ClInclude Include="Statements\ReadState.h" />
-    <ClInclude Include="Statements\StartState.h" />
-    <ClInclude Include="Statements\ValueAssign.h" />
+    <ClInclude Include="Statements\StartStat.h" />
+    <ClInclude Include="Statements\AssignStat.h" />
     <ClInclude Include="Statements\Statement.h" />
-    <ClInclude Include="Statements\VariableAssign.h" />
     <ClInclude Include="Statements\WriteState.h" />
   </ItemGroup>
   <ItemGroup>

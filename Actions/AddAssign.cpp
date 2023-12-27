@@ -1,4 +1,4 @@
-#include "AddValueAssign.h"
+#include "AddAssign.h"
 
 
 
@@ -11,10 +11,10 @@
 using namespace std;
 
 //constructor: set the ApplicationManager pointer inside this action
-AddValueAssign::AddValueAssign(ApplicationManager *pAppManager):Action(pAppManager)
+AddAssign::AddAssign(ApplicationManager *pAppManager):Action(pAppManager)
 {}
 
-void AddValueAssign::ReadActionParameters()
+void AddAssign::ReadActionParameters()
 {
 	Input *pIn = pManager->GetInput();
 	Output *pOut = pManager->GetOutput();
@@ -33,7 +33,7 @@ void AddValueAssign::ReadActionParameters()
 	//      Call the appropriate functions for this.
 }
 
-void AddValueAssign::Execute()
+void AddAssign::Execute()
 {
 	ReadActionParameters();
 		
@@ -43,7 +43,7 @@ void AddValueAssign::Execute()
 	Corner.x = Position.x - UI.ASSGN_WDTH/2;
 	Corner.y = Position.y ;
 	
-	ValueAssign *pAssign = new ValueAssign(Corner, "", 0);
+	AssignStat *pAssign = new AssignStat(Corner, "", 0);
 	//TODO: should set the LHS and RHS of pAssign statement
 	//      with the data members set and validated before in ReadActionParameters()
 

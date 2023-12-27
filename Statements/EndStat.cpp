@@ -1,6 +1,6 @@
-#include "EndState.h"
+#include "EndStat.h"
 
-EndState::EndState(Point Lcorner) : Statement (0,true)
+EndStat::EndStat(Point Lcorner) : Statement (0,true)
 {
 	Text = "End";
 	LeftCorner = Lcorner;
@@ -11,34 +11,34 @@ EndState::EndState(Point Lcorner) : Statement (0,true)
 
 }
 
-void EndState::UpdateStatementText() {}
+void EndStat::UpdateStatementText() {}
 
-Statement* EndState::Copy() {
-	copyEnd = new EndState(Point(0, 0)); // makes a copy of End
+Statement* EndStat::Copy() {
+	copyEnd = new EndStat(Point(0, 0)); // makes a copy of End
 	return copyEnd;
 }
 
 //returns Left corner point of statement
-Point EndState::GetLcorner() const
+Point EndStat::GetLcorner() const
 {
 	return LeftCorner;
 }
 
 //returns (1) which we set to identify that statement is End
-int EndState::ReturnStatType()
+int EndStat::ReturnStatType()
 {
 	return 1;
 }
 
 //Draws the ellipse with text="End"
-void EndState::Draw(Output *pOut) const
+void EndStat::Draw(Output *pOut) const
 {
 	//Call Output::DrawEllipse function to draw End statement
 	pOut->DrawEllipse(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
 
 //Checks if End Statement has been clicked on
-bool EndState::IsPointClicked(Point P) const
+bool EndStat::IsPointClicked(Point P) const
 {
 	if ((P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.ASSGN_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.ASSGN_HI))
 		return true;
@@ -47,14 +47,14 @@ bool EndState::IsPointClicked(Point P) const
 }
 
 //sets a connector going to end statement
-void EndState::SetInConnector(Connector* incon)
+void EndStat::SetInConnector(Connector* incon)
 {
 	EndInConnCount++;
 	pInConn[EndInConnCount] = incon;
 }
 
 //returns all connector going to end statement
-Connector* EndState::GetInConnector() const
+Connector* EndStat::GetInConnector() const
 {
 	for (int i = 0; i < EndInConnCount; i++)
 	{
@@ -62,12 +62,12 @@ Connector* EndState::GetInConnector() const
 	}
 }
 
-int EndState::GetConnInCount() const
+int EndStat::GetConnInCount() const
 {
 	return EndInConnCount;
 }
 
-EndState::~EndState()
+EndStat::~EndStat()
 {
 	for (int i = 0; i < EndInConnCount; i++)
 	{
@@ -76,6 +76,6 @@ EndState::~EndState()
 	}
 }
 
-void EndState::SetOutConnector(Connector* outcon){}
-Connector* EndState::GetOutConnector() const{}
-int EndState::GetConnOutCount() const{}
+void EndStat::SetOutConnector(Connector* outcon){}
+Connector* EndStat::GetOutConnector() const{}
+int EndStat::GetConnOutCount() const{}

@@ -2,7 +2,7 @@
 #define ADD_VALUE_ASSIGN_H
 
 #include "Action.h"
-#include "..\Statements\ValueAssign.h"
+#include "..\Statements\AssignStat.h"
 
 //Add Value Assignment Statement Action
 //This class is responsible for 
@@ -10,7 +10,7 @@
 // 2 - Getting the LHS and RHS of the statement from the user (some of the parameters of this action)
 // 3 - Creating an object of Assignment class and passing it parameters
 // 4 - Adding the created object to the list of statements of the application manager
-class AddValueAssign : public Action
+class AddAssign : public Action
 {
 private:
 	// in the data members of the actions
@@ -21,7 +21,7 @@ private:
 	//TODO: you should add LHS and RHS of the assignment statement as parameters
 
 public:
-	AddValueAssign(ApplicationManager *pAppManager);
+	AddAssign(ApplicationManager *pAppManager);
 
 	//Read Assignemt statements position
 	virtual void ReadActionParameters();

@@ -39,6 +39,8 @@ public:
 										//and returns the corresponding action type
 	void ExecuteAction(ActionType) ;	//Creates an action and executes it
 	void SaveAll(ofstream& Output);		//saves all statements and connectors
+	void MoveSt(Point Lcorner);
+	void MoveEn(Point Lcorner);
 	
 	// == Statements/Connector Management Functions ==
 	void AddStatement(Statement* pStat);    //Adds a new Statement to the Flowchart

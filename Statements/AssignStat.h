@@ -5,7 +5,7 @@
 
 //Value Assignment statement class
 //The value assignment statement assigns a value to a variable
-class ValueAssign : public Statement
+class AssignStat : public Statement
 {
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
@@ -32,7 +32,7 @@ private:
 	virtual void UpdateStatementText();
 	
 public:
-	ValueAssign(Point Lcorner, string LeftHS="", double RightHS=0);
+	AssignStat(Point Lcorner, string LeftHS="", double RightHS=0);
 	
 	void setLHS(const string &L);
 	void setRHS(double R);
@@ -48,7 +48,7 @@ public:
 
 	//implementing this function to avoid value assign statement being an abstract class
 	int GetOutConnCount() const;
-	~ValueAssign();
+	~AssignStat();
 };
 
 #endif

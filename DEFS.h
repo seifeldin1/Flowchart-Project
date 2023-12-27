@@ -12,11 +12,9 @@ enum  MODE	//Modes of operation
 // TODO: Add any action type here
 enum ActionType // The actions supported
 {
-	ADD_START, //Add start statement
-	ADD_END,   //Add end statement
-	ADD_VALUE_ASSIGN, //Add value assignment statement
-	ADD_VAR_ASSIGN,	  //Add variable assignment statement
-	ADD_OPER_ASSIGN,  //Add operator assignment statement
+	MOVE_START, //Add start statement
+	MOVE_END,   //Add end statement
+	ADD_ASSIGN, //Add an assignment statement
 	ADD_CONDITION,    //Add a conditional statement (for if and while-loop statements)
 	ADD_READ,  //Add read statement
 	ADD_WRITE, //Addd write statemetn

@@ -14,6 +14,11 @@ Statement::Statement(int outConn, bool canTakeInConnector)
 //int Statement::GetWidth() { return ASSGN_WDTH; }
 //int Statement::GetHeight() { return ASSGN_HI; }
 
+void Statement::Move(Point Lcorner)
+{
+	Leftcorner = Lcorner;
+}
+
 void Statement::SetSelected(bool s)
 {	Selected = s; }
 

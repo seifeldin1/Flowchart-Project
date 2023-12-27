@@ -1,7 +1,7 @@
 #pragma once
 #include "Statement.h"
 
-class EndState:public Statement
+class EndStat : public Statement
 {
 	private:
 		Point Inlet;       //A point where connections enters this statement 
@@ -14,7 +14,7 @@ class EndState:public Statement
 
 		Statement* copyEnd;
 	public:
-		EndState(Point Lcorner);
+		EndStat(Point Lcorner);
 		
 		Statement* Copy();
 
@@ -30,5 +30,5 @@ class EndState:public Statement
 		void SetOutConnector(Connector* outcon);
 		Connector* GetOutConnector() const;
 		int GetConnOutCount() const;
-		~EndState();
+		~EndStat();
 };

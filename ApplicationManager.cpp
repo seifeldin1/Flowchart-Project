@@ -1,6 +1,12 @@
 #include "ApplicationManager.h"
-#include "Actions\AddValueAssign.h"
-#include "Actions\Save.h"
+#include "Actions/AddValueAssign.h"
+#include "Actions/Save.h"
+#include "Actions/Copy.h"
+#include "Actions/Load.h"
+#include "Actions/MoveStart.h"
+#include "Actions/MoveEnd.h"
+#include "Statements/StartStat.h"
+#include "Statements/EndStat.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
 
@@ -11,13 +17,20 @@ ApplicationManager::ApplicationManager()
 	pOut = new Output;
 	pIn = pOut->CreateInput();
 	
-	StatCount = 0;
+	StatCount = 2;
 	ConnCount = 0;
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
-	
+
+
+	//Creates static Start and ends
+	Point Pstart(0, UI.ToolBarHeight+3);
+	StatList[0] = new StartStat(Pstart);
+	Point Pend(UI.DrawingAreaWidth - UI.ASSGN_WDTH - 3, UI.height - UI.StatusBarHeight);
+	StatList[1] = new EndStat(Pend);
+
 	//Create an array of Statement pointers and set them to NULL		
-	for(int i=0; i<MaxCount; i++)
+	for(int i=2; i<MaxCount; i++)
 	{
 		StatList[i] = NULL;	
 		ConnList[i] = NULL;
@@ -44,29 +57,39 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	//According to ActioType, create the corresponding action object
 	switch (ActType)
 	{
-		case ADD_VALUE_ASSIGN:
-			pAct = new AddValueAssign(this);
-			break;
+	case MOVE_START:
+		pAct = new MoveStart(this);
+		break;
 
-		case ADD_CONDITION:
-			///create AddCondition Action here
+	case MOVE_END:
+		pAct = new MoveEnd(this);
+		break;
 
-			break;
+	case ADD_ASSIGN:
+		pAct = new AddAssign(this);
+		break;
 
-		case SELECT:
-			///create Select Action here
+	case ADD_CONDITION:
+		///create AddCondition Action here
 
-			break;
+		break;
 
-		case EXIT:
-			///create Exit Action here
-			
-			break;
-		case SAVE:
-			pAct = new Save(this);
-			break;
-		case STATUS:
-			return;
+	case SELECT:
+		///create Select Action here
+
+		break;
+
+	case EXIT:
+		///create Exit Action here
+		
+		break;
+
+	case SAVE:
+		pAct = new Save(this);
+		break;
+
+	default:
+		return;
 	}
 	
 	//Execute the created action
@@ -90,6 +113,16 @@ void ApplicationManager::SaveAll(ofstream& Output)
 	{
 		ConnList[i]->Save(Output);
 	}
+}
+
+void ApplicationManager::MoveSt(Point Lcorner)
+{
+	StatList[0]->Move(Lcorner);
+}
+
+void ApplicationManager::MoveEn(Point Lcorner)
+{
+	StatList[1]->Move(Lcorner);
 }
 
 

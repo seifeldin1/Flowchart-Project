@@ -1,6 +1,6 @@
-#include "StartState.h"
+#include "StartStat.h"
 
-StartState::StartState(Point Lcorner) : Statement (1,false)
+StartStat::StartStat(Point Lcorner) : Statement (1,false)
 {
 	Text = "Start";
 	LeftCorner = Lcorner;
@@ -10,36 +10,36 @@ StartState::StartState(Point Lcorner) : Statement (1,false)
 	Outlet.y = LeftCorner.y + UI.COND_HI;
 }
 
-void StartState::UpdateStatementText() {}
+void StartStat::UpdateStatementText() {}
 
-Statement* StartState::Copy() 
+Statement* StartStat::Copy() 
 {
-	copyStart = new StartState(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
+	copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
 	return copyStart;
 
 }
 
 //returns top left corner of statement
-Point StartState::GetLcorner() const
+Point StartStat::GetLcorner() const
 {
 	return LeftCorner;
 }
 
 //returns (0) which we set to identify that statement is Start
-int StartState::ReturnStatType()
+int StartStat::ReturnStatType()
 {
 	return 0;
 }
 
 //Draws the ellipse with text="Start"
-void StartState::Draw(Output* pOut) const
+void StartStat::Draw(Output* pOut) const
 {
 	//Call Output::DrawEllipse function to draw Start statement
 	pOut->DrawEllipse(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
 
 //Checks if Start Statement has been clicked on
-bool StartState::IsPointClicked(Point P) const
+bool StartStat::IsPointClicked(Point P) const
 {
 	if ( (P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.ASSGN_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.ASSGN_HI) )
 		return true;
@@ -48,23 +48,23 @@ bool StartState::IsPointClicked(Point P) const
 }
 
 //Sets a connector going out from the start statement
-void StartState::SetOutConnector(Connector* outcon)
+void StartStat::SetOutConnector(Connector* outcon)
 {
 	pOutConn = outcon;
 }
 
 //Gets connector going out from start statement
-Connector *StartState::GetOutConnector() const
+Connector *StartStat::GetOutConnector() const
 {
 	return pOutConn;
 }
 
-StartState::~StartState()
+StartStat::~StartStat()
 {
 	delete pOutConn;
 }
 
-void StartState::SetInConnector(Connector* incon){}
-Connector* StartState::GetInConnector() const{}
-int StartState::GetConnInCount() const{}
-int StartState::GetConnOutCount() const{}
+void StartStat::SetInConnector(Connector* incon){}
+Connector* StartStat::GetInConnector() const{}
+int StartStat::GetConnInCount() const{}
+int StartStat::GetConnOutCount() const{}
