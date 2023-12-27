@@ -54,5 +54,13 @@ Statement* ReadState::Copy()
 	Statement* copyRead = new ReadState(Point(0, 0), ((ReadState*)this)->Variable);
 	return copyRead;
 }
+void ReadState::Simulate(Output* pOut, Input* pIn)
+{
+	if (Variable != "")
+	{
+		pOut->PrintMessage("Enter The Value of "+Variable);
+		Value = pIn->GetValue(Output * pO);
+	}
+}
 
 ReadState::~ReadState() {}

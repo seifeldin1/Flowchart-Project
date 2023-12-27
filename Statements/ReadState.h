@@ -5,7 +5,7 @@ class ReadState : public Statement
 private:
 	string Variable;
 	Connector* pOutConn;	     //Write Stat. has one Connector to next statement
-
+	double Value;
 	int ReadInConnCount;
 
 	virtual void UpdateStatementText();
