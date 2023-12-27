@@ -16,8 +16,15 @@ void AddConn::ReadActionParameters()
 	if (dynamic_cast<ConditionalState*>(Src) != NULL)
 	{
 		pOut->PrintMessage("Select Connector type (y,n):");
-		s = pIn->GetString(pOut);
-
+		while (true)
+		{
+			s = pIn->GetString(pOut);
+			if (s == "y" || s == "n")
+			{
+				break;
+			}
+			pOut->PrintMessage("incorrect. try again (y,n):");
+		}
 	}
 	pOut->PrintMessage("Select Destination Statement.");
 	pIn->GetPointClicked(p);
