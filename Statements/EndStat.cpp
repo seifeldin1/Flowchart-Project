@@ -31,7 +31,7 @@ bool EndStat::IsPointClicked(Point P) const
 
 void EndStat::Save(ofstream& OutFile)
 {
-	OutFile << "Save" << "" << ID << "" << LeftCorner.x << "" << LeftCorner.y << endl;
+	OutFile << "Save" <<  "" << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void EndStat::Load(ifstream& Infile)

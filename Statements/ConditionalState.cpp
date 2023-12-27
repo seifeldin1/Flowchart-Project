@@ -86,7 +86,7 @@ Connector* ConditionalState::GetOutConnector(int branch) const
 
 void ConditionalState::Save(ofstream& OutFile)
 {
-	OutFile << "CondStat" << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << Operator << " " << RHS << endl;
+	OutFile << "CondStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << Operator << " " << RHS << endl;
 }
 
 void ConditionalState::Load(ifstream& Infile)

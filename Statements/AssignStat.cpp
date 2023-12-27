@@ -70,7 +70,7 @@ bool AssignStat::IsPointClicked(Point P) const
 
 void AssignStat::Save(ofstream& OutFile)
 {
-	OutFile << "AssignStat" << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+	OutFile << "AssignStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
 }
 
 void AssignStat::Load(ifstream& Infile)

@@ -13,9 +13,9 @@ public:
 
 	//============================ Class functions ============================
 	ReadState(Point Lcorner, string var = "");
+	ReadState(ifstream& input);
+
 	void SetVariable(string var);
-	Point GetLcorner() const;
-	void SetOutConnector(Connector* outcon);
 
 	~ReadState();
 	//============================ Pure Virtual functions implementation ============================
