@@ -280,7 +280,6 @@
     <ClCompile Include="GUI\Output.cpp" />
     <ClCompile Include="HelperFn.cpp" />
     <ClCompile Include="Actions\Load.cpp" />
-    <ClCompile Include="Paste.cpp" />
     <ClCompile Include="Statements\ConditionalState.cpp" />
     <ClCompile Include="Statements\EndStat.cpp" />
     <ClCompile Include="Statements\ReadState.cpp" />
@@ -329,7 +328,6 @@
     <ClInclude Include="GUI\UI_Info.h" />
     <ClInclude Include="HelperFn.h" />
     <ClInclude Include="Actions\Load.h" />
-    <ClInclude Include="Paste.h" />
     <ClInclude Include="Statements\ConditionalState.h" />
     <ClInclude Include="Statements\EndStat.h" />
     <ClInclude Include="Statements\ReadState.h" />
