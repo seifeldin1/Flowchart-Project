@@ -23,7 +23,7 @@ void AddAssign::ReadActionParameters()
 	RRHS = '0';
 
 	//Read the (Position) parameter
-	pOut->PrintMessage("Assignment Statement: Click to add the statement");
+	pOut->PrintMessage("Click to add the  assigment statement");
 
 	pIn->GetPointClicked(Position);
 	pOut->ClearStatusBar();
