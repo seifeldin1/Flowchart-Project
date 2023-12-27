@@ -1,6 +1,5 @@
 #include "Copy.h"
-Copy::Copy(ApplicationManager* pAppManager) :Action(pAppManager)
-{}
+Copy::Copy(ApplicationManager* pAppManager) :Action(pAppManager){}
 
 
 void Copy::ReadActionParameters() {

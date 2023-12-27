@@ -192,6 +192,17 @@ Statement *ApplicationManager::GetClipboard() const
 void ApplicationManager::SetClipboard(Statement *pStat)
 {	pClipboard = pStat;	}
 
+void ApplicationManager :: RemoveStatementFromList(Statement* pStat) {
+	int i;
+	for (i = 0; i < StatCount && StatList[i] != pStat; i++); // to know the index of needed statement to be removed
+	if (i < StatCount) {
+		int k = i;
+		for (i < k; i < StatCount; i++) StatList[i] = StatList[i + 1]; //to keep it ordered
+		StatList[StatCount - 1] = NULL;
+		StatCount--;
+	}
+}
+
 //= ================================================================================ =//
 //						Connector Management Functions								 //
 //==================================================================================//
@@ -219,7 +230,35 @@ Connector* ApplicationManager::GetConnector(Point P) const
 
 	return NULL;
 }
+void ApplicationManager::SetSelectedConnector(Connector* pConn)
+{
+	pSelectedConn = pConn;
+}
+Connector* ApplicationManager::GetSelectedConnector() const {
+	return pSelectedConn;
+}
+void ApplicationManager::RemoveConnectorFromList(Connector* pConn) {
+	int i;
+	for (i = 0; i < ConnCount && ConnList[i] != pConn; i++); // to know the index of needed connector to be removed
+	if (i < ConnCount) {
+		int k = i;
+		for (i < k; i < ConnCount; i++) ConnList[i] = ConnList[i + 1]; //to keep it ordered
+		ConnList[ConnCount - 1] = NULL;
+		ConnCount--;
+	}
+}
 
+void ApplicationManager:: DeleteConnectedConnectors(Statement* pStat) {
+	int i;
+	for (i = 0; i < ConnCount; i++) { // to know the index of needed connectors to be deleted
+		if (ConnList[i]->getDstStat() == pStat || ConnList[i]->getSrcStat() == pStat) {
+			int k = i;
+			for (i < k; i < ConnCount; i++) ConnList[i] = ConnList[i + 1]; //to keep it ordered
+			ConnList[ConnCount - 1] = NULL;
+			ConnCount--;
+		}
+	}
+}
 //==================================================================================//
 //							Interface Management Functions							//
 //==================================================================================//

@@ -25,7 +25,7 @@ private:
 	                          //you can set and get this pointer
 	Statement *pClipboard;    //a pointer to the last copied/cut statement
 	                          //you can set and get this pointer
-
+	Connector* pSelectedConn;
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
@@ -58,7 +58,11 @@ public:
 	void SetSelectedStatement(Statement *pStat); //Set the Statement selected by the user
 	Statement *GetClipboard() const;	         //Returns the Clipboard
 	void SetClipboard(Statement *pStat);         //Set the Clipboard
-
+	void SetSelectedConnector(Connector* pConn); //Set the Connector selected by the user
+	Connector* GetSelectedConnector() const;	//Return the connector selected
+	void RemoveConnectorFromList(Connector* pConn); //Remove connector from connector list
+	void RemoveStatementFromList(Statement* pStat); //Remove statement from statement list
+	void DeleteConnectedConnectors(Statement* pStat); //Delete all connected connectors to a statement id a statement is deleted
 	// == Interface Management Functions ==
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output

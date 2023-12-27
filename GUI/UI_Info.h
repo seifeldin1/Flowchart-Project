@@ -18,7 +18,7 @@ struct UI_Info	//User Interface Info.
 	int wx, wy;			//Window starting coordinates
 
 	int StatusBarHeight;	//Status Bar Width
-	int ToolBarHeight;		//Tool Bar Width
+	int ToolBarHeight;		//Tool Bar Height
 	int MenuItemWidth;		//Menu Item Width
 	int DrawingAreaWidth;   //Drawing Area Width
 	

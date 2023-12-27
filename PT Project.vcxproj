@@ -126,6 +126,9 @@
   <ItemGroup>
     <ClCompile Include="Actions\Copy.cpp" />
     <ClCompile Include="Actions\Save.cpp" />
+    <ClCompile Include="Actions\AddEnd.cpp" />
+    <ClCompile Include="Actions\AddRead.cpp" />
+    <ClCompile Include="Actions\AddStart.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -275,6 +278,8 @@
     <ClCompile Include="Actions\MoveStart.cpp" />
     <ClCompile Include="Actions\MoveEnd.cpp" />
     <ClCompile Include="Actions\Paste.cpp" />
+    <ClCompile Include="Actions\Delete.cpp" />
+    <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
@@ -295,6 +300,9 @@
   <ItemGroup>
     <ClInclude Include="Actions\Copy.h" />
     <ClInclude Include="Actions\Save.h" />
+    <ClInclude Include="Actions\AddEnd.h" />
+    <ClInclude Include="Actions\AddRead.h" />
+    <ClInclude Include="Actions\AddStart.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -321,6 +329,8 @@
     <ClInclude Include="Actions\MoveStart.h" />
     <ClInclude Include="Actions\MoveEnd.h" />
     <ClInclude Include="Actions\Paste.h" />
+    <ClInclude Include="Actions\Delete.h" />
+    <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\Input.h" />
