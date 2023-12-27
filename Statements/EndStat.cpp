@@ -1,21 +1,11 @@
 #include "EndStat.h"
 
-EndStat::EndStat(Point Lcorner) : Statement ()
+EndStat::EndStat(Point Lcorner) : Statement (Lcorner,Text)
 {
 	Text = "End";
 }
 
 void EndStat::UpdateStatementText() {}
-
-Statement* EndStat::Copy() {
-	Statement* copyEnd = new EndStat(Point(0, 0)); // makes a copy of End
-	return copyEnd;
-}
-
-//returns Left corner point of statement
-
-
-
 
 //Draws the ellipse with text="End"
 void EndStat::Draw(Output *pOut) const
@@ -32,13 +22,21 @@ bool EndStat::IsPointClicked(Point P) const
 	else
 		return false;
 }
-
-
-EndStat::~EndStat()
+void EndStat::Simulate()
 {
-	/*for (int i = 0; i < EndInConnCount; i++)
-	{
-		delete pInConn[i];
-		EndInConnCount--;
-	}*/
+
 }
+void EndStat::Save(ofstream& OutFile)
+{
+
+}
+void EndStat::Load(ifstream& Infile)
+{
+
+}
+Statement* EndStat::Copy() 
+{
+	Statement* copyEnd = new EndStat(Point(0, 0)); // makes a copy of End
+	return copyEnd;
+}
+EndStat::~EndStat() {}

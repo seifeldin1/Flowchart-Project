@@ -9,19 +9,17 @@ private:
 	int ReadInConnCount;
 
 	virtual void UpdateStatementText();
-public:
 
+public:
 	//============================ Class functions ============================
 	ReadState(Point Lcorner, string var = "");
 	void SetVariable(string var);
-	Point GetLcorner() const;
-	void SetOutConnector(Connector* outcon);
 
 	~ReadState();
 	//============================ Pure Virtual functions implementation ============================
 	virtual void Draw(Output* pOut) const;			//Draws the statement
 	virtual bool IsPointClicked(Point P) const;		//returns true if statement has been clicked on
-	virtual void Simulate() {};						//Execute the statement in the simulation mode
+	virtual void Simulate();						//Execute the statement in the simulation mode
 	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
 	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
