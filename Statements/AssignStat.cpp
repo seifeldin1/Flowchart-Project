@@ -87,13 +87,4 @@ void AssignStat::GenerateCode(ofstream& OutFile)
 }
 
 AssignStat::~AssignStat()
-{
-	/*
-	for (int i = 0; i < ValueAssInConnCount; i++)
-	{
-		delete pInConn[i];
-		ValueAssInConnCount--;
-	}
-	delete pOutConn;
-	*/
-}
+{}
