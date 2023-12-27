@@ -61,7 +61,7 @@ public:
 	Point GetLcorner() const;							//returns top left corner point of statement
 
 	//these 2 are virtual because of condition statement
-	virtual Connector* GetOutConnector() const;			//returns a connector coming out of statement
+	virtual Connector* GetOutConnector(int=0) const;			//returns a connector coming out of statement
 	virtual void SetOutConnector(Connector* outcon);	//sets a connector coming out of statement
 
 	~Statement();

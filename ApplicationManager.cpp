@@ -404,7 +404,7 @@ bool ApplicationManager::CheckNumConn()
 {
 	for (int i = 0; i < StatCount; i++)
 	{
-		if (StatList[j]->ReturnStatType() == 5 && StatList[j]->GetConnOutCount() != 2)
+		if (dynamic_cast<ConditionalState*>(StatList[i]) != NULL && (StatList[i]->GetOutConnector(1) == NULL || StatList[i]->GetOutConnector(2) == NULL))
 			return false;
 	}
 	return true;
