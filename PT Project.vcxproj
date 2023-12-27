@@ -129,6 +129,7 @@
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="Actions\AddRead.cpp" />
     <ClCompile Include="Actions\AddConn.cpp" />
+    <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -308,6 +309,7 @@
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="Actions\AddRead.h" />
     <ClInclude Include="Actions\AddConn.h" />
+    <ClInclude Include="Actions\Select.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
