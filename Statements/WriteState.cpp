@@ -37,6 +37,10 @@ Point WriteState::GetLcorner() const
 	return LeftCorner;
 }
 
+Statement* WriteState::Copy() {
+	Statement* copyWrite = new WriteState(Point(0, 0), ((WriteState*)this)->Variable);
+	return copyWrite;
+}
 //returns (4) which we set to identify that statement is Write
 int WriteState::ReturnStatType()
 {

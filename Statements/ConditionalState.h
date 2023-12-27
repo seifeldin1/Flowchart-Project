@@ -8,7 +8,7 @@ private:
 	string RHS; //Right hand side (variable or double)
 
 	Connector *pOutConn[2];
-
+	
 	virtual void UpdateStatementText();
 
 public:

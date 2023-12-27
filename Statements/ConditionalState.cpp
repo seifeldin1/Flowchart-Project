@@ -16,7 +16,7 @@ ConditionalState::ConditionalState(Point Lcorner, string LeftHS = "", string Rig
 
 Statement* ConditionalState::Copy()
 {
-	copyConditional = new ConditionalState(Point(0, 0), ((ConditionalState*)this)->LHS, ((ConditionalState*)this)->RHS, ((ConditionalState*)this)->Comp_Operator);
+	Statement* copyConditional = new ConditionalState(Point(0, 0), ((ConditionalState*)this)->LHS, ((ConditionalState*)this)->RHS, ((ConditionalState*)this)->Comp_Operator);
 	return copyConditional;
 }
 

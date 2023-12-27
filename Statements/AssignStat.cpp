@@ -78,6 +78,11 @@ void AssignStat::Load(ifstream& Infile)
 	setRHS(r);
 }
 
+Statement* AssignStat::Copy() {
+	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS);
+	return copyAssign;
+}
+
 AssignStat::~AssignStat()
 {
 	/*

@@ -74,12 +74,18 @@ int ReadState::GetConnInCount() const {  };
 
 int ReadState::GetConnOutCount() const {}
 
+Statement* ReadState::Copy()
+{
+	Statement* copyRead = new ReadState(Point(0, 0), ((ReadState*)this)->Variable);
+	return copyRead;
+}
+
 ReadState::~ReadState()
 {
-	for (int i = 0; i < ReadInConnCount; i++)
+	/*for (int i = 0; i < ReadInConnCount; i++)
 	{
 		delete pInConn[i];
 		ReadInConnCount--;
 	}
-	delete pOutConn;
+	delete pOutConn;*/
 }

@@ -1,14 +1,11 @@
 #pragma once
 #include"Action.h"
-#include "..\Statements\Conditional.h"
+#include "..\Statements\ConditionalState.h"
 #include "..\Statements\EndStat.h"
 #include "..\Statements\Start.h"
-#include "..\Statements\OperatorAssign.h"
-#include "..\Statements\Read.h"
-#include "..\Statements\VariableAssign.h"
-#include "..\Statements\Write.h"
-#include "..\Statements\ValueAssign.h"
-
+#include "..\Statements\AssignStat.h"
+#include "..\Statements\ReadState.h"
+#include "..\Statements\WriteState.h"
 
 
 class Paste :public Action

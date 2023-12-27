@@ -14,7 +14,7 @@ void StartStat::UpdateStatementText() {}
 
 Statement* StartStat::Copy() 
 {
-	copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
+	Statement* copyStart = new StartStat(Point(0, 0)); // will work when other fuctions implemented ///stores a copy of start in copy
 	return copyStart;
 
 }

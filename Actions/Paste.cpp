@@ -1,4 +1,4 @@
-#include"Paste.h"
+#include"Patse.h"
 
 Paste::Paste(ApplicationManager* pAppManager) :Action(pAppManager)
 {}
@@ -21,7 +21,10 @@ void Paste::SetDrawingPoint(Point P) {
 
 	else if (dynamic_cast<ValueAssign*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
 
-	else if (dynamic_cast<End*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
+	else if (dynamic_cast<End*>(pManager->GetClipboard())) {
+		Output* pOut;
+
+	};
 
 	else if (dynamic_cast<Start*>(pManager->GetClipboard())) P = (pManager->GetClipboard())->getLeftCorner();
 

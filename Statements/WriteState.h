@@ -32,6 +32,8 @@ class WriteState : public Statement
 		Connector* GetOutConnector() const;
 		int GetConnInCount() const;
 
+
+		virtual Statement* Copy();
 		//implementing this function to avoid write statement being an abstract class
 		int GetConnOutCount() const;
 
