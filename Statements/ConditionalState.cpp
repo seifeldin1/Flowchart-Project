@@ -51,14 +51,14 @@ void ConditionalState::UpdateStatementText()
 }
 
 //Draw the rectangle with text LHS Comp_Operator RHS
-void ConditionalState::Draw(Output* pOut) const
+void ConditionalState::Draw(Output* pOut)
 {
 	//Call Output::DrawRhombus function to draw assignment statement 	
 	pOut->DrawRhombus(LeftCorner, UI.COND_WDTH, UI.COND_HI, Text, Selected);
 }
 
 //Checks if Conditional Statement has been clicked on
-bool ConditionalState::IsPointClicked(Point P) const
+bool ConditionalState::IsPointClicked(Point P)
 {
 	if ((P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.COND_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.COND_HI))
 		return true;
@@ -76,7 +76,7 @@ void ConditionalState::SetOutConnector(Connector* con, bool isYconn)
 }
 
 //Gets connector coming out from value assign statement
-Connector* ConditionalState::GetOutConnector(int branch) const
+Connector* ConditionalState::GetOutConnector(int branch)
 {
 	if (branch == 1)
 		return Yconn;
@@ -107,12 +107,12 @@ void ConditionalState::Simulate(ApplicationManager* pManager)
 	if (IsValue(LHS))
 		D1 = stod(LHS);
 	else
-		D1 = pManager->ReturnValue();
+		D1 = pManager->ReturnValue(LHS);
 
 	if (IsValue(RHS))
 		D2 = stod(RHS);
 	else
-		D2 = pManager->ReturnValue();
+		D2 = pManager->ReturnValue(RHS);
 
 	if (Operator == ">")
 	{

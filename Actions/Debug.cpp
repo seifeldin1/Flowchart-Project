@@ -11,6 +11,6 @@ void Debug::Execute() {
 	Validate* valid;
 	if (valid->IsValidated()) {
 		ReadActionParameters();
-		for(int i =0 ; i< pManager.)
+		//for(int i =0 ; i< pManager.)
 	}
 }

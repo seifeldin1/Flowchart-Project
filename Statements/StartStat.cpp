@@ -14,7 +14,7 @@ Statement* StartStat::Copy()
 }
 
 //Draws the ellipse with text="Start"
-void StartStat::Draw(Output* pOut) const
+void StartStat::Draw(Output* pOut)
 {
 	//Call Output::DrawEllipse function to draw Start statement
 	pOut->DrawEllipse(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
@@ -31,7 +31,7 @@ void StartStat::Load(ifstream& InFile)
 }
 
 //Checks if Start Statement has been clicked on
-bool StartStat::IsPointClicked(Point P) const
+bool StartStat::IsPointClicked(Point P)
 {
 	if ( (P.x >= LeftCorner.x && P.x <= LeftCorner.x + UI.ASSGN_WDTH) && (P.y >= LeftCorner.y && P.y <= LeftCorner.y + UI.ASSGN_HI) )
 		return true;
@@ -40,6 +40,10 @@ bool StartStat::IsPointClicked(Point P) const
 }
 
 void StartStat::Simulate(ApplicationManager* pManager)
+{
+
+}
+Statement* StartStat::Copy()
 {
 
 }
