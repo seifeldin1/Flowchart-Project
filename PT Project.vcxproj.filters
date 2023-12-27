@@ -186,6 +186,7 @@
     <ClCompile Include="Actions\Undo.cpp" />
     <ClCompile Include="Actions\SwitchTSM.cpp" />
     <ClCompile Include="Actions\Valid.cpp" />
+    <ClCompile Include="Actions\AddConn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -308,6 +309,7 @@
     <ClInclude Include="Actions\Undo.h" />
     <ClInclude Include="Actions\SwitchTSM.h" />
     <ClInclude Include="Actions\Valid.h" />
+    <ClInclude Include="Actions\AddConn.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

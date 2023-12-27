@@ -344,46 +344,9 @@ Output *ApplicationManager::GetOutput() const
 	5 -- > Rhombus
 */
 
-/*
-bool ApplicationManager::CheckStartEnd()
-{
-	int StartCount = 0, EndCount = 0;
-	for (int i = 0; i < StatCount; i++)
-	{
-		if (StatList[i]->ReturnStatType() == 0)
-		{
-			StartCount++;
-		}
-		if (StatList[i]->ReturnStatType() == 1)
-		{
-			EndCount++;
-		}
-	}
-	if (StartCount != 1 || EndCount != 1)
-		return false;
-	else
-		return true;
-}
-
 bool ApplicationManager::CheckConnections()
 {
-	for (int i = 0; i < ConnCount; i++)
-	{
-		//Check for nodes that are not reachable
-		if (ConnList[i]->getSrcStat() == NULL && ConnList[i]->getSrcStat()->ReturnStatType() != 0) // not Start and doesnt Have Source
-			return false;
-
-		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getDstStat()->ReturnStatType() != 1) // not End and doesnt Have Destination 
-			return false;
-		
-		else if (ConnList[i]->getDstStat() == NULL && ConnList[i]->getSrcStat() == NULL) // a flying node in air
-			return false;
-
-		// Check that if there is a Cycle 
-		else if (ConnList[i]->getDstStat() == ConnList[i]->getSrcStat())
-			return false;
-	}
-	return true;
+	
 }
 
 
@@ -467,7 +430,6 @@ void ApplicationManager::RunFlow()
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }
-*/
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
