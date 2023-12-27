@@ -90,7 +90,14 @@ enum SimMenuItem //The items of the simulation menu
 	
 };
 
-
+enum StatementType {
+	Read,
+	Write,
+	Assign,
+	Conditional,
+	Start,
+	End
+};
 
 
 #ifndef NULL
