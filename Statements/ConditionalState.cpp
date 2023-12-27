@@ -100,6 +100,69 @@ void ConditionalState::GenerateCode(ofstream& OutFile)
 	OutFile << "if (" << LHS << " " << Operator << " " << RHS << ")";
 }
 
+void ConditionalState::Simulate(ApplicationManager* pManager)
+{
+	double D1, D2;
+
+	if (IsValue(LHS))
+		D1 = stod(LHS);
+	else
+		D1 = pManager->ReturnValue();
+
+	if (IsValue(RHS))
+		D2 = stod(RHS);
+	else
+		D2 = pManager->ReturnValue();
+
+	if (Operator == ">")
+	{
+		if (D1 > D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == ">=")
+	{
+		if (D1 >= D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "<")
+	{
+		if (D1 < D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "<=")
+	{
+		if (D1 <= D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "==")
+	{
+		if (D1 == D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "!=")
+	{
+		if (D1 != D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+}
 /*
 string ConditionalState::GetOperator()
 {

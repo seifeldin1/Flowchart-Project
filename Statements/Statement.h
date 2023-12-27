@@ -68,7 +68,7 @@ public:
 	//============================ Pure Virtual functions ============================
 	virtual void Draw(Output* pOut) const = 0;			//Draws the statement
 	virtual bool IsPointClicked(Point P) const = 0;		//returns true if statement has been clicked on
-	virtual void Simulate() = 0;						//Execute the statement in the simulation mode
+	virtual void Simulate(ApplicationManager* pManager) = 0;						//Execute the statement in the simulation mode
 	virtual void Save(ofstream& OutFile) = 0;			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile) = 0;			//Load the Statement parameters from a file
 	virtual Statement* Copy() = 0;						//copy statement and return a pointer of type statement	
