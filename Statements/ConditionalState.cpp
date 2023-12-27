@@ -108,6 +108,59 @@ string ConditionalState::GetOperator()
 }		
 */
 
+void ConditionalState::Simulate()
+{
+	// string LHS; //Left Handside of the assignment (name of a variable)
+	// string Operator;
+	// string RHS;
+
+	if (RHS != "")
+	{
+		if (Operator == "==")
+		{
+			if (RHS == LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+		else if (Operator == "!=")
+		{
+			if (RHS != LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+		else if (Operator == "<")
+		{
+			if (RHS < LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+		else if (Operator == ">")
+		{
+			if (RHS > LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+		else if (Operator == "<=")
+		{
+			if (RHS <= LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+		else if (Operator == ">=")
+		{
+			if (RHS >= LHS)
+				ResultConn = Yconn;
+			else
+				ResultConn = Nconn;
+		}
+	}
+}
+
 ConditionalState::~ConditionalState()
 {
 	/*

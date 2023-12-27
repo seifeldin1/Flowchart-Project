@@ -9,6 +9,7 @@ private:
 
 	Connector* Yconn;
 	Connector* Nconn;
+	Connector* ResultConn;
 	
 	virtual void UpdateStatementText();
 
@@ -29,7 +30,7 @@ public:
 	//============================ Pure Virtual functions implementation ============================
 	virtual void Draw(Output* pOut) const;			//Draws the statement
 	virtual bool IsPointClicked(Point P) const;		//returns true if statement has been clicked on
-	virtual void Simulate() {};						//Execute the statement in the simulation mode
+	virtual void Simulate();						//Execute the statement in the simulation mode
 	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
 	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
