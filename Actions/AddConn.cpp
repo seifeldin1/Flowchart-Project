@@ -44,5 +44,6 @@ void AddConn::ReadActionParameters()
 	else
 		branch = 0;
 	Connector* conn = new Connector(Src,Dst,branch);
+	pManager->AddConnector(conn);
 }
 
