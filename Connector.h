@@ -14,6 +14,7 @@ private:
 	Point Start;	//Start point of the connector
 	Point End;		//End point of the connector
 	int Branch;
+	bool Selected;
 
 public:
 	Connector(Statement* Src, Statement* Dst, int B=0);
@@ -31,6 +32,9 @@ public:
 
 	void setEndPoint(Point P);
 	Point getEndPoint();
+
+	void SetSelected(bool s);		//sets if connector is selected or not
+	bool IsSelected() const;		//returns true if connector is selected
 
 	void Save(ofstream &Output);
 

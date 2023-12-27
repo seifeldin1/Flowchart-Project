@@ -38,8 +38,18 @@ void Select::Execute()
 	}
 	else if (ConnCheck)
 	{
-
-		
+		if (ConnCheck->IsSelected() == true)
+		{
+			ConnCheck->SetSelected(false);
+			pManager->SetSelectedConnector(NULL);
+			return;
+		}
+		else
+		{
+			ConnCheck->SetSelected(true);
+			pManager->SetSelectedConnector(NULL);
+			(pManager->GetSelectedStatement())->SetSelected(false);
+			return;
+		}
 	}
-
 }

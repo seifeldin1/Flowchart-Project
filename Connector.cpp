@@ -93,3 +93,11 @@ void Connector::Draw(Output* pOut)
 	pOut->DrawConnector(Start, End);
 }
 
+void Connector::SetSelected(bool s)
+{
+	Selected = s;
+}
+bool Connector::IsSelected() const
+{
+	return Selected;
+}
