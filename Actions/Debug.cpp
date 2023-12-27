@@ -7,10 +7,14 @@ void Debug::ReadActionParameters() {
 }
 
 void Debug::Execute() {
-	ReadActionParameters();
-	Validate* valid;
+	
+	Valid* valid;
 	if (valid->IsValidated()) {
 		ReadActionParameters();
-		for(int i =0 ; i< pManager.)
+		
+	}
+	else {
+		Output* pOut;
+		pOut->PrintMessage("your flowchart is not valid");
 	}
 }

@@ -73,7 +73,8 @@ public:
 	void UpdateInterface() const;	//Redraws all the drawing window
 
 
-
+	//Bonus functions
+	void Debug();
 
 
 
