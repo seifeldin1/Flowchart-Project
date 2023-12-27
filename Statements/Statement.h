@@ -47,8 +47,6 @@ public:
 
 	//virtual void Edit() = 0;		//Edit the Statement parameter
 
-	//[BONUS] virtual void GenerateCode(ofstream &OutFile) = 0;
-
 	///TODO: Add more functions if needed
 
 	//============================ Class functions ============================
@@ -74,7 +72,7 @@ public:
 	virtual void Save(ofstream& OutFile) = 0;			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile) = 0;			//Load the Statement parameters from a file
 	virtual Statement* Copy() = 0;						//copy statement and return a pointer of type statement	
-
+	virtual void GenerateCode(ofstream& OutFile) = 0;	//generates code
 
 };
 

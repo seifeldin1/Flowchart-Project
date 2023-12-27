@@ -95,6 +95,11 @@ void ConditionalState::Load(ifstream& Infile)
 	UpdateStatementText();
 }
 
+void ConditionalState::GenerateCode(ofstream& OutFile)
+{
+	OutFile << "if (" << LHS << " " << Operator << " " << RHS << ")";
+}
+
 /*
 string ConditionalState::GetOperator()
 {
@@ -113,16 +118,4 @@ string ConditionalState::GetOperator()
 
 ConditionalState::~ConditionalState()
 {
-	/*
-	for (int i = 0; i < CondInConnCount; i++)
-	{
-		delete pInConn[i];
-		CondInConnCount--;
-	}
-	for (int i = 0; i < CondOutConnCount; i++)
-	{
-		delete pOutConn[i];
-		CondOutConnCount--;
-	}
-	*/
 }

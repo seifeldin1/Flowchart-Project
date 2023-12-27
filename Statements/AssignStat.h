@@ -43,6 +43,7 @@ public:
 	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
 	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
 	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
+	virtual void GenerateCode(ofstream& OutFile);	//generates code
 };
 
 

@@ -85,6 +85,11 @@ Statement* AssignStat::Copy() {
 	return copyAssign;
 }
 
+void AssignStat::GenerateCode(ofstream& OutFile)
+{
+	OutFile << LHS << " = " << RHS << endl;
+}
+
 AssignStat::~AssignStat()
 {
 	/*
