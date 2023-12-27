@@ -284,7 +284,6 @@
     <ClCompile Include="Actions\Redo.cpp" />
     <ClCompile Include="Actions\Exit.cpp" />
     <ClCompile Include="Actions\Debug.cpp" />
-    <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
@@ -343,7 +342,6 @@
     <ClInclude Include="Actions\Redo.h" />
     <ClInclude Include="Actions\Exit.h" />
     <ClInclude Include="Actions\Debug.h" />
-    <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\Input.h" />
