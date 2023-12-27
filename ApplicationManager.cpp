@@ -102,16 +102,31 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 void ApplicationManager::SaveAll(ofstream& Output)
 {
-	Output << "Statments:" << endl;
+	Output << StatCount << endl;
 	for (int i = 0; i < StatCount; i++)
 	{
 		//StatList[i]->Save(Output);
 	}
 
-	Output << endl << "Connectors:" << endl;
+	Output << endl << ConnCount << endl;
 	for (int i = 0; i < ConnCount; i++)
 	{
 		ConnList[i]->Save(Output);
+	}
+}
+
+void ApplicationManager::LoadAll(ifstream& input)
+{
+	string type="";
+	Statement* pStat;
+	input >> StatCount;
+	for (int i = 0; i < StatCount; i++)
+	{
+		input >> type;
+		if (type == "AssignStat")
+			pStat = new AssignStat(input);
+		else if (type == "CondStat")
+			pStat
 	}
 }
 

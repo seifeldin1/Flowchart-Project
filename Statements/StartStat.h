@@ -3,33 +3,23 @@
 
 class StartStat : public Statement
 {
-	private:
-		Point Outlet;      //A point where connections leaves this statement
-		                   //It's used as the (Start) point of the (Output) connector
-		Point LeftCorner;  //top left corner of the statement block
-		
-		Connector* pOutConn; //Start Stat. has one Connector to next statement
+private:
+	Point LeftCorner;  //top left corner of the statement block
+	
+	Connector* pOutConn; //Start Stat. has one Connector to next statement
 
-		virtual void UpdateStatementText();
+	virtual void UpdateStatementText() {};
 
-		Statement* copyStart;
-	public:
-		StartStat(Point Lcorner);
+public:
+	//============================ Class functions ============================
+	StartStat(Point Lcorner);
 
-		Statement* Copy();
-
-		Point GetLcorner() const;
-		int ReturnStatType();
-		void Draw(Output *pOut) const;
-		bool IsPointClicked(Point P) const;
-		void SetOutConnector(Connector* outcon);
-		Connector* GetOutConnector() const;
-
-		//implementing these functions to avoid start statement being an abstract class
-		void SetInConnector(Connector* incon);
-		Connector* GetInConnector() const;
-		int GetConnInCount() const;
-		int GetConnOutCount() const;
-
-		~StartStat();
+	~StartStat();
+	//============================ Pure Virtual functions ============================
+	virtual void Draw(Output* pOut) const;			//Draws the statement
+	virtual bool IsPointClicked(Point P) const;		//returns true if statement has been clicked on
+	virtual void Simulate() {};						//Execute the statement in the simulation mode
+	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
+	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
 };

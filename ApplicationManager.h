@@ -39,6 +39,7 @@ public:
 										//and returns the corresponding action type
 	void ExecuteAction(ActionType) ;	//Creates an action and executes it
 	void SaveAll(ofstream& Output);		//saves all statements and connectors
+	void LoadAll(ifstream& Input);
 	void MoveSt(Point Lcorner);
 	void MoveEn(Point Lcorner);
 	

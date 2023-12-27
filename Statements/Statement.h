@@ -53,6 +53,7 @@ public:
 
 	//============================ Class functions ============================
 	Statement(Point Lcorner, string text = "");
+	Statement(ifstream& input);
 	void Move(Point Lcorner);
 	void SetSelected(bool s);							//sets if statement is selected or not
 	bool IsSelected() const;							//returns true if statement is selected

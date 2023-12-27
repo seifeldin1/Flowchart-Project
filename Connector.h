@@ -12,8 +12,9 @@ private:
 	Statement *DstStat;	//The destination statement of the connector
 	Point Start;	//Start point of the connector
 	Point End;		//End point of the connector
+	int Branch;
 public:
-	Connector(Statement* Src, Statement* Dst);
+	Connector(Statement* Src, Statement* Dst, int B=0);
 	virtual bool IsPointClicked(Point P) const; //to be implemented in connector class
 
 	void		setSrcStat(Statement *Src);

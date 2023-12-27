@@ -1,12 +1,12 @@
 #include "Connector.h"
 
-Connector::Connector(Statement* Src, Statement* Dst)	
+Connector::Connector(Statement* Src, Statement* Dst,int B)	
 //When a connector is created, it must have a source statement and a destination statement
 //There are NO FREE connectors in the flowchart
 {
-	
 	SrcStat = Src;
 	DstStat = Dst;
+	Branch = B;
 }
 bool Connector:: IsPointClicked(Point P) const 
 {
@@ -42,14 +42,10 @@ Point Connector::getEndPoint()
 
 void Connector::Save(ofstream& Output)
 {
-	//Saves the connector in format Src:id1 ,Dst:id2 ,Drawing points: (x1,y1),(x2,y2)
-	Output << "Src:" << SrcStat->GetID() << " ,"
-		   << "Dst:" << DstStat->GetID() << " ,"
-		   << "Drawing points: " << '(' << Start.x << ',' << Start.y << ')' << ','
-		   << '(' << End.x << ',' << End.y << ')' << endl;
-	//ADD OUTLET BRANCH AFTER CONDITIONAL IS DONE
+	Output << "Src:" << SrcStat->GetID() << " "
+		   << "Dst:" << DstStat->GetID() << " "
+		   << Branch << endl;
 }
-
 void Connector::Draw(Output* pOut) const
 {
 	///TODO: Call Output to draw a connector from SrcStat to DstStat on the output window

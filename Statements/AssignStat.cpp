@@ -15,6 +15,9 @@ AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS) : Statement
 	pOutConn = NULL;	//No connectors yet
 }
 
+AssignStat::AssignStat(ifstream& input):Statement(input)
+{}
+
 //sets left hand side
 void AssignStat::setLHS(string L)
 {

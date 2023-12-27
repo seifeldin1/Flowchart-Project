@@ -11,11 +11,10 @@ Statement::Statement(Point Lcorner,string text="")
 	Selected = false;	
 	StandardConn = NULL;
 }
-//Statement::Statement(Point currentPosition) : position(currentPosition){}
-
-//int Statement::GetWidth() { return ASSGN_WDTH; }
-//int Statement::GetHeight() { return ASSGN_HI; }
-
+Statement::Statement(ifstream& input)
+{
+	Load(input);
+}
 void Statement::Move(Point Lcorner)
 {
 	LeftCorner = Lcorner;
