@@ -168,7 +168,7 @@ string Input::GetCompOperator(Output* pO)
 		{
 			// User Entered Invalid Operator
 
-			pO->PrintMessage("Invalid Comparison Operator!!! Please try Again :");
+			pO->PrintMessage("Invalid Comparison Operator! Please try Again :");
 			Comp_str = GetString(pO);
 		}
 	}
@@ -197,15 +197,14 @@ ActionType Input::GetUserAction() const
 
 			switch (ClickedItem)
 			{
-				case ITM_VALUE_ASSIGN:	return ADD_VALUE_ASSIGN;
-				case ITM_START:			return ADD_START;
-				case ITM_END:			return ADD_END;
+				case ITM_VALUE_ASSIGN:	return ADD_ASSIGN;
+				case ITM_START:			return MOVE_START;
+				case ITM_END:			return MOVE_END;
 				case ITM_READ:			return ADD_READ;
 				case ITM_WRITE:			return ADD_WRITE;
 				case ITM_COND:			return ADD_CONDITION;
 				case ITM_CONNECT:		return ADD_CONNECTOR;
 				case ITM_SELECT:		return SELECT;
-				case ITM_UNSELECT:		return UNSELECT;
 				case ITM_DELETE:		return DEL;
 				case ITM_COPY:			return COPY;
 				case ITM_PASTE:			return PASTE;
