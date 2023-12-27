@@ -1,4 +1,5 @@
 #include "Connector.h"
+#include "Statements/ConditionalState.h"
 
 Connector::Connector(Statement* Src, Statement* Dst,int B)	
 //When a connector is created, it must have a source statement and a destination statement
@@ -48,24 +49,42 @@ void Connector::CalcStartnEnd()
 {
 	Point SrcP = SrcStat->GetLcorner();
 	Point DstP = DstStat->GetLcorner();
+	bool IsCondStat1 = false, IsCondStat2 = false;
+	if (dynamic_cast<ConditionalState*>(SrcStat) != NULL) IsCondStat1 = true;
+	if (dynamic_cast<ConditionalState*>(DstStat) != NULL) IsCondStat1 = true;
 	int Ydiff = DstP.y - SrcP.y;
 	int Xdiff = DstP.x - SrcP.x;
-	if (Ydiff > 0)
+	if (Ydiff > 40 || (Xdiff<40 && Xdiff>40 && Ydiff>0))
+	{
+		Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
+		Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI) : (UI.ASSGN_HI));
+		End.x = DstP.x += ((IsCondStat2) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
+		End.y = DstP.y;
+	}
+	else if (Ydiff < -40 || (Xdiff < 40 && Xdiff>40 && Ydiff < 0))
+	{
+		Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
+		Start.y = SrcP.y;
+		End.x = DstP.x += ((IsCondStat2) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
+		End.y = DstP.y += ((IsCondStat2) ? (UI.COND_HI) : (UI.ASSGN_HI));
+	}
+	else
 	{
 		if (Xdiff > 40)
 		{
-			Start = SrcP;
+			Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH) : (UI.ASSGN_WDTH));
+			Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
+			End.x = DstP.x;
+			End.y = DstP.y += ((IsCondStat2) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
 		}
-		else if(Xdiff < -40)
+		else if (Xdiff < -40)
 		{
-
+			Start.x = SrcP.x;
+			Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
+			End.x = DstP.x += ((IsCondStat2) ? (UI.COND_WDTH) : (UI.ASSGN_WDTH));
+			End.y = DstP.y += ((IsCondStat2) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
 		}
 	}
-	else if (Ydiff > 0)
-	{
-
-	}
-	else if (Ydiff == 0)
 }
 
 void Connector::Draw(Output* pOut)
