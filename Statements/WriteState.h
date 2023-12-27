@@ -2,39 +2,25 @@
 
 class WriteState : public Statement
 {
-	private:
-		string Variable;
+private:
+	string Variable;
+	Connector* pOutConn;	     //Write Stat. has one Connector to next statement
 
-		Connector* pInConn[200];     //Write Stat. has one connector coming to it
-		Connector* pOutConn;	     //Write Stat. has one Connector to next statement
+	Point LeftCorner;	//top left corner of the statement block
 
-		int WriteInConnCount;
+	virtual void UpdateStatementText();
 
-		Point Inlet;	//A point where connections enters this statement 
-					    //It's used as the (End) point of the (Input) connectors
-		Point Outlet;	//A point a connection leaves this statement
-					    //It's used as the (Start) point of the (Output) connector
+public:
+	//============================ Class functions ============================
+	WriteState(Point Lcorner, string var = "");
+	void SetVariable(string var);
 
-		Point LeftCorner;	//top left corner of the statement block
-
-		virtual void UpdateStatementText();
-
-	public:
-		WriteState(Point Lcorner, string var = "");
-		void SetVariable(string var);
-		Point GetLcorner() const;
-		int ReturnStatType();
-		void Draw(Output* pOut) const;
-		bool IsPointClicked(Point P) const;
-		void SetInConnector(Connector* incon);
-		void SetOutConnector(Connector* outcon);
-		Connector* GetInConnector() const;
-		Connector* GetOutConnector() const;
-		int GetConnInCount() const;
-
-
-		virtual Statement* Copy();
-		//implementing this function to avoid write statement being an abstract class
-		int GetConnOutCount() const;
-
+	~WriteState();
+	//============================ Pure Virtual functions implementation ============================
+	void Draw(Output* pOut) const;
+	bool IsPointClicked(Point P) const;
+	virtual void Simulate();						//Execute the statement in the simulation mode
+	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
+	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
 };
