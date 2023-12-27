@@ -425,6 +425,38 @@ double ApplicationManager::ReturnValue(string x)
 }
 
 
+/////////////////////////////////////////"DEBUGGING"//////////////////////////////////////////////////////////////////////////////////
+void ApplicationManager::Debug() {
+	Statement* pStat;
+	Output* pOut;
+	Input* pIn;
+	string c;
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->GetType() == START)
+		{
+			pStat = StatList[i];
+			SetSelectedStatement(pStat);
+			pOut->PrintMessage("Step by step run has started. Enter (stop) to stop");
+			c = pIn->GetString(pOut);
+			if (c == "stop")break;
+			UpdateInterface();
+			break;
+		}
+
+	}
+	if (c == "stop")return;
+	while (pStat->GetType() != END) {
+
+	}
+}
+
+
+
+
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
