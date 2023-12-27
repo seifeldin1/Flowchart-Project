@@ -92,57 +92,72 @@ void ConditionalState::Load(ifstream& Infile)
 	UpdateStatementText();
 }
 
-void ConditionalState::Simulate()
+void ConditionalState::Simulate(ApplicationManager* pManager)
 {
 	// string LHS; //Left Handside of the assignment (name of a variable)
 	// string Operator;
 	// string RHS;
+	double D1, D2;
 
-	if (RHS != "")
+	if (IsValue(LHS))
+		D1 = atof(LHS);
+	else
+		D1 = pManager->ReturnValue();
+
+	if (IsValue(RHS))
+		D2 = atof(RHS);
+	else
+		D2 = pManager->ReturnValue();
+
+	if (Operator == ">")
 	{
-		if (Operator == "==")
-		{
-			if (RHS == LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
-		else if (Operator == "!=")
-		{
-			if (RHS != LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
-		else if (Operator == "<")
-		{
-			if (RHS < LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
-		else if (Operator == ">")
-		{
-			if (RHS > LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
-		else if (Operator == "<=")
-		{
-			if (RHS <= LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
-		else if (Operator == ">=")
-		{
-			if (RHS >= LHS)
-				ResultConn = Yconn;
-			else
-				ResultConn = Nconn;
-		}
+		if (D1 > D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
 	}
+	else if (Operator == ">=")
+	{
+		if (D1 >= D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "<")
+	{
+		if (D1 < D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "<=")
+	{
+		if (D1 <= D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "==")
+	{
+		if (D1 == D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+	else if (Operator == "!=")
+	{
+		if (D1 != D2)
+			ResultConn = Yconn;
+		else
+			ResultConn = Nconn;
+		return;
+	}
+}
 /*
 string ConditionalState::GetOperator()
 {

@@ -29,6 +29,9 @@ private:
 	//Pointers to Input and Output classes
 	Input *pIn;
 	Output *pOut;
+	int IntVariableCount;
+	string* IntVariables;
+	int IntVariablesValue[200];
 
 public:	
 	ApplicationManager(); 

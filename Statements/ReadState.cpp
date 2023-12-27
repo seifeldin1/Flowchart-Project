@@ -37,10 +37,6 @@ void ReadState::Draw(Output* pOut) const
 	pOut->DrawParralellogram(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
 
-void ReadState::Simulate()
-{
-
-}
 void ReadState::Save(ofstream& OutFile)
 {
 
@@ -54,12 +50,15 @@ Statement* ReadState::Copy()
 	Statement* copyRead = new ReadState(Point(0, 0), ((ReadState*)this)->Variable);
 	return copyRead;
 }
-void ReadState::Simulate(Output* pOut, Input* pIn)
+void ReadState::Simulate(ApplicationManager* pManager)
 {
+	Output* pOut = pManager->GetOutput();
+	Input* pIn = pManager->GetInput();
 	if (Variable != "")
 	{
 		pOut->PrintMessage("Enter The Value of "+Variable);
 		Value = pIn->GetValue(Output * pO);
+		pManager->AddIntVariable(Variable, Value);
 	}
 }
 

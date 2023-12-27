@@ -22,6 +22,8 @@ ApplicationManager::ApplicationManager()
 	pSelectedStat = NULL;	//no Statement is selected yet
 	pClipboard = NULL;
 
+	IntVariables = new string[MaxCount];
+	IntVariableCount = 0;
 
 	//Creates static Start and ends
 	Point Pstart(0, UI.ToolBarHeight+3);
@@ -300,8 +302,6 @@ Output *ApplicationManager::GetOutput() const
 	5 -- > Rhombus
 */
 
-/*
-
 bool ApplicationManager::CheckStartEnd()
 {
 	int StartCount = 0, EndCount = 0;
@@ -429,6 +429,56 @@ void ApplicationManager::RunFlow()
 ///////////////////////////////////////////////////////// End of Seif Functions //////////////////////////////////////////////////////////////////////
 
 
+
+void ApplicationManager::AddIntVariable(string x, double a)
+{
+	bool found = true;
+	if (IntVariableCount < MaxCount)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				found = false;
+		}
+	}
+	if (found == true)
+	{
+		IntVariables[IntVariableCount] = x;
+		IntVariableValues[IntVariableCount] = a;
+		IntVariableCount++;
+	}
+	if (found == false)
+	{
+		for (int i = 0; i < IntVariableCount; i++)
+		{
+			if (IntVariables[i] == x)
+				IntVariableValues[i] = a;
+		}
+	}
+}
+string* ApplicationManager::GetIntVariable()
+{
+	return IntVariables;
+}
+
+
+
+int ApplicationManager::GetIntVariableCount()
+{
+	return IntVariableCount;
+}
+
+double ApplicationManager::ReturnValue(string x)
+{
+	for (int i = 0; i < IntVariableCount; i++)
+	{
+		if (IntVariables[i] == x)
+		{
+			return IntVariableValues[i];
+		}
+	}
+	return 0.0;
+}
 
 //Destructor
 ApplicationManager::~ApplicationManager()

@@ -40,9 +40,14 @@ bool WriteState::IsPointClicked(Point P) const
 		return false;
 }
 
-void WriteState::Simulate()
+void WriteState::Simulate(ApplicationManager* pManager)
 {
-
+	Output* pOut = pManager->GetOutput();
+	if (Variable != "")
+	{
+		string s = to_string(long double(Var->value));
+		pOut->PrintMessage(Var->name + " = " + s);
+	}
 }
 void WriteState::Save(ofstream& OutFile)
 {
