@@ -14,10 +14,8 @@ public:
 	EndStat(Point Lcorner);
 
 	Statement* Copy();
-	Point GetLcorner() const;
 	void Draw(Output *pOut) const;
 	bool IsPointClicked(Point P) const;
-	void SetInConnector(Connector* incon);
 
 	~EndStat();
 };

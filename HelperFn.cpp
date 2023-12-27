@@ -14,6 +14,8 @@ bool IsValue (string input)
 
 		char latestCharacter = input[i];
 
+		if (i == 0 && latestCharacter == '-') continue;
+		
 		if (latestCharacter == '.') {		 //checks if the input string is a double value 
 											//return true if it's double value, false otherwise
 			if (IsDecimal == true) return false;

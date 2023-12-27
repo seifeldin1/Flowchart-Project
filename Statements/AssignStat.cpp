@@ -25,6 +25,7 @@ void AssignStat::setLHS(string L)
 //sets right hand side
 void AssignStat::setRHS(string R)
 {
+	RHS = R;
 	OpType T = ValueOrVariable(R);
 	switch (T)
 	{
@@ -35,7 +36,7 @@ void AssignStat::setRHS(string R)
 		type = Variable;
 		break;
 	case INVALID_OP:
-		//add extra tests
+		type = Operator;
 		break;
 	}
 
@@ -65,6 +66,16 @@ bool AssignStat::IsPointClicked(Point P) const
 		return true;
 	else
 		return false;
+}
+
+void AssignStat::Save(ofstream& OutFile)
+{
+	OutFile << "AssignStat" << type << "" << LHS << "" << RHS << endl;
+}
+
+void AssignStat::Load(ifstream& Infile)
+{
+	Infile >> type >> LHS >> RHS;
 }
 
 AssignStat::~AssignStat()

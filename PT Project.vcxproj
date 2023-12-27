@@ -274,7 +274,7 @@
     </ClCompile>
     <ClCompile Include="Actions\MoveStart.cpp" />
     <ClCompile Include="Actions\MoveEnd.cpp" />
-    <ClCompile Include="Actions\Patse.cpp" />
+    <ClCompile Include="Actions\Paste.cpp" />
     <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
@@ -321,7 +321,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Actions\MoveStart.h" />
     <ClInclude Include="Actions\MoveEnd.h" />
-    <ClInclude Include="Actions\Patse.h" />
+    <ClInclude Include="Actions\Paste.h" />
     <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />

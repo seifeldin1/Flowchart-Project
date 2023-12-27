@@ -30,8 +30,8 @@ public:
 	//============================ Class functions ============================
 	AssignStat(Point Lcorner, string LeftHS, string RightHS);
 
-	void setLHS(string L);
-	void setRHS(string R);
+	void setLHS(string L);							//Sets the left hand side
+	void setRHS(string R);							//Sets the right hand side
 
 	~AssignStat();
 
