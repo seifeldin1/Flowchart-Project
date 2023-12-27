@@ -3,6 +3,9 @@
 EndStat::EndStat(Point Lcorner) : Statement (Lcorner, "End")
 {}
 
+EndStat::EndStat(ifstream& input) : Statement (input)
+{}
+
 void EndStat::UpdateStatementText() {}
 
 Statement* EndStat::Copy() {
@@ -26,6 +29,15 @@ bool EndStat::IsPointClicked(Point P) const
 		return false;
 }
 
+void EndStat::Save(ofstream& OutFile)
+{
+	OutFile << "Save" << "" << ID << "" << LeftCorner.x << "" << LeftCorner.y << endl;
+}
+
+void EndStat::Load(ifstream& Infile)
+{
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
+}
 
 EndStat::~EndStat()
 {
