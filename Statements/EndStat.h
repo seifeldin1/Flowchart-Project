@@ -3,32 +3,21 @@
 
 class EndStat : public Statement
 {
-	private:
-		Point Inlet;       //A point where connections enters this statement 
-		                   //It's used as the (End) point of the (Input) connectors
-		Point LeftCorner;  //top left corner of the statement block
-		int EndInConnCount; //count of connector going to end statement
-		Connector* pInConn[200]; //array of all connectors going to end statement
+private:
 
-		virtual void UpdateStatementText();
+	Point LeftCorner;  //top left corner of the statement block
 
-		Statement* copyEnd;
-	public:
-		EndStat(Point Lcorner);
-		
-		Statement* Copy();
+	virtual void UpdateStatementText();
 
-		Point GetLcorner() const;
-		int ReturnStatType();
-		void Draw(Output *pOut) const;
-		bool IsPointClicked(Point P) const;
-		void SetInConnector(Connector* incon);
-		Connector* GetInConnector() const;
-		int GetConnInCount() const;
+	Statement* copyEnd;
+public:
+	EndStat(Point Lcorner);
 
-		//implementing these functions to avoid end statement being an abstract class
-		void SetOutConnector(Connector* outcon);
-		Connector* GetOutConnector() const;
-		int GetConnOutCount() const;
-		~EndStat();
+	Statement* Copy();
+	Point GetLcorner() const;
+	void Draw(Output *pOut) const;
+	bool IsPointClicked(Point P) const;
+	void SetInConnector(Connector* incon);
+
+	~EndStat();
 };

@@ -1,14 +1,8 @@
 #include "EndStat.h"
 
-EndStat::EndStat(Point Lcorner) : Statement (0,true)
+EndStat::EndStat(Point Lcorner) : Statement ()
 {
 	Text = "End";
-	LeftCorner = Lcorner;
-	pInConn[200] = { NULL };
-
-	Inlet.x = LeftCorner.x + UI.ASSGN_WDTH / 2;
-	Inlet.y = LeftCorner.y;
-
 }
 
 void EndStat::UpdateStatementText() {}

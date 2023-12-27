@@ -1,7 +1,7 @@
 #include "ConditionalState.h"
 #include <sstream>
 
-ConditionalState::ConditionalState(Point Lcorner, string LeftHS = "", string RightHS = "", string comparisonOP = "") : Statement(2,true)
+ConditionalState::ConditionalState(Point Lcorner, string LeftHS = "", string RightHS = "", string comparisonOP = "") : Statement()
 {
 	LHS = LeftHS;
 	Comp_Operator = comparisonOP;
@@ -9,16 +9,9 @@ ConditionalState::ConditionalState(Point Lcorner, string LeftHS = "", string Rig
 
 	UpdateStatementText();
 
-	LeftCorner = Lcorner;
 
-	pInConn[200] = { NULL };
-	pOutConn[2] = { NULL };
-	
-	Inlet.x = LeftCorner.x + UI.COND_WDTH / 2;
-	Inlet.y = LeftCorner.y;
-
-	Outlet.x = Inlet.x;
-	Outlet.y = LeftCorner.y + UI.COND_HI;
+	pOutConn[0] = NULL;
+	pOutConn[1] = NULL;
 }
 
 Statement* ConditionalState::Copy()
@@ -57,18 +50,6 @@ void ConditionalState::UpdateStatementText()
 	Text = T.str();
 }
 
-//returns top left corner point of statement
-Point ConditionalState::GetLcorner() const
-{
-	return LeftCorner;
-}
-
-//returns (5) which we set to identify that statement is conditional
-int ConditionalState::ReturnStatType()
-{
-	return 5;
-}
-
 //Draw the rectangle with text LHS Comp_Operator RHS
 void ConditionalState::Draw(Output* pOut) const
 {
@@ -83,13 +64,6 @@ bool ConditionalState::IsPointClicked(Point P) const
 		return true;
 	else
 		return false;
-}
-
-//Sets a connector going to the Conditional statement
-void ConditionalState::SetInConnector(Connector* incon)
-{
-	CondInConnCount++;
-	pInConn[CondInConnCount] = incon;
 }
 
 //Sets a connector coming out from the value assign statement

@@ -23,22 +23,25 @@ private:
 	                        //      we will begin with start statement then its output connector
 	                        //      then the connector's destination statement and so on (follow the connectors)
 
-	Point LeftCorner;	//top left corner of the statement block
-
 	virtual void UpdateStatementText();
 	
 public:
-	AssignStat(Point Lcorner, string LeftHS="", double RightHS=0);
-	
+
+	//============================ Class functions ============================
+	AssignStat(Point Lcorner, string LeftHS, string RightHS);
+
 	void setLHS(string L);
 	void setRHS(string R);
-	Point GetLcorner() const;
-	int ReturnStatType();
-	void Draw(Output* pOut) const;
-	bool IsPointClicked(Point P) const;
-	void SetOutConnector(Connector* outcon);
-	Connector* GetOutConnector() const;
+
 	~AssignStat();
+
+	//============================ Pure Virtual functions implementation ============================
+	virtual void Draw(Output* pOut) const;			//Draws the statement
+	virtual bool IsPointClicked(Point P) const;		//returns true if statement has been clicked on
+	virtual void Simulate();						//Execute the statement in the simulation mode
+	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
+	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
 };
 
 

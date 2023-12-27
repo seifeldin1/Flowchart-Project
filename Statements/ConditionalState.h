@@ -2,48 +2,32 @@
 
 class ConditionalState : public Statement
 {
-	private:
-		string LHS; //Left Handside of the assignment (name of a variable)
-		string Comp_Operator;
-		string RHS; //Right hand side (variable or double)
+private:
+	string LHS; //Left Handside of the assignment (name of a variable)
+	string Comp_Operator;
+	string RHS; //Right hand side (variable or double)
 
-		int CondInConnCount; //count of connectors going into statement
-		int CondOutConnCount;
-		Connector* pInConn[200];
-		Connector *pOutConn[2];
+	Connector *pOutConn[2];
 
-		Point Inlet; //A point where connections enters this statement 
+	virtual void UpdateStatementText();
 
-		Point Outlet;//A point a connection leaves this statement
+public:
 
-		Point LeftCorner;
+	//============================ Class functions ============================
+	ConditionalState(Point Lcorner, string LeftHS = "", string RightHS = "", string comparisonOP = "");
 
-		virtual void UpdateStatementText();
+	void setLHS(const string& L);
+	void setRHS(const string& R);
+	void setCompOp(const string& comOp);
 
-		Statement* copyConditional;
-	public:
-		ConditionalState(Point Lcorner, string LeftHS = "", string RightHS = "", string comparisonOP = "");
+	string GetOperator();
 
-		Statement* Copy();
-
-		void setLHS(const string &L);
-		void setRHS(const string &R);
-		void setCompOp(const string& comOp);
-
-		Point GetLcorner() const;
-		int ReturnStatType();
-		void Draw(Output* pOut) const;
-		bool IsPointClicked(Point P) const;
-		void SetInConnector(Connector* incon);
-		void SetOutConnector(Connector* outcon);
-		Connector* GetInConnector() const;
-		Connector* GetOutConnector() const;
-		int GetConnInCount() const;
-
-		string GetOperator();
-
-		//implementing this function to avoid value assign statement being an abstract class
-		int GetOutConnCount() const;
-
-		~ConditionalState();
+	~ConditionalState();
+	//============================ Pure Virtual functions implementation ============================
+	virtual void Draw(Output* pOut) const;			//Draws the statement
+	virtual bool IsPointClicked(Point P) const;		//returns true if statement has been clicked on
+	virtual void Simulate();						//Execute the statement in the simulation mode
+	virtual void Save(ofstream& OutFile);			//Save the Statement parameters to a file
+	virtual void Load(ifstream& Infile);			//Load the Statement parameters from a file
+	virtual Statement* Copy();						//copy statement and return a pointer of type statement	
 };

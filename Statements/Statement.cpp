@@ -3,11 +3,13 @@
 
 int Statement::NextID = 0;
 
-Statement::Statement(int outConn, bool canTakeInConnector)
+Statement::Statement(Point Lcorner,string text="")
 {
+	LeftCorner = Lcorner;
 	ID = NextID++;
-	Text = "";
-	Selected = false;		
+	Text = text;
+	Selected = false;	
+	StandardConn = NULL;
 }
 //Statement::Statement(Point currentPosition) : position(currentPosition){}
 
@@ -16,7 +18,7 @@ Statement::Statement(int outConn, bool canTakeInConnector)
 
 void Statement::Move(Point Lcorner)
 {
-	Leftcorner = Lcorner;
+	LeftCorner = Lcorner;
 }
 
 void Statement::SetSelected(bool s)
@@ -35,6 +37,22 @@ string Statement::GetText()
 	return Text;
 }
 
+Point Statement::GetLcorner() const
+{
+	return LeftCorner;
+}
+
+Connector* Statement::GetOutConnector() const
+{
+	return StandardConn;
+}
+
+void Statement::SetOutConnector(Connector* outcon)
+{
+	StandardConn = outcon;
+}
+
+/*
 string Statement::ReturnVariable()
 {
 	string Name = Text;
@@ -48,6 +66,7 @@ string Statement::ReturnVariable()
 
 	return Name;
 }
+*/
 
 Statement::~Statement()
 {

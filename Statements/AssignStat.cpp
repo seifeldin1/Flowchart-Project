@@ -1,7 +1,7 @@
 #include "AssignStat.h"
 #include <sstream>
 
-AssignStat::AssignStat(Point Lcorner, string LeftHS, double RightHS) : Statement(1, true)
+AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS) : Statement(Lcorner, LeftHS + " = " + RightHS)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	// before passing it to the constructor of AssignStat
@@ -35,7 +35,8 @@ void AssignStat::setRHS(string R)
 		type = Variable;
 		break;
 	case INVALID_OP:
-
+		//add extra tests
+		break;
 	}
 
 	UpdateStatementText();
@@ -48,18 +49,6 @@ void AssignStat::UpdateStatementText()
 	ostringstream T;
 	T << LHS << " = " << RHS;
 	Text = T.str();
-}
-
-//returns top left corner of statement
-Point AssignStat::GetLcorner() const
-{
-	return LeftCorner;
-}
-
-//returns (2) which we set to identify that statement is End
-int AssignStat::ReturnStatType()
-{
-	return 2;
 }
 
 //Draw the rectangle with text LHS"="RHS
@@ -78,19 +67,6 @@ bool AssignStat::IsPointClicked(Point P) const
 		return false;
 }
 
-//Sets a connector coming out from the value assign statement
-void AssignStat::SetOutConnector(Connector* outcon)
-{
-	pOutConn = outcon;
-}
-
-//Gets connector coming out from value assign statement
-Connector* AssignStat::GetOutConnector() const
-{
-	return pOutConn;
-}
-
-
 AssignStat::~AssignStat()
 {
 	/*
@@ -102,5 +78,3 @@ AssignStat::~AssignStat()
 	delete pOutConn;
 	*/
 }
-
-int AssignStat::GetOutConnCount() const{}
