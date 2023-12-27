@@ -1,11 +1,11 @@
 #include "Statement.h"
 //#include "..\GUI\UI_Info.h"
 
+int Statement::NextID = 0;
+
 Statement::Statement(int outConn, bool canTakeInConnector)
-{ 
-	//TODO: set the ID with a unique value
-	NumberOfStatements++;
-	ID = NumberOfStatements;
+{
+	ID = NextID++;
 	Text = "";
 	Selected = false;		
 }
@@ -34,14 +34,6 @@ string Statement::GetText()
 {
 	return Text;
 }
-Point Statement::GetInlet() const
-{
-	return NULL;
-}
-Point Statement::GetOutlet() const
-{
-	return NULL;
-}
 
 string Statement::ReturnVariable()
 {
@@ -59,6 +51,5 @@ string Statement::ReturnVariable()
 
 Statement::~Statement()
 {
-	NumberOfStatements--;
 }
 

@@ -3,6 +3,7 @@
 
 #include "Statement.h"
 
+enum Assigntype;
 //Value Assignment statement class
 //The value assignment statement assigns a value to a variable
 class AssignStat : public Statement
@@ -11,8 +12,9 @@ private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
 	double RHS;	//Right Handside (Value)
 	int ValueAssInConnCount; //count of connectors going into statement
-	
-	Connector* pInConn[200];
+
+	Assigntype type;		//differentiates between assignemnt types
+
 	Connector *pOutConn;	//Value Assignment Stat. has one Connector to next statement
 	                        //Each statement type in flowchart has a predefined number of (output) connectors
 	                        //For example, conditional statement always has 2 output connectors
@@ -49,6 +51,14 @@ public:
 	//implementing this function to avoid value assign statement being an abstract class
 	int GetOutConnCount() const;
 	~AssignStat();
+};
+
+
+enum Assigntype
+{
+	Variable,
+	Value,
+	Operator,
 };
 
 #endif
