@@ -446,8 +446,9 @@ void ApplicationManager::Debug() {
 
 	}
 	if (c == "stop")return;
-	while (pStat->GetType() != END) {
-
+	while (pStat->GetType() != END)
+	{
+		pStat->
 	}
 }
 
