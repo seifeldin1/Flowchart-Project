@@ -7,17 +7,12 @@ bool IsValue (string input)
 	// check that the length of string does not = 0
 	if (input.length() == 0) return false; //exit if length is 0
 
-	bool IsNegative=false ,IsDecimal=false ,IsDigit = true; // intializing the main 3 variables used for checking with false
+	bool IsDecimal=false ,IsDigit = true; // intializing the main 2 variables used for checking
 
 	// checks if the input string is a double value
 	for (int i = 0; i < input.length(); i++) {
 
 		char latestCharacter = input[i];
-
-		if (i == 0 && latestCharacter == '-') {	 // check if it is negtaive
-			IsNegative = true;
-			continue;
-		}
 
 		if (latestCharacter == '.') {		 //checks if the input string is a double value 
 											//return true if it's double value, false otherwise
@@ -64,27 +59,8 @@ bool IsVariable(string input)
 	// Variable names must start with an alphabetic letter (small or capital) or an underscore (_). 
 	// After the first initial letter, variable names can contain letters, numbers and underscores.  
 	// No spaces or special characters, however, are allowed.
+	
 
-	string builtinNames [] = {
-		"alignas", "alignof", "and", "and_eq", "asm", "auto",
-		"bitand", "bitor", "bool", "break", "case", "catch", "char",
-		"char16_t", "char32_t", "class", "compl", "const", "constexpr",
-		"const_cast", "continue", "decltype", "default","int", "long", "mutable", "namespace", "new", "noexcept", "not",
-		"not_eq", "nullptr", "operator", "or", "or_eq", "private", "protected",
-		"public", "register", "reinterpret_cast", "return", "short", "signed",
-		"sizeof", "static", "static_assert", "static_cast", "struct", "switch",
-		"template", "this", "thread_local", "throw", "true", "try", "typedef",
-		"typeid", "typename", "union", "unsigned", "using", "virtual", "void",
-		"volatile", "wchar_t", "while", "xor", "xor_eq", "delete", "do",
-		"double", "dynamic_cast", "else", "enum", "explicit", "export",
-		"extern", "false", "float", "for", "friend", "goto", "if", "inline"
-		
-	};
-
-	for (int i = 0; i < 84; i++) {
-		if (input == builtinNames[i]) return false;
-	}
-		
 	return true;
 }
 

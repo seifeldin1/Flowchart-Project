@@ -10,8 +10,7 @@ class AssignStat : public Statement
 {
 private:
 	string LHS;	//Left Handside of the assignment (name of a variable)
-	double RHS;	//Right Handside (Value)
-	int ValueAssInConnCount; //count of connectors going into statement
+	string RHS;	//Right Handside
 
 	Assigntype type;		//differentiates between assignemnt types
 
@@ -24,11 +23,6 @@ private:
 	                        //      we will begin with start statement then its output connector
 	                        //      then the connector's destination statement and so on (follow the connectors)
 
-	Point Inlet;	//A point where connections enters this statement 
-	                //It's used as the (End) point of the (Input) connectors
-	Point Outlet;	//A point a connection leaves this statement
-	                //It's used as the (Start) point of the (Output) connector
-
 	Point LeftCorner;	//top left corner of the statement block
 
 	virtual void UpdateStatementText();
@@ -36,20 +30,14 @@ private:
 public:
 	AssignStat(Point Lcorner, string LeftHS="", double RightHS=0);
 	
-	void setLHS(const string &L);
-	void setRHS(double R);
+	void setLHS(string L);
+	void setRHS(string R);
 	Point GetLcorner() const;
 	int ReturnStatType();
 	void Draw(Output* pOut) const;
 	bool IsPointClicked(Point P) const;
-	void SetInConnector(Connector* incon);
 	void SetOutConnector(Connector* outcon);
-	Connector* GetInConnector() const;
 	Connector* GetOutConnector() const;
-	int GetConnInCount() const;
-
-	//implementing this function to avoid value assign statement being an abstract class
-	int GetOutConnCount() const;
 	~AssignStat();
 };
 
