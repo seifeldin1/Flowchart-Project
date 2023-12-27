@@ -1,10 +1,10 @@
 #include "Action.h"
-
+#include"..\Statements\WriteState.h"
 class AddWrite : public Action
 {
 private:
-	Point Position;
-	string Variable;
+	Point P;
+	string variable;
 public:
 	AddWrite(ApplicationManager* pManager);
 	virtual void ReadActionParameters();
