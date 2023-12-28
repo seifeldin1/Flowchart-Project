@@ -374,6 +374,12 @@ Output *ApplicationManager::GetOutput() const
 
 bool ApplicationManager::CheckConnections()
 {
+	Statement* pStat = StatList[0];
+
+	while (pStat->GetOutConnector() != NULL)
+	{
+		pStat = pStat->GetOutConnector()->getDstStat();
+	}
 	return true;
 }
 
@@ -390,17 +396,7 @@ bool ApplicationManager::CheckNumConn()
 
 void ApplicationManager::RunFlow()
 {
-	Statement* pStat;
-
-	//Search For the Start Statement
-	for (int i = 0; i < StatCount; i++)
-	{
-		if (StatList[i]->GetType() == START)
-		{
-			pStat = StatList[i];
-			break;
-		}
-	}
+	Statement* pStat = StatList[0];
 
 	while (pStat->GetOutConnector() != NULL)
 	{
