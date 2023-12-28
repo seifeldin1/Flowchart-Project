@@ -302,7 +302,6 @@
     <ClCompile Include="Statements\WriteState.cpp" />
     <ClCompile Include="Actions\Undo.cpp" />
     <ClCompile Include="Actions\SwitchTSM.cpp" />
-    <ClCompile Include="Actions\Validate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\AddCond.h" />
@@ -358,7 +357,6 @@
     <ClInclude Include="Statements\WriteState.h" />
     <ClInclude Include="Actions\Undo.h" />
     <ClInclude Include="Actions\SwitchTSM.h" />
-    <ClInclude Include="Actions\Validate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

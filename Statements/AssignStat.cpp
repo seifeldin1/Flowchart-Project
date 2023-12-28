@@ -66,8 +66,9 @@ bool AssignStat::IsPointClicked(Point P) const
 		return false;
 }
 
-void AssignStat::Simulate(ApplicationManager* pManager)
+void AssignStat::Simulate()
 {
+	/*
 	double temp;
 	switch (type)
 	{
@@ -97,7 +98,7 @@ void AssignStat::Simulate(ApplicationManager* pManager)
 		else if (Oper == "/")
 			pManager->AddIntVariable(LHS, temp1 / temp2);
 		break;
-	}
+	} */
 }
 
 void AssignStat::Save(ofstream& OutFile)

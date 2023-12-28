@@ -338,7 +338,7 @@ Output *ApplicationManager::GetOutput() const
 
 bool ApplicationManager::CheckConnections()
 {
-	
+	return true;
 }
 
 
@@ -359,7 +359,7 @@ void ApplicationManager::RunFlow()
 	//Search For the Start Statement
 	for (int i = 0; i < StatCount; i++)
 	{
-		if (StatList[i]->ReturnStatType() == 0)
+		if (StatList[i]->GetType() == START)
 		{
 			pStat = StatList[i];
 			break;
@@ -368,7 +368,7 @@ void ApplicationManager::RunFlow()
 
 	while (pStat->GetOutConnector() != NULL)
 	{
-		pStat->Simulate(this);
+		pStat->Simulate();
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }
@@ -448,7 +448,7 @@ void ApplicationManager::Debug() {
 	if (c == "stop")return;
 	while (pStat->GetType() != END)
 	{
-		pStat->
+		// pStat->
 	}
 }
 
@@ -461,12 +461,13 @@ void ApplicationManager::Debug() {
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
+	/*
 	for(int i=0; i<StatCount; i++)
 		delete StatList[i];
 	for(int i=0; i<StatCount; i++)
 		delete ConnList[i];
 	delete pIn;
 	delete pOut;
-	
+	*/
 }
 

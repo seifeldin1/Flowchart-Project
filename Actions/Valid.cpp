@@ -39,5 +39,8 @@ void Valid::Execute()
 	Validate_Status = true;
 }
 
-
+bool Valid::IsValidated()
+{
+	return Validate_Status;
+}
 

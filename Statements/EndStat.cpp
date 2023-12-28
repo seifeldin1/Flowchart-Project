@@ -24,7 +24,7 @@ bool EndStat::IsPointClicked(Point P) const
 		return false;
 }
 
-void EndStat::Simulate(ApplicationManager* pManager)
+void EndStat::Simulate()
 {
 
 }

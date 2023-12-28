@@ -78,19 +78,15 @@ Connector* ConditionalState::GetOutConnector(int branch)
 		return Nconn;
 }
 
-void ConditionalState::Simulate(ApplicationManager* pManager)
+void ConditionalState::Simulate()
 {
-	double D1, D2;
+	/*double D1, D2;
 
 	if (IsValue(LHS))
 		D1 = stod(LHS);
-	else
-		D1 = pManager->ReturnValue(LHS);
 
 	if (IsValue(RHS))
 		D2 = stod(RHS);
-	else
-		D2 = pManager->ReturnValue(RHS);
 
 	if (Operator == ">")
 	{
@@ -139,7 +135,7 @@ void ConditionalState::Simulate(ApplicationManager* pManager)
 		else
 			ResultConn = Nconn;
 		return;
-	}
+	} */
 }
 
 void ConditionalState::Save(ofstream& OutFile)
