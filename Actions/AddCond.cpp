@@ -1,10 +1,13 @@
 #include"AddCond.h"
 #include "..\Statements\ConditionalState.h"
-AddCond::AddCond(ApplicationManager*):Action(pManager){}
+AddCond::AddCond(ApplicationManager* pAppManager) : Action (pAppManager){}
 
-void AddCond::ReadActionParameters() {
-	Output* pOut = pManager->GetOutput();
+void AddCond::ReadActionParameters() 
+{
 	Input* pIn = pManager->GetInput();
+	Output* pOut = pManager->GetOutput();
+
+
 	pOut->PrintMessage("Click where you want to add");
 	pIn->GetPointClicked(Point);
 	pOut->PrintMessage("Enter left hand side");
