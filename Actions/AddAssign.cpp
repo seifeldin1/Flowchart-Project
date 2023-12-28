@@ -21,23 +21,31 @@ void AddAssign::ReadActionParameters()
 	RLHS = '0';
 	Operator = '0';
 	RRHS = '0';
-
+	Point P;
 	//Read the (Position) parameter
 	pOut->PrintMessage("Click to add the  assigment statement");
 
 	pIn->GetPointClicked(Position);
 	pOut->ClearStatusBar();
 	//Getting type of assignment statement user wants
-	pOut->PrintMessage("Enter 1:Value , 2:Variable or 3:Operator Assignment");
-	Type = pIn->GetValue(pOut);
+	
 	//TODO: Ask the user in the status bar to enter the LHS and set the data member
+	pOut->PrintMessage("Enter 1:Value , 2:Variable or 3:Operator Assignment");
+	pIn->GetPointClicked(P);
+	Type = pIn->GetValue(pOut);
 	pOut->PrintMessage("Enter LHS: ");
 	LHS = pIn->GetVariable(pOut);
 	//TODO: Ask the user in the status bar to enter the RHS and set the data member
 	if (Type == 1) //Value Assingment Statement
 	{
 		pOut->PrintMessage("Enter RHS: ");
-		RHS = pIn->GetValue(pOut);
+		string rhs = pIn->GetString(pOut);
+		while (IsValue(rhs) != true)
+		{
+			pOut->PrintMessage("Invalid, Re-enter a double: ");
+			string rhs = pIn->GetString(pOut);
+		}
+		RHS = rhs;
 	}
 	else if (Type == 2) //Variable Assingment Statement
 	{
@@ -52,10 +60,10 @@ void AddAssign::ReadActionParameters()
 		string s1 = pIn->GetString(pOut);
 		pOut->PrintMessage("Enter RHS of operator:");
 		string s2 = pIn->GetString(pOut);
-		RHS = s1 + Op + s2;
 		RLHS = s1;
 		Operator = Op;
 		RRHS = s2;
+		RHS = s1 + Op + s2;
 	}
 }
 
