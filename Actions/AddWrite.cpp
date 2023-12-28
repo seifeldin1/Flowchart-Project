@@ -23,7 +23,6 @@ void AddWrite::ReadActionParameters()
 	pIn->GetPointClicked(P);
 	variable = pIn->GetVariable(pOut);
 }
-
 void AddWrite::Execute()
 {
 	ReadActionParameters();
