@@ -2,7 +2,7 @@
 #include "Action.h"
 
 class AddCond :public Action {
-	Point P;
+	Point Point;
 	string LHS , RHS , CompOP , valORvar;
 public:
 	AddCond(ApplicationManager* pManager);

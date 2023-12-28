@@ -1,7 +1,7 @@
 #include "ReadState.h"
 #include "sstream"
 
-ReadState::ReadState(Point Lcorner, string var = "") : Statement(Lcorner, Text)
+ReadState::ReadState(Point Lcorner, string var) : Statement(Lcorner, "Read "+var)
 {
 	Variable = var;
 	UpdateStatementText();

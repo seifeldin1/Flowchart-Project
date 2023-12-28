@@ -4,7 +4,7 @@ class AddRead :
     public Action
 {
     string variable;
-    Point P; //point where user clicks
+    Point Point,P; //point where user clicks
 public:
     AddRead(ApplicationManager* pManager);
 

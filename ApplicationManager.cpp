@@ -86,7 +86,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case ADD_CONDITION:
 		///create AddCondition Action here
-		pAct = new AddAssign(this);
+		pAct = new AddCond(this);
 		break;
 
 	case SELECT:
@@ -114,9 +114,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 	case ADD_CONNECTOR:
 		pAct = new AddConn(this);
 		break;
+
 	case ADD_READ:
 		pAct = new AddRead(this);
 		break;
+
 	case ADD_WRITE:
 		pAct = new AddWrite(this);
 		break;
