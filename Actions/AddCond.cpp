@@ -1,4 +1,5 @@
 #include"AddCond.h"
+#include "..\Statements\ConditionalState.h"
 AddCond::AddCond(ApplicationManager*):Action(pManager){}
 
 void AddCond::ReadActionParameters() {

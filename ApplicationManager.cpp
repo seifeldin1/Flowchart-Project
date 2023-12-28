@@ -10,8 +10,20 @@
 #include "Statements/ConditionalState.h"
 #include "Statements/ReadState.h"
 #include "Statements/WriteState.h"
+#include"Statements/AssignStat.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include"Actions/AddCond.h"
+#include"Actions/AddConn.h"
+#include"Actions/AddRead.h"
+#include"Actions/AddWrite.h"
+#include"Actions/AddAssign.h"
+#include"Actions/Debug.h"
+#include"Actions/Delete.h"
+#include"Actions/Exit.h"
+#include"Actions/Paste.h"
+#include"Actions/SwitchTSM.h"
+#include"Actions/Select.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -74,21 +86,43 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case ADD_CONDITION:
 		///create AddCondition Action here
-
+		pAct = new AddAssign(this);
 		break;
 
 	case SELECT:
 		///create Select Action here
-
+		pAct = new Select(this);
 		break;
 
 	case EXIT:
 		///create Exit Action here
-		
+		pAct = new Exit(this);
 		break;
 
 	case SAVE:
 		pAct = new Save(this);
+		break;
+
+	case COPY:
+		pAct = new Copy(this);
+		break;
+
+	case PASTE:
+		pAct = new Paste(this);
+		break;
+
+	case ADD_CONNECTOR:
+		pAct = new AddConn(this);
+		break;
+	case ADD_READ:
+		pAct = new AddRead(this);
+		break;
+	case ADD_WRITE:
+		pAct = new AddWrite(this);
+		break;
+
+	case DEL:
+		pAct = new Delete(this);
 		break;
 
 	default:

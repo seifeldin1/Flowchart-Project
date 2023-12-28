@@ -1,4 +1,5 @@
 #include "AddWrite.h"
+#include"..\Statements\WriteState.h"
 
 AddWrite::AddWrite(ApplicationManager* pManager) : Action(pManager)
 {

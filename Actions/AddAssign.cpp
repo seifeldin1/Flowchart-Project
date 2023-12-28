@@ -1,7 +1,7 @@
 #include "AddAssign.h"
 
 
-
+#include "..\Statements\AssignStat.h"
 #include "..\ApplicationManager.h"
 
 #include "..\GUI\input.h"
