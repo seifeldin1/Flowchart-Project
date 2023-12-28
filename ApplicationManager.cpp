@@ -378,6 +378,7 @@ bool ApplicationManager::CheckConnections()
 	{
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
+	return true;
 }
 
 
