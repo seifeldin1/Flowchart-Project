@@ -274,6 +274,11 @@ void ApplicationManager::SetClipboard(Statement *pStat)
 
 void ApplicationManager :: RemoveStatementFromList(Statement* pStat) {
 	int i;
+	if (pStat == StatList[0] || pStat == StatList[1])
+	{
+		pOut->PrintMessage("Can not delete start or end");
+		return;
+	}
 	for (i = 0; i < StatCount && StatList[i] != pStat; i++); // to know the index of needed statement to be removed
 	if (i < StatCount) {
 		int k = i;
