@@ -1,7 +1,7 @@
 #include "WriteState.h"
 #include <sstream>
 
-WriteState::WriteState(Point Lcorner, string var) : Statement(Lcorner, "Write " +var)
+WriteState::WriteState(Point Lcorner, string var) : Statement(Lcorner, "Write " + var)
 {
 	Variable = var;
 	UpdateStatementText();
