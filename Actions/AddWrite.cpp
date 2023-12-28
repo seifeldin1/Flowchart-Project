@@ -1,21 +1,26 @@
 #include "AddWrite.h"
+
 #include"..\Statements\WriteState.h"
+#include "..\ApplicationManager.h"
+
+#include "..\GUI\input.h"
+#include "..\GUI\Output.h"
+
+#include <sstream>
+using namespace std;
 
 AddWrite::AddWrite(ApplicationManager* pManager) : Action(pManager)
-{
+{}
 
-}
 void AddWrite::ReadActionParameters()
 {
 	Input* pIn = pManager->GetInput();
 	Output* pOut = pManager->GetOutput();
-
-	//Read the (Position) parameter
 	pOut->PrintMessage("Click to add the write statement");
 	pIn->GetPointClicked(Point);
-
-
-	pOut->PrintMessage("Enter Variable to Write:");
+	pOut->ClearStatusBar();
+	pOut->PrintMessage("Enter a variable that you want to read");
+	pIn->GetPointClicked(P);
 	variable = pIn->GetVariable(pOut);
 }
 
