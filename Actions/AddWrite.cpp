@@ -21,7 +21,6 @@ void AddWrite::ReadActionParameters()
 	pOut->PrintMessage("Enter a variable that you want to read");
 	variable = pIn->GetVariable(pOut);
 }
-
 void AddWrite::Execute()
 {
 	ReadActionParameters();
