@@ -28,7 +28,6 @@ void WriteState::UpdateStatementText()
 //Draw the Parallelogram
 void WriteState::Draw(Output* pOut) const
 {
-	//Call Output::DrawParralellogram function to draw write statement 
 	pOut->DrawParralellogram(LeftCorner, UI.ASSGN_WDTH, UI.ASSGN_HI, Text, Selected);
 }
 

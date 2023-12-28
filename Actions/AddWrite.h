@@ -2,7 +2,7 @@
 class AddWrite : public Action
 {
 private:
-	Point Point,P;
+	Point Point;
 	string variable;
 public:
 	AddWrite(ApplicationManager* pManager);

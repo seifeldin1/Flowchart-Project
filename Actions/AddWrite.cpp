@@ -18,9 +18,7 @@ void AddWrite::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 	pOut->PrintMessage("Click to add the write statement");
 	pIn->GetPointClicked(Point);
-	pOut->ClearStatusBar();
 	pOut->PrintMessage("Enter a variable that you want to read");
-	pIn->GetPointClicked(P);
 	variable = pIn->GetVariable(pOut);
 }
 void AddWrite::Execute()
