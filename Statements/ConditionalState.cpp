@@ -61,10 +61,10 @@ bool ConditionalState::IsPointClicked(Point P) const
 }
 
 //Sets a connector coming out from the value assign statement
-void ConditionalState::SetOutConnector(Connector* con, bool isYconn)
+void ConditionalState::SetOutConnector(Connector* con, int branch)
 {
-	if (isYconn)
-		Yconn = con;
+	if (branch==2)
+		Nconn = con;
 	else
 		Nconn = con;
 }

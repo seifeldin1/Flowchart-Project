@@ -61,6 +61,7 @@ public:
 	string GetText();									//returns text inside the statement
 	Point GetLcorner() const;							//returns top left corner point of statement
 	StatementType GetType();
+
 	//these 2 are virtual because of condition statement
 	virtual Connector* GetOutConnector(int=0) const;	//returns a connector coming out of statement
 	virtual void SetOutConnector(Connector* outcon);	//sets a connector coming out of statement

@@ -6,8 +6,6 @@ class StartStat : public Statement
 private:
 
 	virtual void UpdateStatementText() {};
-
-	Statement* copyStart;
 public:
 
 

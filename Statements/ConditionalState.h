@@ -25,7 +25,7 @@ public:
 	//string GetOperator();
 
 	virtual Connector* GetOutConnector(int branch);			//returns a connector coming out of statement
-	virtual void SetOutConnector(Connector* outcon, bool isYconn);	//sets a connector coming out of statement
+	virtual void SetOutConnector(Connector* outcon, int branch);	//sets a connector coming out of statement
 
 	~ConditionalState();
 	//============================ Pure Virtual functions implementation ============================
