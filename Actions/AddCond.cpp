@@ -23,12 +23,24 @@ void AddCond::ReadActionParameters()
 	if (valORvar == "val") 
 	{
 		pOut->PrintMessage("Enter right hand side (val)");
-		RHS = pIn->GetValue(pOut);
+		string rhs = pIn->GetString(pOut);
+		while (IsValue(rhs) != true)
+		{
+			pOut->PrintMessage("Invalid, Re-enter a double: ");
+			rhs = pIn->GetString(pOut);
+		}
+		RHS = rhs;
 	}
 	else 
 	{
 		pOut->PrintMessage("Enter right hand side (var)");
-		RHS = pIn->GetVariable(pOut);
+		string rhs = pIn->GetString(pOut);
+		while (IsVariable(rhs) != true)
+		{
+			pOut->PrintMessage("Invalid, Re-enter variable: ");
+			rhs = pIn->GetString(pOut);
+		}
+		RHS = rhs;
 	}
 }
 

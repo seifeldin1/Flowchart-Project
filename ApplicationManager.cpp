@@ -200,6 +200,16 @@ void ApplicationManager::LoadAll(ifstream& input)
 	}
 }
 
+int ApplicationManager::GetConnCount()
+{
+	return ConnCount;
+}
+
+int ApplicationManager::GetStatCount()
+{
+	return StatCount;
+}
+
 void ApplicationManager::MoveSt(Point Lcorner)
 {
 	StatList[0]->Move(Lcorner);

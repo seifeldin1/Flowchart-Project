@@ -59,7 +59,4 @@ void Statement::Load(ifstream& Infile)
 
 }
 
-Statement::~Statement()
-{
-}
-
+Statement::~Statement() {}

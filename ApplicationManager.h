@@ -67,6 +67,8 @@ public:
 	void RemoveConnectorFromList(Connector* pConn); //Remove connector from connector list
 	void RemoveStatementFromList(Statement* pStat); //Remove statement from statement list
 	void DeleteConnectedConnectors(Statement* pStat); //Delete all connected connectors to a statement id a statement is deleted
+	int GetConnCount();
+	int GetStatCount();
 	// == Interface Management Functions ==
 	Input *GetInput() const;        //Return pointer to the input
 	Output *GetOutput() const;      //Return pointer to the output

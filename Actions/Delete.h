@@ -4,14 +4,11 @@
 
 class Delete :public Action
 {
+	private:
+		Point Position;
 
-public:
-
-	Delete(ApplicationManager* pManager);
-	//Copy(const Copy& c) : clipboard(c.clipboard);
-
-	void ReadActionParameters();
-	void Execute();
-
-
+	public:
+		Delete(ApplicationManager* pManager);
+		void ReadActionParameters();
+		void Execute();
 };
