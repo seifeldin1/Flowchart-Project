@@ -54,14 +54,14 @@ void Connector::CalcStartnEnd()
 	if (dynamic_cast<ConditionalState*>(DstStat) != NULL) IsCondStat1 = true;
 	int Ydiff = DstP.y - SrcP.y;
 	int Xdiff = DstP.x - SrcP.x;
-	if (Ydiff > 40 || (Xdiff<40 && Xdiff>40 && Ydiff>0))
+	if (Ydiff > 100 || (Xdiff<100 && Xdiff>100 && Ydiff>0))
 	{
 		Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
 		Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI) : (UI.ASSGN_HI));
 		End.x = DstP.x += ((IsCondStat2) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
 		End.y = DstP.y;
 	}
-	else if (Ydiff < -40 || (Xdiff < 40 && Xdiff>40 && Ydiff < 0))
+	else if (Ydiff < -100 || (Xdiff < 100 && Xdiff>100 && Ydiff < 0))
 	{
 		Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH / 2) : (UI.ASSGN_WDTH / 2));
 		Start.y = SrcP.y;
@@ -70,14 +70,14 @@ void Connector::CalcStartnEnd()
 	}
 	else
 	{
-		if (Xdiff > 40)
+		if (Xdiff > 100)
 		{
 			Start.x = SrcP.x += ((IsCondStat1) ? (UI.COND_WDTH) : (UI.ASSGN_WDTH));
 			Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
 			End.x = DstP.x;
 			End.y = DstP.y += ((IsCondStat2) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));
 		}
-		else if (Xdiff < -40)
+		else if (Xdiff < -100)
 		{
 			Start.x = SrcP.x;
 			Start.y = SrcP.y += ((IsCondStat1) ? (UI.COND_HI / 2) : (UI.ASSGN_HI / 2));

@@ -8,7 +8,9 @@ WriteState::WriteState(Point Lcorner, string var) : Statement(Lcorner, "Write " 
 }
 
 WriteState::WriteState(ifstream& input) : Statement(input)
-{}
+{
+	Load(input);
+}
 
 void WriteState::SetVariable(string var)
 {

@@ -4,7 +4,10 @@ StartStat::StartStat(Point Lcorner) : Statement (Lcorner,"Start")
 {}
 
 StartStat::StartStat(ifstream& input): Statement (input)
-{}
+{
+	Load(input);
+	Text = "Start";
+}
 
 //Draws the ellipse with text="Start"
 void StartStat::Draw(Output* pOut) const
@@ -29,12 +32,12 @@ void StartStat::Simulate()
 
 void StartStat::Save(ofstream& OutFile)
 {
-	OutFile << "Start" << LeftCorner.x << LeftCorner.y << endl;
+	OutFile << "Start" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void StartStat::Load(ifstream& InFile)
 {
-	InFile >> LeftCorner.x >> LeftCorner.y;
+	InFile >> ID >>LeftCorner.x >> LeftCorner.y;
 }
 
 Statement* StartStat::Copy()

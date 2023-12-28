@@ -15,7 +15,9 @@ ConditionalState::ConditionalState(Point Lcorner, string lhs = "", string rhs = 
 }
 
 ConditionalState::ConditionalState(ifstream& input) : Statement(input)
-{}
+{
+	Load(input);
+}
 
 //sets left hand side
 void ConditionalState::setLHS(string L)

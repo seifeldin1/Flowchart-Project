@@ -14,6 +14,8 @@ Statement::Statement(Point Lcorner,string text="")
 Statement::Statement(ifstream& input)
 {
 	Load(input);
+	Selected = false;
+	StandardConn = NULL;
 }
 void Statement::Move(Point Lcorner)
 {
