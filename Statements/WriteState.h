@@ -4,9 +4,6 @@ class WriteState : public Statement
 {
 private:
 	string Variable;
-	Connector* pOutConn;	     //Write Stat. has one Connector to next statement
-
-	Point LeftCorner;	//top left corner of the statement block
 
 	virtual void UpdateStatementText();
 

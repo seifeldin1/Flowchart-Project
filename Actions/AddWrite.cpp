@@ -12,20 +12,18 @@ void AddWrite::ReadActionParameters()
 
 	//Read the (Position) parameter
 	pOut->PrintMessage("Click to add the write statement");
+	pIn->GetPointClicked(Point);
 
-	pIn->GetPointClicked(P);
-	pOut->ClearStatusBar();
 
+	pOut->PrintMessage("Enter Variable to Write:");
 	variable = pIn->GetVariable(pOut);
-
-
 }
 
 void AddWrite::Execute()
 {
 	ReadActionParameters();
 
-	WriteState* pWrite = new WriteState(P, variable);
+	WriteState* pWrite = new WriteState(Point, variable);
 
 	pManager->AddStatement(pWrite);
 

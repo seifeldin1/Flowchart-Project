@@ -20,7 +20,6 @@ void AddRead::ReadActionParameters()
 	pIn->GetPointClicked(Point);
 	pOut->ClearStatusBar();
 	pOut->PrintMessage("Enter a variable that you want to read");
-	pIn->GetPointClicked(P);
 	variable = pIn->GetVariable(pOut);
 }
 void AddRead::Execute() 
