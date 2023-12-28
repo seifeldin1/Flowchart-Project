@@ -10,8 +10,20 @@
 #include "Statements/ConditionalState.h"
 #include "Statements/ReadState.h"
 #include "Statements/WriteState.h"
+#include"Statements/AssignStat.h"
 #include "GUI\Input.h"
 #include "GUI\Output.h"
+#include"Actions/AddCond.h"
+#include"Actions/AddConn.h"
+#include"Actions/AddRead.h"
+#include"Actions/AddWrite.h"
+#include"Actions/AddAssign.h"
+#include"Actions/Debug.h"
+#include"Actions/Delete.h"
+#include"Actions/Exit.h"
+#include"Actions/Paste.h"
+#include"Actions/SwitchTSM.h"
+#include"Actions/Select.h"
 
 //Constructor
 ApplicationManager::ApplicationManager()
@@ -74,21 +86,43 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case ADD_CONDITION:
 		///create AddCondition Action here
-
+		pAct = new AddAssign(this);
 		break;
 
 	case SELECT:
 		///create Select Action here
-
+		pAct = new Select(this);
 		break;
 
 	case EXIT:
 		///create Exit Action here
-		
+		pAct = new Exit(this);
 		break;
 
 	case SAVE:
 		pAct = new Save(this);
+		break;
+
+	case COPY:
+		pAct = new Copy(this);
+		break;
+
+	case PASTE:
+		pAct = new Paste(this);
+		break;
+
+	case ADD_CONNECTOR:
+		pAct = new AddConn(this);
+		break;
+	case ADD_READ:
+		pAct = new AddRead(this);
+		break;
+	case ADD_WRITE:
+		pAct = new AddWrite(this);
+		break;
+
+	case DEL:
+		pAct = new Delete(this);
 		break;
 
 	default:
@@ -363,7 +397,7 @@ void ApplicationManager::RunFlow()
 
 	while (pStat->GetOutConnector() != NULL)
 	{
-		pStat->Simulate(this);
+		pStat->Simulate();
 		pStat = pStat->GetOutConnector()->getDstStat();
 	}
 }
@@ -420,15 +454,49 @@ double ApplicationManager::ReturnValue(string x)
 }
 
 
+/////////////////////////////////////////"DEBUGGING"//////////////////////////////////////////////////////////////////////////////////
+void ApplicationManager::Debug() {
+	Statement* pStat;
+	Output* pOut;
+	Input* pIn;
+	string c;
+	for (int i = 0; i < StatCount; i++)
+	{
+		if (StatList[i]->GetType() == START)
+		{
+			pStat = StatList[i];
+			SetSelectedStatement(pStat);
+			pOut->PrintMessage("Step by step run has started. Enter (stop) to stop");
+			c = pIn->GetString(pOut);
+			if (c == "stop")break;
+			UpdateInterface();
+			break;
+		}
+
+	}
+	if (c == "stop")return;
+	while (pStat->GetType() != END)
+	{
+		// pStat->
+	}
+}
+
+
+
+
+
+
+
 //Destructor
 ApplicationManager::~ApplicationManager()
 {
+	/*
 	for(int i=0; i<StatCount; i++)
 		delete StatList[i];
 	for(int i=0; i<StatCount; i++)
 		delete ConnList[i];
 	delete pIn;
 	delete pOut;
-	
+	*/
 }
 

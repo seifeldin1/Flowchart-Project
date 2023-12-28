@@ -1,4 +1,10 @@
 #include "Delete.h"
+#include "..\Statements\StartStat.h"
+#include "..\Statements\ReadState.h"
+#include "..\Statements\EndStat.h"
+#include "..\Statements\ConditionalState.h"
+#include "..\Statements\AssignStat.h"
+#include "..\Statements\WriteState.h"
 Delete::Delete(ApplicationManager* pAppManager) :Action(pAppManager) {}
 
 void Delete::ReadActionParameters() {

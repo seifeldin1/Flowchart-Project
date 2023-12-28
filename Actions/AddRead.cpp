@@ -1,4 +1,5 @@
 #include "AddRead.h"
+#include"..\Statements\ReadState.h"
 
 
 AddRead::AddRead(ApplicationManager* pAppManager) : Action(pAppManager) {}
@@ -8,16 +9,13 @@ void AddRead::ReadActionParameters() {
 	pOut->PrintMessage("Click at any location to add a read statement");
 	Input* pIn = pManager->GetInput();
 	pIn->GetPointClicked(P);
-	pOut->PrintMessage("Enter a variable that you want to read:  ");
+	pOut->PrintMessage("Enter a variable that you want to read");
 	variable = pIn->GetVariable(pOut);
 }
 void AddRead::Execute() {
 	ReadActionParameters();
-	if (P.y <= UI.height - /*num*/ /* && P.y >= UI.*/) {
+	
+	ReadState* pRead = new ReadState(P, variable);
 
-	}
-	else {
-		Output* pOut;
-		pOut->PrintMessage("OOPS! You can't draw here.");
-	}
+	pManager->AddStatement(pRead);
 }

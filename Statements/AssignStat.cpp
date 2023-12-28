@@ -66,30 +66,9 @@ bool AssignStat::IsPointClicked(Point P) const
 		return false;
 }
 
-void AssignStat::Save(ofstream& OutFile)
+void AssignStat::Simulate()
 {
-	OutFile << "AssignStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
-}
-
-void AssignStat::Load(ifstream& Infile)
-{
-	string r;
-	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> r;
-	setRHS(r);
-}
-
-Statement* AssignStat::Copy() {
-	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS, ((AssignStat*)this)->RLHS, ((AssignStat*)this)->Oper, ((AssignStat*)this)->RRHS);
-	return copyAssign;
-}
-
-void AssignStat::GenerateCode(ofstream& OutFile)
-{
-	OutFile << LHS << " = " << RHS << endl;
-}
-
-void AssignStat::Simulate(ApplicationManager* pManager)
-{
+	/*
 	double temp;
 	switch (type)
 	{
@@ -119,7 +98,30 @@ void AssignStat::Simulate(ApplicationManager* pManager)
 		else if (Oper == "/")
 			pManager->AddIntVariable(LHS, temp1 / temp2);
 		break;
-	}
+	} */
 }
+
+void AssignStat::Save(ofstream& OutFile)
+{
+	OutFile << "AssignStat" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << " " << LHS << " " << RHS << endl;
+}
+
+void AssignStat::Load(ifstream& Infile)
+{
+	string r;
+	Infile >> ID >> LeftCorner.x >> LeftCorner.y >> LHS >> r;
+	setRHS(r);
+}
+
+Statement* AssignStat::Copy() {
+	Statement* copyAssign = new AssignStat(Point(0, 0), ((AssignStat*)this)->LHS, ((AssignStat*)this)->RHS, ((AssignStat*)this)->RLHS, ((AssignStat*)this)->Oper, ((AssignStat*)this)->RRHS);
+	return copyAssign;
+}
+
+void AssignStat::GenerateCode(ofstream& OutFile)
+{
+	OutFile << LHS << " = " << RHS << endl;
+}
+
 AssignStat::~AssignStat()
 {}

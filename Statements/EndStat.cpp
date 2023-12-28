@@ -8,16 +8,6 @@ EndStat::EndStat(ifstream& input) : Statement (input)
 
 void EndStat::UpdateStatementText() {}
 
-Statement* EndStat::Copy() {
-	Statement* copyEnd = new EndStat(Point(0,0)); // makes a copy of End
-	return copyEnd;
-}
-
-void EndStat::GenerateCode(ofstream& OutFile)
-{
-
-}
-
 //Draws the ellipse with text="End"
 void EndStat::Draw(Output *pOut) const
 {
@@ -34,6 +24,11 @@ bool EndStat::IsPointClicked(Point P) const
 		return false;
 }
 
+void EndStat::Simulate()
+{
+
+}
+
 void EndStat::Save(ofstream& OutFile)
 {
 	OutFile << "Save" <<  "" << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
@@ -44,11 +39,9 @@ void EndStat::Load(ifstream& Infile)
 	Infile >> ID >> LeftCorner.x >> LeftCorner.y;
 }
 
-EndStat::~EndStat()
-{
-	/*for (int i = 0; i < EndInConnCount; i++)
-	{
-		delete pInConn[i];
-		EndInConnCount--;
-	}*/
+Statement* EndStat::Copy() {
+	Statement* copyEnd = new EndStat(Point(0, 0)); // makes a copy of End
+	return copyEnd;
 }
+
+EndStat::~EndStat() {}

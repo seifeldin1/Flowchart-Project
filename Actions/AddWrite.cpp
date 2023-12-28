@@ -1,4 +1,5 @@
 #include "AddWrite.h"
+#include"..\Statements\WriteState.h"
 
 AddWrite::AddWrite(ApplicationManager* pManager) : Action(pManager)
 {
@@ -10,17 +11,21 @@ void AddWrite::ReadActionParameters()
 	Output* pOut = pManager->GetOutput();
 
 	//Read the (Position) parameter
-	pOut->PrintMessage("Add Write Class: Click to add the statement");
+	pOut->PrintMessage("Click to add the write statement");
 
-	pIn->GetPointClicked(Position);
-	pOut->ClearStatusBar();
+	pIn->GetPointClicked(P);
 
-	Variable = pIn->GetVariable(pOut);
+	variable = pIn->GetVariable(pOut);
 
 
 }
 
 void AddWrite::Execute()
 {
+	ReadActionParameters();
+
+	WriteState* pWrite = new WriteState(P, variable);
+
+	pManager->AddStatement(pWrite);
 
 }

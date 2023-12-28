@@ -1,5 +1,10 @@
 #include"Paste.h"
-
+#include "..\Statements\ConditionalState.h"
+#include "..\Statements\EndStat.h"
+#include "..\Statements\StartStat.h"
+#include "..\Statements\AssignStat.h"
+#include "..\Statements\ReadState.h"
+#include "..\Statements\WriteState.h"
 Paste::Paste(ApplicationManager* pAppManager) :Action(pAppManager)
 {}
 

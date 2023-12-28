@@ -130,6 +130,7 @@
     <ClCompile Include="Actions\Save.cpp" />
     <ClCompile Include="Actions\AddRead.cpp" />
     <ClCompile Include="Actions\AddConn.cpp" />
+    <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -283,7 +284,6 @@
     <ClCompile Include="Actions\Redo.cpp" />
     <ClCompile Include="Actions\Exit.cpp" />
     <ClCompile Include="Actions\Debug.cpp" />
-    <ClCompile Include="Statements\Conditional.cpp" />
     <ClCompile Include="Connector.cpp" />
     <ClCompile Include="GUI\Input.cpp" />
     <ClCompile Include="GUI\Output.cpp" />
@@ -302,7 +302,6 @@
     <ClCompile Include="Statements\WriteState.cpp" />
     <ClCompile Include="Actions\Undo.cpp" />
     <ClCompile Include="Actions\SwitchTSM.cpp" />
-    <ClCompile Include="Actions\Validate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\AddCond.h" />
@@ -311,6 +310,7 @@
     <ClInclude Include="Actions\Save.h" />
     <ClInclude Include="Actions\AddRead.h" />
     <ClInclude Include="Actions\AddConn.h" />
+    <ClInclude Include="Actions\Select.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />
     <ClInclude Include="CMUgraphicsLib\colors.h" />
@@ -341,7 +341,6 @@
     <ClInclude Include="Actions\Redo.h" />
     <ClInclude Include="Actions\Exit.h" />
     <ClInclude Include="Actions\Debug.h" />
-    <ClInclude Include="Statements\Conditional.h" />
     <ClInclude Include="Connector.h" />
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="GUI\Input.h" />
@@ -358,7 +357,6 @@
     <ClInclude Include="Statements\WriteState.h" />
     <ClInclude Include="Actions\Undo.h" />
     <ClInclude Include="Actions\SwitchTSM.h" />
-    <ClInclude Include="Actions\Validate.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />

@@ -1,5 +1,5 @@
 #include "AddConn.h"
-#include "../Statements/ConditionalState.h"
+#include "..\Statements\ConditionalState.h"
 AddConn::AddConn(ApplicationManager* pAppManager) : Action (pAppManager)
 {}
 
@@ -47,3 +47,5 @@ void AddConn::ReadActionParameters()
 	pManager->AddConnector(conn);
 }
 
+void AddConn::Execute()
+{}

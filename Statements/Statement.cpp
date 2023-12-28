@@ -53,21 +53,11 @@ void Statement::SetOutConnector(Connector* outcon)
 StatementType Statement::GetType() {
 	return Type;
 }
-/*
-string Statement::ReturnVariable()
+
+void Statement::Load(ifstream& Infile)
 {
-	string Name = Text;
 
-	size_t pos = Name.find_first_of("=<> ");
-
-	if (pos != string::npos)
-	{
-		Name = Name.substr(0, pos);
-	}
-
-	return Name;
 }
-*/
 
 Statement::~Statement()
 {

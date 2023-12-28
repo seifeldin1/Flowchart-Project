@@ -2,7 +2,7 @@
 #define ADD_VALUE_ASSIGN_H
 
 #include "Action.h"
-#include "..\Statements\AssignStat.h"
+
 
 //Add Value Assignment Statement Action
 //This class is responsible for 
@@ -24,7 +24,7 @@ private:
 	string RLHS;
 	string Operator;
 	string RRHS;
-	int Type;
+	int Type=0;
 
 public:
 	AddAssign(ApplicationManager* pAppManager);
