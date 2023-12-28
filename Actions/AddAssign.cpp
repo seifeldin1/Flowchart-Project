@@ -33,6 +33,11 @@ void AddAssign::ReadActionParameters()
 	pOut->PrintMessage("Enter 1:Value , 2:Variable or 3:Operator Assignment");
 	pIn->GetPointClicked(P);
 	Type = pIn->GetValue(pOut);
+	while (Type <= 1 && Type >= 3)
+	{
+		pOut->PrintMessage("Invalid, 1:Value , 2:Variable or 3:Operator Assignment");
+		Type = pIn->GetValue(pOut);
+	}
 	pOut->PrintMessage("Enter LHS: ");
 	LHS = pIn->GetVariable(pOut);
 	//TODO: Ask the user in the status bar to enter the RHS and set the data member
