@@ -71,7 +71,7 @@ public:
 	virtual bool IsPointClicked(Point P) const = 0;				//returns true if statement has been clicked on
 	virtual void Simulate() = 0;	//Execute the statement in the simulation mode
 	virtual void Save(ofstream& OutFile) = 0;					//Save the Statement parameters to a file
-	virtual void Load(ifstream& Infile) = 0;					//Load the Statement parameters from a file
+	virtual void Load(ifstream& Infile);					//Load the Statement parameters from a file
 	virtual Statement* Copy() = 0;								//copy statement and return a pointer of type statement	
 	//virtual void GenerateCode(ofstream& OutFile) = 0;			//generates code
 

@@ -47,3 +47,5 @@ void AddConn::ReadActionParameters()
 	pManager->AddConnector(conn);
 }
 
+void AddConn::Execute()
+{}

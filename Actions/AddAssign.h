@@ -24,7 +24,7 @@ private:
 	string RLHS;
 	string Operator;
 	string RRHS;
-	int Type;
+	int Type=0;
 
 public:
 	AddAssign(ApplicationManager* pAppManager);
