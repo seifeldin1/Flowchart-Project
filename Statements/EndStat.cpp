@@ -4,7 +4,10 @@ EndStat::EndStat(Point Lcorner) : Statement (Lcorner, "End")
 {}
 
 EndStat::EndStat(ifstream& input) : Statement (input)
-{}
+{
+	Load(input);
+	Text = "End";
+}
 
 void EndStat::UpdateStatementText() {}
 
@@ -31,7 +34,7 @@ void EndStat::Simulate()
 
 void EndStat::Save(ofstream& OutFile)
 {
-	OutFile << "Save" <<  "" << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
+	OutFile << "End" << " " << ID << " " << LeftCorner.x << " " << LeftCorner.y << endl;
 }
 
 void EndStat::Load(ifstream& Infile)

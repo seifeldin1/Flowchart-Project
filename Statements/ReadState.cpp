@@ -8,7 +8,9 @@ ReadState::ReadState(Point Lcorner, string var) : Statement(Lcorner, "Read " + v
 }
 
 ReadState::ReadState(ifstream& input) : Statement (input)
-{}
+{
+	Load(input);
+}
 
 void ReadState::SetVariable(string var)
 {

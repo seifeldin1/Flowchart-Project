@@ -103,6 +103,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new Save(this);
 		break;
 
+	case LOAD:
+		pAct = new Load(this);
+		break;
+
 	case COPY:
 		pAct = new Copy(this);
 		break;
@@ -144,7 +148,7 @@ void ApplicationManager::SaveAll(ofstream& Output)
 	Output << StatCount << endl;
 	for (int i = 0; i < StatCount; i++)
 	{
-		//StatList[i]->Save(Output);
+		StatList[i]->Save(Output);
 	}
 
 	Output << endl << ConnCount << endl;
@@ -173,6 +177,7 @@ void ApplicationManager::LoadAll(ifstream& input)
 	input >> StatementCount;
 	for (int i = 0; i < StatementCount; i++)
 	{
+		pStat = NULL;
 		input >> type;
 		if (type == "AssignStat")
 			pStat = new AssignStat(input);
@@ -186,17 +191,21 @@ void ApplicationManager::LoadAll(ifstream& input)
 			pStat = new ReadState(input);
 		else if (type == "Write")
 			pStat = new WriteState(input);
+		AddStatement(pStat);
 	}
 
 	int ID1, ID2, branch;
 	Statement *Src, *Dst;
 	input >> ConnectorCount;
+	Connector* pConn;
 	for (int i = 0; i < StatCount; i++)
 	{
+		pConn = NULL;
 		input >> ID1 >> ID2 >> branch;
 		Src = GetStatement(ID1);
 		Dst = GetStatement(ID2);
-		Connector* pConn = new Connector(Src,Dst,branch);
+		pConn = new Connector(Src,Dst,branch);
+		AddConnector(pConn);
 	}
 }
 
@@ -219,6 +228,7 @@ void ApplicationManager::MoveEn(Point Lcorner)
 //Add a statement to the list of statements
 void ApplicationManager::AddStatement(Statement *pStat)
 {
+	if (pStat == NULL) return;
 	if(StatCount < MaxCount)
 		StatList[StatCount++] = pStat;
 	
@@ -293,6 +303,7 @@ void ApplicationManager :: RemoveStatementFromList(Statement* pStat) {
 //==================================================================================//
 
 void ApplicationManager::AddConnector(Connector* pConn) { //Adds a connector
+	if (pConn == NULL) return;
 	if (ConnCount < MaxCount)
 		ConnList[ConnCount++] = pConn;
 }

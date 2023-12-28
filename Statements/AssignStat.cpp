@@ -1,7 +1,7 @@
 #include "AssignStat.h"
 #include <sstream>
 
-AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS, string RightLeftHS , string Op = NULL, string RightestHS = NULL ) : Statement(Lcorner, LeftHS + " = " + RightHS)
+AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS, string RightLeftHS , string Op = "", string RightestHS = "") : Statement(Lcorner, LeftHS + " = " + RightHS)
 {
 	// Note: The LeftHS and RightHS should be validated inside (AddValueAssign) action
 	// before passing it to the constructor of AssignStat
@@ -14,7 +14,9 @@ AssignStat::AssignStat(Point Lcorner, string LeftHS, string RightHS, string Righ
 }
 
 AssignStat::AssignStat(ifstream& input):Statement(input)
-{}
+{
+	Load(input);
+}
 
 //sets left hand side
 void AssignStat::setLHS(string L)
