@@ -17,37 +17,52 @@ void Select::ReadActionParameters()
 void Select::Execute()
 {
 	ReadActionParameters();
-
+	Output* pOut = pManager->GetOutput();
 	Statement* StatCheck = pManager->GetStatement(Position);
 	Connector* ConnCheck = pManager->GetConnector(Position);
 	if (StatCheck)
 	{
-		if (StatCheck->IsSelected() == true)
+		if (StatCheck->IsSelected() == false)
 		{
-			StatCheck->SetSelected(false);
-			pManager->SetSelectedStatement(NULL);
+			StatCheck->SetSelected(true);
+			Statement* Temp = StatCheck;
+			pManager->AddStatement(Temp);
+			pManager->RemoveStatementFromList(StatCheck);
+			Temp->Draw(pOut);
+			pManager->SetSelectedStatement(Temp);
 			return;
 		}
 		else
 		{
-			StatCheck->SetSelected(true);
-			pManager->SetSelectedStatement(StatCheck);
-			(pManager->GetSelectedStatement())->SetSelected(false);
+			StatCheck->SetSelected(false);
+			Statement* Temp = StatCheck;
+			pManager->AddStatement(Temp);
+			pManager->RemoveStatementFromList(StatCheck);
+			Temp->Draw(pOut);
+			pManager->SetSelectedStatement(NULL);
 			return;
 		}
 	}
 	else if (ConnCheck)
 	{
-		if (ConnCheck->IsSelected() == true)
+		if (ConnCheck->IsSelected() == false)
 		{
 			ConnCheck->SetSelected(false);
+			Connector* Temp = ConnCheck;
+			pManager->AddConnector(Temp);
+			pManager->RemoveConnectorFromList(ConnCheck);
+			Temp->Draw(pOut);
 			pManager->SetSelectedConnector(NULL);
 			return;
 		}
 		else
 		{
 			ConnCheck->SetSelected(true);
-			pManager->SetSelectedConnector(NULL);
+			Connector* Temp = ConnCheck;
+			pManager->AddConnector(Temp);
+			pManager->RemoveConnectorFromList(ConnCheck);
+			Temp->Draw(pOut);
+			pManager->SetSelectedConnector(Temp);
 			(pManager->GetSelectedStatement())->SetSelected(false);
 			return;
 		}
