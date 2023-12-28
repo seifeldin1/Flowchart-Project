@@ -5,7 +5,7 @@ class AddConn : public Action
 private:
 	Statement* Src;
 	Statement* Dst;
-
+	int branch;
 public:
 
 	AddConn(ApplicationManager* pAppManager);

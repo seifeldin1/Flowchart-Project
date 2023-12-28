@@ -48,7 +48,7 @@ Connector* Statement::GetOutConnector(int) const
 
 void Statement::SetOutConnector(Connector* outcon)
 {
-	StandardConn = outcon;
+		StandardConn = outcon;
 }
 StatementType Statement::GetType() {
 	return Type;
