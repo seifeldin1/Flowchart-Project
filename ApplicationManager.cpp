@@ -362,6 +362,12 @@ void ApplicationManager::UpdateInterface() const
 	for(int i=0; i<ConnCount; i++)
 		ConnList[i]->Draw(pOut);
 
+	pOut->ClearStatusBar();
+	pOut->ClearOutputBar();
+	if (UI.AppMode == DESIGN)
+		pOut->CreateDesignToolBar();
+	else
+		pOut->CreateSimulationToolBar();
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Return a pointer to the input
