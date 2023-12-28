@@ -31,7 +31,6 @@ void AddAssign::ReadActionParameters()
 	
 	//TODO: Ask the user in the status bar to enter the LHS and set the data member
 	pOut->PrintMessage("Enter 1:Value , 2:Variable or 3:Operator Assignment");
-	pIn->GetPointClicked(P);
 	Type = pIn->GetValue(pOut);
 	while (Type <= 1 && Type >= 3)
 	{

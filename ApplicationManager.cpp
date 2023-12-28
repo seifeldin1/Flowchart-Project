@@ -39,9 +39,9 @@ ApplicationManager::ApplicationManager()
 
 
 	//Creates static Start and ends
-	Point Pstart(0, UI.ToolBarHeight+3);
+	Point Pstart(0, UI.ToolBarHeight+5);
 	StatList[0] = new StartStat(Pstart);
-	Point Pend(UI.DrawingAreaWidth - UI.ASSGN_WDTH - 3, UI.height - UI.StatusBarHeight);
+	Point Pend(UI.DrawingAreaWidth - UI.ASSGN_WDTH - 5, UI.height - UI.StatusBarHeight -UI.ASSGN_HI);
 	StatList[1] = new EndStat(Pend);
 
 	//Create an array of Statement pointers and set them to NULL		
