@@ -25,9 +25,9 @@ void Delete::Execute()
 	Connector* Conndel = pManager->GetConnector(Position);
 	if (Statdel)
 	{
-		if (Statdel->IsSelected() == false)
+		if (Statdel->IsSelected() == true)
 		{
-			Statdel->SetSelected(true);
+			Statdel->SetSelected(false);
 			Statement* Temp = Statdel;
 			if (Temp->GetType() == 3)
 			{
@@ -51,7 +51,7 @@ void Delete::Execute()
 	}
 	else if (Conndel)
 	{
-		if (Conndel->IsSelected() == false)
+		if (Conndel->IsSelected() == true)
 		{
 			Conndel->SetSelected(false);
 			Connector* Temp = Conndel;
